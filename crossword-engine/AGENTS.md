@@ -84,6 +84,7 @@ Optional flags:
 - `--time-limit <seconds>` for solver timeout per attempt
 - `--sleep <seconds>` to throttle generation
 - `--max <count>` to stop after N puzzles
+- `--words <w1 w2 ...>` to force words into the first puzzles (in order)
 - `--output-dir <path>` to change output folder
 - `--wordlists-dir <path>` to change wordlist folder
 

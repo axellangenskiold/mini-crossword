@@ -9,11 +9,25 @@ from pathlib import Path
 
 from crossword_engine.generator import SolverTimeout, generate_puzzle
 from crossword_engine.hashing import puzzle_hash
-from crossword_engine.wordlist import WordIndex, load_words
+from crossword_engine.wordlist import WordIndex, load_words, normalize_word
 
 
 def puzzle_id_from_hash(hash_hex: str) -> str:
     return f"mcw_v1_{hash_hex[:16]}"
+
+
+def normalize_forced_words(raw_words: list[str]) -> list[str]:
+    normalized: list[str] = []
+    for raw in raw_words:
+        word = normalize_word(raw)
+        if not word:
+            print(f"Ignoring forced word '{raw}': use A-Z only")
+            continue
+        if not 2 <= len(word) <= 7:
+            print(f"Ignoring forced word '{raw}': length must be 2-7")
+            continue
+        normalized.append(word)
+    return normalized
 
 
 def load_existing_hashes(hash_path: Path) -> set[str]:
@@ -58,6 +72,12 @@ def main() -> int:
     parser.add_argument("--time-limit", type=float, default=2.5, help="Solver time limit in seconds")
     parser.add_argument("--sleep", type=float, default=0.0, help="Sleep between puzzles")
     parser.add_argument("--max", type=int, default=0, help="Stop after generating N puzzles")
+    parser.add_argument(
+        "--words",
+        nargs="*",
+        default=[],
+        help="Words to force into the first puzzles (one per puzzle, in order)",
+    )
     args = parser.parse_args()
 
     rng = random.Random(args.seed)
@@ -75,13 +95,18 @@ def main() -> int:
     existing_hashes = load_existing_hashes(hash_path)
     index = next_index(output_dir)
 
+    forced_words = normalize_forced_words(args.words)
+
     print(f"Loaded {len(word_data.words)} words")
     print(f"Existing puzzle hashes: {len(existing_hashes)}")
     print(f"Writing puzzles to: {output_dir}")
+    if forced_words:
+        print(f"Forced words queued: {len(forced_words)}")
 
     try:
         generated = 0
         while True:
+            forced_word = forced_words[generated] if generated < len(forced_words) else None
             try:
                 puzzle = generate_puzzle(
                     word_index=word_index,
@@ -89,6 +114,7 @@ def main() -> int:
                     time_limit_s=args.time_limit,
                     hash_func=puzzle_hash,
                     id_func=puzzle_id_from_hash,
+                    forced_word=forced_word,
                 )
             except SolverTimeout:
                 continue

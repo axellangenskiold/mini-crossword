@@ -91,6 +91,7 @@ def solve_grid(
     word_index: WordIndex,
     rng: random.Random,
     time_limit_s: float,
+    forced_word: str | None = None,
 ) -> tuple[dict[tuple[int, int], str], list[Slot]] | None:
     slots, cell_to_slots = extract_slots(width, height, black_cells)
     if not slots:
@@ -164,6 +165,24 @@ def solve_grid(
 
         return False
 
+    def try_forced_slot(slot: Slot) -> bool:
+        grid_letters.clear()
+        assigned.clear()
+        used_words.clear()
+        for cell, letter in zip(slot.cells, forced_word or ""):
+            grid_letters[cell] = letter
+        assigned[slot.slot_id] = forced_word or ""
+        used_words.add(forced_word or "")
+        return backtrack()
+
+    if forced_word:
+        candidates = [slot for slot in slots if len(slot.cells) == len(forced_word)]
+        rng.shuffle(candidates)
+        for slot in candidates:
+            if try_forced_slot(slot):
+                return grid_letters, slots
+        return None
+
     if backtrack():
         return grid_letters, slots
     return None
@@ -195,6 +214,7 @@ def generate_puzzle(
     time_limit_s: float,
     hash_func,
     id_func,
+    forced_word: str | None = None,
 ) -> Puzzle | None:
     width, height = rng.choice(GRID_SIZES)
     candidates = valid_black_sets(width, height)
@@ -202,7 +222,9 @@ def generate_puzzle(
         return None
     black_cells = rng.choice(candidates)
 
-    solved = solve_grid(width, height, black_cells, word_index, rng, time_limit_s)
+    solved = solve_grid(
+        width, height, black_cells, word_index, rng, time_limit_s, forced_word=forced_word
+    )
     if not solved:
         return None
 
