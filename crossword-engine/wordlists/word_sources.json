@@ -9,16 +9,134 @@
   ],
   "names": [
     {
-      "name": "smashew-first-names-us",
-      "url": "https://raw.githubusercontent.com/smashew/NameDatabases/master/NamesDatabases/first%20names/us.txt",
-      "format": "text",
-      "license": "CC0"
+      "name": "corpora-celebrities",
+      "url": "https://raw.githubusercontent.com/dariusk/corpora/master/data/humans/celebrities.json",
+      "format": "json",
+      "json_key": "celebrities",
+      "split_tokens": true,
+      "license": "MIT"
     },
     {
-      "name": "smashew-surnames-us",
-      "url": "https://raw.githubusercontent.com/smashew/NameDatabases/master/NamesDatabases/surnames/us.txt",
-      "format": "text",
-      "license": "CC0"
+      "name": "corpora-authors",
+      "url": "https://raw.githubusercontent.com/dariusk/corpora/master/data/humans/authors.json",
+      "format": "json",
+      "json_key": "authors",
+      "split_tokens": true,
+      "license": "MIT"
+    },
+    {
+      "name": "corpora-scientists",
+      "url": "https://raw.githubusercontent.com/dariusk/corpora/master/data/humans/scientists.json",
+      "format": "json",
+      "json_key": "scientists",
+      "split_tokens": true,
+      "license": "MIT"
+    },
+    {
+      "name": "corpora-richpeople",
+      "url": "https://raw.githubusercontent.com/dariusk/corpora/master/data/humans/richpeople.json",
+      "format": "json",
+      "parser": "richpeople_names",
+      "split_tokens": true,
+      "license": "MIT"
+    },
+    {
+      "name": "corpora-us-presidents",
+      "url": "https://raw.githubusercontent.com/dariusk/corpora/master/data/humans/us_presidents.json",
+      "format": "json",
+      "parser": "us_presidents_names",
+      "split_tokens": true,
+      "license": "MIT"
+    },
+    {
+      "name": "corpora-greek-gods",
+      "url": "https://raw.githubusercontent.com/dariusk/corpora/master/data/mythology/greek_gods.json",
+      "format": "json",
+      "json_key": "greek_gods",
+      "split_tokens": true,
+      "license": "MIT"
+    },
+    {
+      "name": "corpora-roman-deities",
+      "url": "https://raw.githubusercontent.com/dariusk/corpora/master/data/mythology/roman_deities.json",
+      "format": "json",
+      "json_key": "roman_deities",
+      "split_tokens": true,
+      "license": "MIT"
+    },
+    {
+      "name": "corpora-greek-titans",
+      "url": "https://raw.githubusercontent.com/dariusk/corpora/master/data/mythology/greek_titans.json",
+      "format": "json",
+      "json_key": "greek_titans",
+      "split_tokens": true,
+      "license": "MIT"
+    },
+    {
+      "name": "corpora-norse-deities",
+      "url": "https://raw.githubusercontent.com/dariusk/corpora/master/data/mythology/norse_gods.json",
+      "format": "json",
+      "parser": "norse_deities",
+      "split_tokens": true,
+      "license": "MIT"
+    },
+    {
+      "name": "corpora-egyptian-gods",
+      "url": "https://raw.githubusercontent.com/dariusk/corpora/master/data/mythology/egyptian_gods.json",
+      "format": "json",
+      "parser": "egyptian_gods",
+      "split_tokens": true,
+      "license": "MIT"
+    },
+    {
+      "name": "corpora-hebrew-god-names",
+      "url": "https://raw.githubusercontent.com/dariusk/corpora/master/data/mythology/hebrew_god.json",
+      "format": "json",
+      "parser": "hebrew_god_names",
+      "split_tokens": true,
+      "license": "MIT"
+    }
+  ],
+  "geo": [
+    {
+      "name": "corpora-countries",
+      "url": "https://raw.githubusercontent.com/dariusk/corpora/master/data/geography/countries.json",
+      "format": "json",
+      "json_key": "countries",
+      "split_tokens": true,
+      "license": "MIT"
+    },
+    {
+      "name": "corpora-nationalities",
+      "url": "https://raw.githubusercontent.com/dariusk/corpora/master/data/geography/nationalities.json",
+      "format": "json",
+      "json_key": "nationalities",
+      "split_tokens": true,
+      "license": "MIT"
+    },
+    {
+      "name": "samayo-capital-cities",
+      "url": "https://raw.githubusercontent.com/samayo/country-json/master/src/country-by-capital-city.json",
+      "format": "json",
+      "parser": "country_capital_cities",
+      "split_tokens": true,
+      "license": "MIT"
+    },
+    {
+      "name": "samayo-continents",
+      "url": "https://raw.githubusercontent.com/samayo/country-json/master/src/country-by-continent.json",
+      "format": "json",
+      "parser": "continents",
+      "split_tokens": true,
+      "license": "MIT"
+    },
+    {
+      "name": "corpora-us-cities",
+      "url": "https://raw.githubusercontent.com/dariusk/corpora/master/data/geography/us_cities.json",
+      "format": "json",
+      "parser": "us_cities_top",
+      "split_tokens": true,
+      "license": "MIT"
     }
   ],
   "slang": [

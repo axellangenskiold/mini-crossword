@@ -40,14 +40,18 @@ Default sources:
 - **Core dictionary:**
   - `dwyl/english-words` (words_alpha.txt)
   - Filtered to **Google 10k** frequency list from `first20hours/google-10000-english`
-- **Names:**
-  - `smashew/NameDatabases` (US first names, US surnames)
+- **Names & gods:**
+  - `dariusk/corpora` celebrities, authors, scientists, richpeople, US presidents
+  - `dariusk/corpora` Greek/Roman/Norse/Egyptian/Hebrew deity lists + Greek titans
+- **Geo:**
+  - `dariusk/corpora` countries + nationalities + top 1000 US cities
+  - `samayo/country-json` capital cities + continents
 - **Slang (informal):**
   - `dariusk/corpora` interjections + strange_words
 - **Abbreviations:**
   - `dariusk/corpora` US airport IATA codes
- - **Frequency list (filter):**
-   - `first20hours/google-10000-english` (google-10000-english.txt)
+- **Frequency list (filter):**
+  - `first20hours/google-10000-english` (google-10000-english.txt)
 
 Filtering rules:
 
@@ -56,6 +60,7 @@ Filtering rules:
 - Allowlist: `crossword-engine/wordlists/allowlist.txt`
 - Banlist: `crossword-engine/wordlists/banlist.txt`
 - Core words must appear in the **Google 10k** list
+- Names/geo sources with multi-word entries are split into tokens
 
 ---
 

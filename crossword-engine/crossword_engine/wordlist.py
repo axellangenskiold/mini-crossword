@@ -5,7 +5,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 WORD_RE = re.compile(r"^[A-Z]+$")
-CATEGORIES = ["core", "names", "slang", "abbreviations"]
+CATEGORIES = ["core", "names", "geo", "slang", "abbreviations"]
 
 
 def normalize_word(raw: str) -> str | None:
