@@ -1,71 +1,58 @@
 {
   "gridPreview": [
-    "-BEGUN",
-    "DENISE",
-    "ANDREW",
-    "NIELS-",
-    "ENDS--"
+    "WHILE",
+    "OASIS",
+    "ONION",
+    "DONNA",
+    "SIG--"
   ],
-  "id": "mcw_v1_3c9b3fc1a1eae08c",
+  "id": "mcw_v1_94b5a9a883fbd3b4",
   "date": "",
-  "width": 6,
+  "width": 5,
   "height": 5,
   "blackCells": [
     [
-      0,
-      0
-    ],
-    [
-      3,
-      5
+      4,
+      3
     ],
     [
       4,
       4
-    ],
-    [
-      4,
-      5
     ]
   ],
   "gridSolution": [
     [
-      null,
-      "B",
-      "E",
-      "G",
-      "U",
+      "W",
+      "H",
+      "I",
+      "L",
+      "E"
+    ],
+    [
+      "O",
+      "A",
+      "S",
+      "I",
+      "S"
+    ],
+    [
+      "O",
+      "N",
+      "I",
+      "O",
       "N"
     ],
     [
       "D",
-      "E",
+      "O",
       "N",
+      "N",
+      "A"
+    ],
+    [
+      "S",
       "I",
-      "S",
-      "E"
-    ],
-    [
-      "A",
-      "N",
-      "D",
-      "R",
-      "E",
-      "W"
-    ],
-    [
-      "N",
-      "I",
-      "E",
-      "L",
-      "S",
-      null
-    ],
-    [
-      "E",
-      "N",
-      "D",
-      "S",
+      "G",
       null,
       null
     ]
@@ -75,6 +62,10 @@
       {
         "number": 1,
         "cells": [
+          [
+            0,
+            0
+          ],
           [
             0,
             1
@@ -90,13 +81,9 @@
           [
             0,
             4
-          ],
-          [
-            0,
-            5
           ]
         ],
-        "answer": "BEGUN",
+        "answer": "WHILE",
         "clue": ""
       },
       {
@@ -121,13 +108,9 @@
           [
             1,
             4
-          ],
-          [
-            1,
-            5
           ]
         ],
-        "answer": "DENISE",
+        "answer": "OASIS",
         "clue": ""
       },
       {
@@ -152,13 +135,9 @@
           [
             2,
             4
-          ],
-          [
-            2,
-            5
           ]
         ],
-        "answer": "ANDREW",
+        "answer": "ONION",
         "clue": ""
       },
       {
@@ -185,7 +164,7 @@
             4
           ]
         ],
-        "answer": "NIELS",
+        "answer": "DONNA",
         "clue": ""
       },
       {
@@ -202,13 +181,9 @@
           [
             4,
             2
-          ],
-          [
-            4,
-            3
           ]
         ],
-        "answer": "ENDS",
+        "answer": "SIG",
         "clue": ""
       }
     ],
@@ -218,26 +193,26 @@
         "cells": [
           [
             0,
-            1
+            0
           ],
           [
             1,
-            1
+            0
           ],
           [
             2,
-            1
+            0
           ],
           [
             3,
-            1
+            0
           ],
           [
             4,
-            1
+            0
           ]
         ],
-        "answer": "BENIN",
+        "answer": "WOODS",
         "clue": ""
       },
       {
@@ -245,26 +220,26 @@
         "cells": [
           [
             0,
-            2
+            1
           ],
           [
             1,
-            2
+            1
           ],
           [
             2,
-            2
+            1
           ],
           [
             3,
-            2
+            1
           ],
           [
             4,
-            2
+            1
           ]
         ],
-        "answer": "ENDED",
+        "answer": "HANOI",
         "clue": ""
       },
       {
@@ -272,26 +247,26 @@
         "cells": [
           [
             0,
-            3
+            2
           ],
           [
             1,
-            3
+            2
           ],
           [
             2,
-            3
+            2
           ],
           [
             3,
-            3
+            2
           ],
           [
             4,
-            3
+            2
           ]
         ],
-        "answer": "GIRLS",
+        "answer": "ISING",
         "clue": ""
       },
       {
@@ -299,22 +274,22 @@
         "cells": [
           [
             0,
-            4
+            3
           ],
           [
             1,
-            4
+            3
           ],
           [
             2,
-            4
+            3
           ],
           [
             3,
-            4
+            3
           ]
         ],
-        "answer": "USES",
+        "answer": "LION",
         "clue": ""
       },
       {
@@ -322,41 +297,22 @@
         "cells": [
           [
             0,
-            5
+            4
           ],
           [
             1,
-            5
+            4
           ],
           [
             2,
-            5
-          ]
-        ],
-        "answer": "NEW",
-        "clue": ""
-      },
-      {
-        "number": 6,
-        "cells": [
-          [
-            1,
-            0
-          ],
-          [
-            2,
-            0
+            4
           ],
           [
             3,
-            0
-          ],
-          [
-            4,
-            0
+            4
           ]
         ],
-        "answer": "DANE",
+        "answer": "ESNA",
         "clue": ""
       }
     ]

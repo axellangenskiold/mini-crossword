@@ -1,73 +1,60 @@
 {
   "gridPreview": [
-    "-BEGUN",
-    "DENISE",
-    "ANDREW",
-    "NIELS-",
-    "ENDS--"
+    "LOC--",
+    "ISLAM",
+    "STAGE",
+    "TRIES",
+    "SERET"
   ],
-  "id": "mcw_v1_3c9b3fc1a1eae08c",
+  "id": "mcw_v1_e31cdb590ae558a0",
   "date": "",
-  "width": 6,
+  "width": 5,
   "height": 5,
   "blackCells": [
     [
       0,
-      0
+      3
     ],
     [
-      3,
-      5
-    ],
-    [
-      4,
+      0,
       4
-    ],
-    [
-      4,
-      5
     ]
   ],
   "gridSolution": [
     [
+      "L",
+      "O",
+      "C",
       null,
-      "B",
-      "E",
-      "G",
-      "U",
-      "N"
+      null
     ],
     [
-      "D",
-      "E",
-      "N",
       "I",
       "S",
+      "L",
+      "A",
+      "M"
+    ],
+    [
+      "S",
+      "T",
+      "A",
+      "G",
       "E"
     ],
     [
-      "A",
-      "N",
-      "D",
+      "T",
       "R",
-      "E",
-      "W"
-    ],
-    [
-      "N",
       "I",
       "E",
-      "L",
-      "S",
-      null
+      "S"
     ],
     [
-      "E",
-      "N",
-      "D",
       "S",
-      null,
-      null
+      "E",
+      "R",
+      "E",
+      "T"
     ]
   ],
   "entries": {
@@ -77,30 +64,22 @@
         "cells": [
           [
             0,
+            0
+          ],
+          [
+            0,
             1
           ],
           [
             0,
             2
-          ],
-          [
-            0,
-            3
-          ],
-          [
-            0,
-            4
-          ],
-          [
-            0,
-            5
           ]
         ],
-        "answer": "BEGUN",
+        "answer": "LOC",
         "clue": ""
       },
       {
-        "number": 6,
+        "number": 4,
         "cells": [
           [
             1,
@@ -121,13 +100,9 @@
           [
             1,
             4
-          ],
-          [
-            1,
-            5
           ]
         ],
-        "answer": "DENISE",
+        "answer": "ISLAM",
         "clue": ""
       },
       {
@@ -152,13 +127,9 @@
           [
             2,
             4
-          ],
-          [
-            2,
-            5
           ]
         ],
-        "answer": "ANDREW",
+        "answer": "STAGE",
         "clue": ""
       },
       {
@@ -185,7 +156,7 @@
             4
           ]
         ],
-        "answer": "NIELS",
+        "answer": "TRIES",
         "clue": ""
       },
       {
@@ -206,9 +177,13 @@
           [
             4,
             3
+          ],
+          [
+            4,
+            4
           ]
         ],
-        "answer": "ENDS",
+        "answer": "SERET",
         "clue": ""
       }
     ],
@@ -218,26 +193,26 @@
         "cells": [
           [
             0,
-            1
+            0
           ],
           [
             1,
-            1
+            0
           ],
           [
             2,
-            1
+            0
           ],
           [
             3,
-            1
+            0
           ],
           [
             4,
-            1
+            0
           ]
         ],
-        "answer": "BENIN",
+        "answer": "LISTS",
         "clue": ""
       },
       {
@@ -245,26 +220,26 @@
         "cells": [
           [
             0,
-            2
+            1
           ],
           [
             1,
-            2
+            1
           ],
           [
             2,
-            2
+            1
           ],
           [
             3,
-            2
+            1
           ],
           [
             4,
-            2
+            1
           ]
         ],
-        "answer": "ENDED",
+        "answer": "OSTRE",
         "clue": ""
       },
       {
@@ -272,8 +247,31 @@
         "cells": [
           [
             0,
-            3
+            2
           ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "answer": "CLAIR",
+        "clue": ""
+      },
+      {
+        "number": 5,
+        "cells": [
           [
             1,
             3
@@ -291,49 +289,7 @@
             3
           ]
         ],
-        "answer": "GIRLS",
-        "clue": ""
-      },
-      {
-        "number": 4,
-        "cells": [
-          [
-            0,
-            4
-          ],
-          [
-            1,
-            4
-          ],
-          [
-            2,
-            4
-          ],
-          [
-            3,
-            4
-          ]
-        ],
-        "answer": "USES",
-        "clue": ""
-      },
-      {
-        "number": 5,
-        "cells": [
-          [
-            0,
-            5
-          ],
-          [
-            1,
-            5
-          ],
-          [
-            2,
-            5
-          ]
-        ],
-        "answer": "NEW",
+        "answer": "AGEE",
         "clue": ""
       },
       {
@@ -341,22 +297,22 @@
         "cells": [
           [
             1,
-            0
+            4
           ],
           [
             2,
-            0
+            4
           ],
           [
             3,
-            0
+            4
           ],
           [
             4,
-            0
+            4
           ]
         ],
-        "answer": "DANE",
+        "answer": "MEST",
         "clue": ""
       }
     ]
