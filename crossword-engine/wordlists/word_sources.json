@@ -1,0 +1,49 @@
+{
+  "core": [
+    {
+      "name": "dwyl-english-words",
+      "url": "https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt",
+      "format": "text",
+      "license": "MIT"
+    }
+  ],
+  "names": [
+    {
+      "name": "smashew-first-names-us",
+      "url": "https://raw.githubusercontent.com/smashew/NameDatabases/master/NamesDatabases/first%20names/us.txt",
+      "format": "text",
+      "license": "CC0"
+    },
+    {
+      "name": "smashew-surnames-us",
+      "url": "https://raw.githubusercontent.com/smashew/NameDatabases/master/NamesDatabases/surnames/us.txt",
+      "format": "text",
+      "license": "CC0"
+    }
+  ],
+  "slang": [
+    {
+      "name": "corpora-interjections",
+      "url": "https://raw.githubusercontent.com/dariusk/corpora/master/data/words/interjections.json",
+      "format": "json",
+      "json_key": "interjections",
+      "license": "MIT"
+    },
+    {
+      "name": "corpora-strange-words",
+      "url": "https://raw.githubusercontent.com/dariusk/corpora/master/data/words/strange_words.json",
+      "format": "json",
+      "json_key": "words",
+      "license": "MIT"
+    }
+  ],
+  "abbreviations": [
+    {
+      "name": "corpora-us-airport-codes-iata",
+      "url": "https://raw.githubusercontent.com/dariusk/corpora/master/data/geography/us_airport_codes.json",
+      "format": "json",
+      "parser": "us_airport_codes_iata",
+      "license": "MIT"
+    }
+  ]
+}
