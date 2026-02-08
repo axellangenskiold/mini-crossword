@@ -85,6 +85,19 @@ def write_wordlist(path: Path, words: set[str]) -> None:
     path.write_text("\n".join(sorted_words) + ("\n" if sorted_words else ""))
 
 
+def load_frequency_words(sources: dict, min_len: int, max_len: int) -> set[str]:
+    entries = sources.get("frequency", [])
+    words: set[str] = set()
+    for source in entries:
+        for raw in collect_words_for_source(source):
+            normalized = normalize_word(str(raw))
+            if not normalized:
+                continue
+            if min_len <= len(normalized) <= max_len:
+                words.add(normalized)
+    return words
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Download and normalize wordlists.")
     parser.add_argument(
@@ -105,7 +118,13 @@ def main() -> int:
 
     sources = load_sources(sources_path)
 
+    frequency_words = load_frequency_words(sources, args.min_length, args.max_length)
+    if frequency_words:
+        print(f"frequency: {len(frequency_words)} words (filter for core)")
+
     for category, entries in sources.items():
+        if category == "frequency":
+            continue
         words: set[str] = set()
         for source in entries:
             for raw in collect_words_for_source(source):
@@ -114,6 +133,8 @@ def main() -> int:
                     continue
                 if args.min_length <= len(normalized) <= args.max_length:
                     words.add(normalized)
+        if category == "core" and frequency_words:
+            words &= frequency_words
         output_path = wordlists_dir / f"{category}.txt"
         write_wordlist(output_path, words)
         print(f"{category}: {len(words)} words -> {output_path}")

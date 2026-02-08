@@ -99,7 +99,12 @@ def main() -> int:
             if puzzle.hash_hex in existing_hashes:
                 continue
 
+            grid_preview = [
+                "".join("-" if cell is None else cell for cell in row)
+                for row in puzzle.grid_solution
+            ]
             puzzle_data = {
+                "gridPreview": grid_preview,
                 "id": puzzle.puzzle_id,
                 "date": "",
                 "width": puzzle.width,

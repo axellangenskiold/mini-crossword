@@ -23,6 +23,7 @@ The engine is not shipped with the App Store binary.
 
 - Output directory: `Puzzles/Puzzles_NO_CLUES/`
 - File naming: `puzzle_000001.json`, `puzzle_000002.json`, ...
+- `gridPreview` is a list of strings representing the filled grid, using `-` for black cells
 - `clue` fields are **empty strings**
 - `date` is an **empty string** (assigned later when bundling)
 - Hashes stored in `Puzzles/Puzzles_NO_CLUES/_hashes.txt`
@@ -38,12 +39,15 @@ Default sources:
 
 - **Core dictionary:**
   - `dwyl/english-words` (words_alpha.txt)
+  - Filtered to **Google 10k** frequency list from `first20hours/google-10000-english`
 - **Names:**
   - `smashew/NameDatabases` (US first names, US surnames)
 - **Slang (informal):**
   - `dariusk/corpora` interjections + strange_words
 - **Abbreviations:**
   - `dariusk/corpora` US airport IATA codes
+ - **Frequency list (filter):**
+   - `first20hours/google-10000-english` (google-10000-english.txt)
 
 Filtering rules:
 
@@ -51,6 +55,7 @@ Filtering rules:
 - Length 2–7
 - Allowlist: `crossword-engine/wordlists/allowlist.txt`
 - Banlist: `crossword-engine/wordlists/banlist.txt`
+- Core words must appear in the **Google 10k** list
 
 ---
 

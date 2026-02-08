@@ -45,5 +45,13 @@
       "parser": "us_airport_codes_iata",
       "license": "MIT"
     }
+  ],
+  "frequency": [
+    {
+      "name": "google-10k",
+      "url": "https://raw.githubusercontent.com/first20hours/google-10000-english/master/google-10000-english.txt",
+      "format": "text",
+      "license": "LDC/Norvig MIT (see LICENSE.md in repo)"
+    }
   ]
 }
