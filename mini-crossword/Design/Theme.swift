@@ -9,6 +9,7 @@ enum Theme {
     static let muted = Color(hex: 0x6D6A65)
     static let complete = Color(hex: 0x6CC071)
     static let inactive = Color(hex: 0xC8C1B5)
+    static let highlight = Color(hex: 0xCFE3FF)
 
     static func titleFont(size: CGFloat) -> Font {
         .custom("Avenir Next Condensed", size: size)

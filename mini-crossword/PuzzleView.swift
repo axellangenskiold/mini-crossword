@@ -9,6 +9,7 @@ struct PuzzleView: View {
     @State private var hintsUsed: Int = 0
     @State private var showCompletionAlert: Bool = false
     @State private var completionMessage: String = ""
+    @State private var completionIsCorrect: Bool = false
 
     @Environment(\.dismiss) private var dismiss
 
@@ -47,7 +48,11 @@ struct PuzzleView: View {
                     blackCells: Set(puzzle.blackCells),
                     filledGrid: filledGrid,
                     activeCell: activeCell,
-                    lockedCells: lockedCells
+                    lockedCells: lockedCells,
+                    highlightedCells: highlightedCells,
+                    onSelect: { cell in
+                        selectCell(cell)
+                    }
                 )
                 .padding(12)
                 .background(Theme.card)
@@ -65,15 +70,21 @@ struct PuzzleView: View {
                 Spacer()
             }
             .padding()
-        }
-        .navigationTitle("Puzzle")
-        .alert(completionMessage, isPresented: $showCompletionAlert) {
-            Button("OK") {
-                if completionMessage == "Congratulations, you did it!" {
-                    dismiss()
-                }
+
+            if showCompletionAlert {
+                CompletionOverlay(
+                    message: completionMessage,
+                    isCorrect: completionIsCorrect,
+                    onDismiss: {
+                        showCompletionAlert = false
+                        if completionIsCorrect {
+                            dismiss()
+                        }
+                    }
+                )
             }
         }
+        .navigationTitle("Puzzle")
         .toolbar(.hidden, for: .navigationBar)
         .font(Theme.bodyFont(size: 16))
     }
@@ -209,16 +220,48 @@ struct PuzzleView: View {
         return entry.clue
     }
 
+    private var highlightedCells: Set<Coordinate> {
+        guard let state = navigationState else {
+            return []
+        }
+        let entries = entriesForPhase(state.phase)
+        guard let entry = entries[safe: state.entryIndex] else {
+            return []
+        }
+        return Set(entry.cells)
+    }
+
     private func moveEntry(by offset: Int) {
         guard let state = navigationState else {
             return
         }
-        let entries = entriesForPhase(state.phase)
-        let nextIndex = state.entryIndex + offset
-        guard entries.indices.contains(nextIndex) else {
+        var phase = state.phase
+        var entries = entriesForPhase(phase)
+        var nextIndex = state.entryIndex + offset
+
+        if nextIndex < 0 {
+            if phase == .down {
+                phase = .across
+                entries = entriesForPhase(phase)
+                nextIndex = entries.count - 1
+            } else {
+                return
+            }
+        } else if nextIndex >= entries.count {
+            if phase == .across {
+                phase = .down
+                entries = entriesForPhase(phase)
+                nextIndex = 0
+            } else {
+                return
+            }
+        }
+
+        guard let entry = entries[safe: nextIndex] else {
             return
         }
-        navigationState = NavigationState(phase: state.phase, entryIndex: nextIndex, cellIndex: 0)
+        let focusIndex = focusIndexForEntry(entry)
+        navigationState = NavigationState(phase: phase, entryIndex: nextIndex, cellIndex: focusIndex)
     }
 
     private func enter(letter: String) {
@@ -266,6 +309,7 @@ struct PuzzleView: View {
         if let solution = puzzle.gridSolution[safe: targetCell.row]?[safe: targetCell.col] {
             filledGrid[targetCell.row][targetCell.col] = solution
             hintsUsed += 1
+            lockedCells.insert(targetCell)
             if difficulty != .hard {
                 handleEntryCompletion(for: targetState)
             }
@@ -360,6 +404,7 @@ struct PuzzleView: View {
                 filledGrid: filledGrid,
                 solutionGrid: puzzle.gridSolution
             )
+            completionIsCorrect = isCorrect
             completionMessage = isCorrect ? "Congratulations, you did it!" : "Something is wrong."
             showCompletionAlert = true
         }
@@ -415,6 +460,52 @@ struct PuzzleView: View {
             downEntries: puzzle.entries.down
         )
     }
+
+    private func selectCell(_ cell: Coordinate) {
+        let acrossEntries = entriesForPhase(.across)
+        let downEntries = entriesForPhase(.down)
+        if let acrossIndex = entryIndex(for: cell, entries: acrossEntries) {
+            if navigationState?.phase == .across {
+                navigationState = NavigationState(phase: .across, entryIndex: acrossIndex, cellIndex: cellIndex(for: cell, entries: acrossEntries) ?? 0)
+                return
+            }
+        }
+        if let downIndex = entryIndex(for: cell, entries: downEntries) {
+            navigationState = NavigationState(phase: .down, entryIndex: downIndex, cellIndex: cellIndex(for: cell, entries: downEntries) ?? 0)
+            return
+        }
+        if let acrossIndex = entryIndex(for: cell, entries: acrossEntries) {
+            navigationState = NavigationState(phase: .across, entryIndex: acrossIndex, cellIndex: cellIndex(for: cell, entries: acrossEntries) ?? 0)
+        }
+    }
+
+    private func entryIndex(for cell: Coordinate, entries: [Entry]) -> Int? {
+        entries.firstIndex { $0.cells.contains(cell) }
+    }
+
+    private func cellIndex(for cell: Coordinate, entries: [Entry]) -> Int? {
+        for entry in entries {
+            if let index = entry.cells.firstIndex(of: cell) {
+                return index
+            }
+        }
+        return nil
+    }
+
+    private func focusIndexForEntry(_ entry: Entry) -> Int {
+        var lastFilled: Int? = nil
+        for (index, cell) in entry.cells.enumerated() {
+            if let letter = filledGrid[safe: cell.row]?[safe: cell.col],
+               let value = letter,
+               !value.isEmpty {
+                lastFilled = index
+            }
+        }
+        if let lastFilled {
+            return min(lastFilled + 1, entry.cells.count - 1)
+        }
+        return 0
+    }
 }
 
 private struct PuzzleGridView: View {
@@ -424,6 +515,8 @@ private struct PuzzleGridView: View {
     let filledGrid: [[String?]]
     let activeCell: Coordinate?
     let lockedCells: Set<Coordinate>
+    let highlightedCells: Set<Coordinate>
+    let onSelect: (Coordinate) -> Void
 
     var body: some View {
         let columns = Array(repeating: GridItem(.flexible(), spacing: 2), count: width)
@@ -437,8 +530,14 @@ private struct PuzzleGridView: View {
                     letter: filledGrid[safe: row]?[safe: col] ?? nil,
                     isBlack: isBlack,
                     isActive: cell == activeCell,
-                    isLocked: lockedCells.contains(cell)
+                    isLocked: lockedCells.contains(cell),
+                    isHighlighted: highlightedCells.contains(cell)
                 )
+                .onTapGesture {
+                    if !isBlack {
+                        onSelect(cell)
+                    }
+                }
             }
         }
     }
@@ -449,6 +548,7 @@ private struct GridCellView: View {
     let isBlack: Bool
     let isActive: Bool
     let isLocked: Bool
+    let isHighlighted: Bool
 
     var body: some View {
         ZStack {
@@ -475,7 +575,51 @@ private struct GridCellView: View {
         if isLocked {
             return Theme.complete.opacity(0.85)
         }
+        if isHighlighted {
+            return Theme.highlight
+        }
         return Theme.card
+    }
+}
+
+private struct CompletionOverlay: View {
+    let message: String
+    let isCorrect: Bool
+    let onDismiss: () -> Void
+
+    var body: some View {
+        ZStack {
+            Color.black.opacity(0.35)
+                .ignoresSafeArea()
+            VStack(spacing: 12) {
+                Text(isCorrect ? "Solved" : "Try Again")
+                    .font(Theme.titleFont(size: 24))
+                    .fontWeight(.bold)
+                    .foregroundStyle(Theme.ink)
+                Text(message)
+                    .font(Theme.bodyFont(size: 16))
+                    .foregroundStyle(Theme.muted)
+                    .multilineTextAlignment(.center)
+                Button(action: onDismiss) {
+                    Text("OK")
+                        .font(Theme.bodyFont(size: 16))
+                        .foregroundStyle(.white)
+                        .padding(.horizontal, 24)
+                        .padding(.vertical, 10)
+                        .background(Theme.accent)
+                        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                }
+            }
+            .padding(20)
+            .background(Theme.card)
+            .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+            .overlay(
+                RoundedRectangle(cornerRadius: 18, style: .continuous)
+                    .stroke(Theme.ink.opacity(0.12), lineWidth: 1)
+            )
+            .shadow(color: Theme.ink.opacity(0.12), radius: 18, x: 0, y: 8)
+            .padding(24)
+        }
     }
 }
 
