@@ -8,73 +8,127 @@ struct DailyChallengeView: View {
 
     var body: some View {
         NavigationStack {
-            VStack(spacing: 16) {
-                Text(monthTitle())
-                    .font(.title2)
-                    .fontWeight(.semibold)
+            ZStack {
+                LinearGradient(
+                    colors: [Theme.backgroundTop, Theme.backgroundBottom],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+                .ignoresSafeArea()
 
-                VStack(spacing: 8) {
-                    HStack {
-                        ForEach(weekdaySymbols, id: \.self) { symbol in
-                            Text(symbol)
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                                .frame(maxWidth: .infinity)
-                        }
+                Circle()
+                    .fill(Theme.accent.opacity(0.12))
+                    .frame(width: 260, height: 260)
+                    .offset(x: 120, y: -220)
+
+                RoundedRectangle(cornerRadius: 60, style: .continuous)
+                    .fill(Theme.accent.opacity(0.08))
+                    .frame(width: 220, height: 160)
+                    .rotationEffect(.degrees(-18))
+                    .offset(x: -140, y: 260)
+
+                VStack(spacing: 20) {
+                    VStack(spacing: 6) {
+                        Text("Daily Challenge")
+                            .font(Theme.titleFont(size: 34))
+                            .foregroundStyle(Theme.ink)
+                        Text("Mini Crossword")
+                            .font(Theme.bodyFont(size: 16))
+                            .foregroundStyle(Theme.muted)
+                            .textCase(.uppercase)
+                            .tracking(2)
                     }
 
-                    LazyVGrid(columns: columns, spacing: 8) {
-                        ForEach(calendarCells(), id: \.id) { cell in
-                            if let day = cell.day {
-                                let isComplete = viewModel.isComplete(date: day.date)
-                                CalendarDayCell(
-                                    day: day.dayNumber,
-                                    isEnabled: day.isEnabled,
-                                    isToday: day.isToday,
-                                    isComplete: isComplete,
-                                    destination: day.puzzle.map { PuzzleView(puzzle: $0) }
-                                )
-                            } else {
-                                Color.clear
-                                    .frame(height: 36)
+                    VStack(spacing: 12) {
+                        Text(monthTitle())
+                            .font(Theme.bodyFont(size: 20))
+                            .foregroundStyle(Theme.ink)
+
+                        VStack(spacing: 10) {
+                            HStack {
+                                ForEach(weekdaySymbols, id: \.self) { symbol in
+                                    Text(symbol)
+                                        .font(Theme.bodyFont(size: 12))
+                                        .foregroundStyle(Theme.muted)
+                                        .frame(maxWidth: .infinity)
+                                }
+                            }
+
+                            LazyVGrid(columns: columns, spacing: 8) {
+                                ForEach(calendarCells(), id: \.id) { cell in
+                                    if let day = cell.day {
+                                        let isComplete = viewModel.isComplete(date: day.date)
+                                        CalendarDayCell(
+                                            day: day.dayNumber,
+                                            isEnabled: day.isEnabled,
+                                            isToday: day.isToday,
+                                            isComplete: isComplete,
+                                            destination: day.puzzle.map { PuzzleView(puzzle: $0) }
+                                        )
+                                    } else {
+                                        Color.clear
+                                            .frame(height: 34)
+                                    }
+                                }
                             }
                         }
+                        .padding(16)
+                        .background(Theme.card)
+                        .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                                .stroke(Theme.ink.opacity(0.08), lineWidth: 1)
+                        )
+                        .shadow(color: Theme.ink.opacity(0.08), radius: 14, x: 0, y: 8)
                     }
-                }
 
-                if let todayPuzzle = viewModel.puzzle(for: Date()) {
-                    NavigationLink {
-                        PuzzleView(puzzle: todayPuzzle)
-                    } label: {
+                    if let todayPuzzle = viewModel.puzzle(for: Date()) {
+                        NavigationLink {
+                            PuzzleView(puzzle: todayPuzzle)
+                        } label: {
+                            HStack {
+                                Text("Today’s Puzzle")
+                                    .font(Theme.bodyFont(size: 18))
+                                    .foregroundStyle(.white)
+                                Spacer()
+                                Image(systemName: "arrow.right")
+                                    .foregroundStyle(.white)
+                            }
+                            .padding(.horizontal, 18)
+                            .padding(.vertical, 14)
+                            .background(
+                                LinearGradient(
+                                    colors: [Theme.accent, Theme.accent.opacity(0.7)],
+                                    startPoint: .leading,
+                                    endPoint: .trailing
+                                )
+                            )
+                            .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                            .shadow(color: Theme.accent.opacity(0.3), radius: 12, x: 0, y: 6)
+                        }
+                    } else {
                         Text("Today’s Puzzle")
-                            .font(.headline)
+                            .font(Theme.bodyFont(size: 18))
                             .frame(maxWidth: .infinity)
-                            .padding(.vertical, 12)
-                            .background(Color.accentColor)
-                            .foregroundStyle(.white)
-                            .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                            .padding(.vertical, 14)
+                            .background(Theme.inactive)
+                            .foregroundStyle(Theme.muted)
+                            .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
                     }
-                } else {
-                    Text("Today’s Puzzle")
-                        .font(.headline)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 12)
-                        .background(Color.gray.opacity(0.3))
-                        .foregroundStyle(.secondary)
-                        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-                }
 
-                if let error = viewModel.loadError {
-                    Text(error)
-                        .font(.caption)
-                        .foregroundStyle(.red)
-                }
+                    if let error = viewModel.loadError {
+                        Text(error)
+                            .font(Theme.bodyFont(size: 14))
+                            .foregroundStyle(.red)
+                    }
 
-                Spacer()
+                    Spacer(minLength: 8)
+                }
+                .padding(.horizontal, 20)
+                .padding(.top, 24)
             }
-            .padding()
-            .navigationTitle("Daily Challenge")
             .onAppear { viewModel.load() }
+            .toolbar(.hidden, for: .navigationBar)
         }
     }
 
@@ -159,22 +213,26 @@ private struct CalendarDayCell<Destination: View>: View {
 
     private var cellBody: some View {
         Text("\(day)")
-            .font(.subheadline)
+            .font(Theme.bodyFont(size: 14))
             .frame(maxWidth: .infinity)
-            .frame(height: 36)
+            .frame(height: 34)
             .background(backgroundColor)
-            .foregroundStyle(isEnabled ? .primary : .secondary)
-            .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+            .foregroundStyle(isEnabled ? Theme.ink : Theme.muted)
+            .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
             .overlay(
-                RoundedRectangle(cornerRadius: 8, style: .continuous)
-                    .stroke(isToday ? Color.accentColor : Color.clear, lineWidth: 1)
+                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                    .stroke(isToday ? Theme.accent : Color.clear, lineWidth: 1.5)
             )
+            .opacity(isEnabled ? 1.0 : 0.5)
     }
 
     private var backgroundColor: Color {
-        if isComplete {
-            return Color.green.opacity(0.7)
+        if !isEnabled {
+            return Theme.inactive.opacity(0.6)
         }
-        return Color.white
+        if isComplete {
+            return Theme.complete.opacity(0.8)
+        }
+        return Theme.card
     }
 }

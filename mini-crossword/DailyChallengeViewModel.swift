@@ -40,6 +40,7 @@ final class DailyChallengeViewModel: ObservableObject {
         do {
             let bundledPuzzles = try bundleLoader.loadPuzzles()
             let bundleByDate = Dictionary(uniqueKeysWithValues: bundledPuzzles.map { ($0.date, $0) })
+            let fallbackPuzzle = bundledPuzzles.first
 
             var loaded: [String: Puzzle] = [:]
             var completedIds: Set<String> = []
@@ -47,8 +48,12 @@ final class DailyChallengeViewModel: ObservableObject {
             for date in eligible {
                 let dateString = PuzzleDateFormatter.string(from: date)
                 let stored = try puzzleStore.loadPuzzle(dateString: dateString)
-                if stored == nil, let bundled = bundleByDate[dateString] {
-                    try puzzleStore.savePuzzle(bundled)
+                if stored == nil {
+                    if let bundled = bundleByDate[dateString] {
+                        try puzzleStore.savePuzzle(bundled)
+                    } else if let fallback = fallbackPuzzle {
+                        try puzzleStore.savePuzzle(fallback.withDate(dateString))
+                    }
                 }
                 if let puzzle = try puzzleStore.loadPuzzle(dateString: dateString) {
                     loaded[dateString] = puzzle
@@ -62,7 +67,7 @@ final class DailyChallengeViewModel: ObservableObject {
             completedPuzzleIds = completedIds
             loadError = nil
         } catch {
-            loadError = "Failed to load puzzles"
+            loadError = (error as? LocalizedError)?.errorDescription ?? "Failed to load puzzles"
         }
     }
 
