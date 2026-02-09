@@ -2,6 +2,7 @@ import SwiftUI
 
 struct DailyChallengeView: View {
     @StateObject private var viewModel = DailyChallengeViewModel()
+    @State private var selectedPuzzle: SelectedPuzzle? = nil
 
     private let columns = Array(repeating: GridItem(.flexible(), spacing: 8), count: 7)
     private let weekdaySymbols = ["S", "M", "T", "W", "T", "F", "S"]
@@ -32,6 +33,7 @@ struct DailyChallengeView: View {
                         Text("Daily Challenge")
                             .font(Theme.titleFont(size: 34))
                             .foregroundStyle(Theme.ink)
+                            .fontWeight(.bold)
                         Text("Mini Crossword")
                             .font(Theme.bodyFont(size: 16))
                             .foregroundStyle(Theme.muted)
@@ -46,7 +48,7 @@ struct DailyChallengeView: View {
 
                         VStack(spacing: 10) {
                             HStack {
-                                ForEach(weekdaySymbols, id: \.self) { symbol in
+                                ForEach(Array(weekdaySymbols.enumerated()), id: \.offset) { _, symbol in
                                     Text(symbol)
                                         .font(Theme.bodyFont(size: 12))
                                         .foregroundStyle(Theme.muted)
@@ -63,7 +65,8 @@ struct DailyChallengeView: View {
                                             isEnabled: day.isEnabled,
                                             isToday: day.isToday,
                                             isComplete: isComplete,
-                                            destination: day.puzzle.map { PuzzleView(puzzle: $0) }
+                                            isSelected: day.isSelected,
+                                            onSelect: { viewModel.selectedDate = day.date }
                                         )
                                     } else {
                                         Color.clear
@@ -82,39 +85,29 @@ struct DailyChallengeView: View {
                         .shadow(color: Theme.ink.opacity(0.08), radius: 14, x: 0, y: 8)
                     }
 
-                    if let todayPuzzle = viewModel.puzzle(for: Date()) {
-                        NavigationLink {
-                            PuzzleView(puzzle: todayPuzzle)
-                        } label: {
-                            HStack {
-                                Text("Today’s Puzzle")
-                                    .font(Theme.bodyFont(size: 18))
-                                    .foregroundStyle(.white)
-                                Spacer()
-                                Image(systemName: "arrow.right")
-                                    .foregroundStyle(.white)
-                            }
-                            .padding(.horizontal, 18)
-                            .padding(.vertical, 14)
-                            .background(
-                                LinearGradient(
-                                    colors: [Theme.accent, Theme.accent.opacity(0.7)],
-                                    startPoint: .leading,
-                                    endPoint: .trailing
-                                )
-                            )
-                            .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-                            .shadow(color: Theme.accent.opacity(0.3), radius: 12, x: 0, y: 6)
+                    Button(action: openSelectedPuzzle) {
+                        HStack {
+                            Text("Play crossword")
+                                .font(Theme.bodyFont(size: 18))
+                                .foregroundStyle(.white)
+                            Spacer()
+                            Image(systemName: "arrow.right")
+                                .foregroundStyle(.white)
                         }
-                    } else {
-                        Text("Today’s Puzzle")
-                            .font(Theme.bodyFont(size: 18))
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 14)
-                            .background(Theme.inactive)
-                            .foregroundStyle(Theme.muted)
-                            .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                        .padding(.horizontal, 18)
+                        .padding(.vertical, 14)
+                        .background(
+                            LinearGradient(
+                                colors: [Theme.accent, Theme.accent.opacity(0.7)],
+                                startPoint: .leading,
+                                endPoint: .trailing
+                            )
+                        )
+                        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                        .shadow(color: Theme.accent.opacity(0.3), radius: 12, x: 0, y: 6)
                     }
+                    .disabled(viewModel.puzzle(for: viewModel.selectedDate) == nil)
+                    .opacity(viewModel.puzzle(for: viewModel.selectedDate) == nil ? 0.5 : 1.0)
 
                     if let error = viewModel.loadError {
                         Text(error)
@@ -129,7 +122,11 @@ struct DailyChallengeView: View {
             }
             .onAppear { viewModel.load() }
             .toolbar(.hidden, for: .navigationBar)
+            .navigationDestination(item: $selectedPuzzle) { item in
+                PuzzleView(puzzle: item.puzzle)
+            }
         }
+        .font(Theme.bodyFont(size: 16))
     }
 
     private func monthTitle() -> String {
@@ -154,12 +151,14 @@ struct DailyChallengeView: View {
             let date = calendar.date(byAdding: .day, value: day - 1, to: firstOfMonth) ?? today
             let isToday = day == todayDay
             let isEnabled = day <= todayDay
+            let isSelected = calendar.isDate(date, inSameDayAs: viewModel.selectedDate)
             let puzzle = isEnabled ? viewModel.puzzle(for: date) : nil
             return CalendarDay(
                 date: date,
                 dayNumber: day,
                 isEnabled: isEnabled,
                 isToday: isToday,
+                isSelected: isSelected,
                 puzzle: puzzle
             )
         }
@@ -178,6 +177,7 @@ private struct CalendarDay {
     let dayNumber: Int
     let isEnabled: Bool
     let isToday: Bool
+    let isSelected: Bool
     let puzzle: Puzzle?
 }
 
@@ -188,27 +188,20 @@ private struct CalendarCell: Identifiable {
     static let empty = CalendarCell(day: nil)
 }
 
-private struct CalendarDayCell<Destination: View>: View {
+private struct CalendarDayCell: View {
     let day: Int
     let isEnabled: Bool
     let isToday: Bool
     let isComplete: Bool
-    let destination: Destination?
+    let isSelected: Bool
+    let onSelect: () -> Void
 
     var body: some View {
-        Group {
-            if let destination {
-                NavigationLink {
-                    destination
-                } label: {
-                    cellBody
-                }
-                .disabled(!isEnabled)
-            } else {
-                cellBody
-                    .opacity(isEnabled ? 1.0 : 0.4)
-            }
+        Button(action: onSelect) {
+            cellBody
         }
+        .buttonStyle(.plain)
+        .disabled(!isEnabled)
     }
 
     private var cellBody: some View {
@@ -221,7 +214,7 @@ private struct CalendarDayCell<Destination: View>: View {
             .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
             .overlay(
                 RoundedRectangle(cornerRadius: 10, style: .continuous)
-                    .stroke(isToday ? Theme.accent : Color.clear, lineWidth: 1.5)
+                    .stroke(isSelected ? Theme.accent : (isToday ? Theme.accent.opacity(0.5) : Color.clear), lineWidth: isSelected ? 2 : 1.5)
             )
             .opacity(isEnabled ? 1.0 : 0.5)
     }
@@ -234,5 +227,19 @@ private struct CalendarDayCell<Destination: View>: View {
             return Theme.complete.opacity(0.8)
         }
         return Theme.card
+    }
+}
+
+private struct SelectedPuzzle: Identifiable, Hashable {
+    let id = UUID()
+    let puzzle: Puzzle
+}
+
+private extension DailyChallengeView {
+    func openSelectedPuzzle() {
+        guard let puzzle = viewModel.puzzle(for: viewModel.selectedDate) else {
+            return
+        }
+        selectedPuzzle = SelectedPuzzle(puzzle: puzzle)
     }
 }

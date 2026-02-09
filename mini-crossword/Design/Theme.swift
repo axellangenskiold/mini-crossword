@@ -11,7 +11,7 @@ enum Theme {
     static let inactive = Color(hex: 0xC8C1B5)
 
     static func titleFont(size: CGFloat) -> Font {
-        .custom("Bodoni 72", size: size)
+        .custom("Avenir Next Condensed", size: size)
     }
 
     static func bodyFont(size: CGFloat) -> Font {

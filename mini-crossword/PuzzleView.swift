@@ -37,6 +37,8 @@ struct PuzzleView: View {
             .ignoresSafeArea()
 
             VStack(spacing: 16) {
+                topBar
+
                 headerControls
 
                 PuzzleGridView(
@@ -72,6 +74,33 @@ struct PuzzleView: View {
                 }
             }
         }
+        .toolbar(.hidden, for: .navigationBar)
+        .font(Theme.bodyFont(size: 16))
+    }
+
+    private var topBar: some View {
+        HStack(spacing: 12) {
+            Button(action: { dismiss() }) {
+                Image(systemName: "chevron.left")
+                    .font(.headline)
+                    .padding(8)
+                    .background(Theme.card)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(Theme.ink.opacity(0.15), lineWidth: 1))
+            }
+            .buttonStyle(.plain)
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text("Crossword")
+                    .font(Theme.titleFont(size: 22))
+                    .fontWeight(.bold)
+                Text(puzzle.date)
+                    .font(Theme.bodyFont(size: 13))
+                    .foregroundStyle(Theme.muted)
+            }
+
+            Spacer()
+        }
     }
 
     private var headerControls: some View {
@@ -84,12 +113,28 @@ struct PuzzleView: View {
             .tint(Theme.accent)
             .disabled(!canUseHint)
 
-            Picker("Difficulty", selection: $difficulty) {
+            Menu {
                 ForEach(Difficulty.allCases, id: \.self) { value in
-                    Text(value.rawValue.capitalized).tag(value)
+                    Button(value.rawValue.capitalized) {
+                        difficulty = value
+                    }
                 }
+            } label: {
+                HStack(spacing: 6) {
+                    Text(difficulty.rawValue.capitalized)
+                        .font(Theme.bodyFont(size: 15))
+                    Image(systemName: "chevron.down")
+                        .font(.caption)
+                }
+                .padding(.horizontal, 10)
+                .padding(.vertical, 6)
+                .background(Theme.card)
+                .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                        .stroke(Theme.ink.opacity(0.15), lineWidth: 1)
+                )
             }
-            .pickerStyle(.menu)
         }
     }
 
@@ -383,17 +428,17 @@ private struct PuzzleGridView: View {
     var body: some View {
         let columns = Array(repeating: GridItem(.flexible(), spacing: 2), count: width)
         LazyVGrid(columns: columns, spacing: 2) {
-            ForEach(0..<height, id: \.self) { row in
-                ForEach(0..<width, id: \.self) { col in
-                    let cell = Coordinate(row: row, col: col)
-                    let isBlack = blackCells.contains(cell)
-                    GridCellView(
-                        letter: filledGrid[safe: row]?[safe: col] ?? nil,
-                        isBlack: isBlack,
-                        isActive: cell == activeCell,
-                        isLocked: lockedCells.contains(cell)
-                    )
-                }
+            ForEach(0..<(width * height), id: \.self) { index in
+                let row = index / width
+                let col = index % width
+                let cell = Coordinate(row: row, col: col)
+                let isBlack = blackCells.contains(cell)
+                GridCellView(
+                    letter: filledGrid[safe: row]?[safe: col] ?? nil,
+                    isBlack: isBlack,
+                    isActive: cell == activeCell,
+                    isLocked: lockedCells.contains(cell)
+                )
             }
         }
     }
@@ -416,6 +461,7 @@ private struct GridCellView: View {
             if let letter, !isBlack {
                 Text(letter)
                     .font(Theme.bodyFont(size: 18))
+                    .fontWeight(.bold)
                     .foregroundStyle(Theme.ink)
             }
         }
