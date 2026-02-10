@@ -45,6 +45,8 @@ struct PuzzleView: View {
             VStack(spacing: 16) {
                 topBar
 
+                headerControls
+
                 PuzzleGridView(
                     width: puzzle.width,
                     height: puzzle.height,
@@ -66,13 +68,10 @@ struct PuzzleView: View {
                 )
                 .shadow(color: Theme.ink.opacity(0.08), radius: 10, x: 0, y: 6)
 
-                Spacer(minLength: 8)
+                Spacer()
 
-                VStack(spacing: 12) {
-                    clueBar
-                    headerControls
-                    keyboard
-                }
+                clueBar
+                keyboard
             }
             .padding()
             .padding(.bottom, 12)
@@ -250,53 +249,33 @@ struct PuzzleView: View {
         guard let state = navigationState else {
             return
         }
-        let acrossEntries = entriesForPhase(.across)
-        let downEntries = entriesForPhase(.down)
-        var phase = state.phase
-        var entries = entriesForPhase(phase)
-
-        guard !entries.isEmpty else {
-            return
+        if let nextState = nextEntryState(from: state, offset: offset) {
+            navigationState = nextState
         }
-
-        var nextIndex = state.entryIndex + offset
-        if nextIndex < 0 {
-            if phase == .across {
-                phase = .down
-                entries = downEntries
-                nextIndex = max(downEntries.count - 1, 0)
-            } else {
-                phase = .across
-                entries = acrossEntries
-                nextIndex = max(acrossEntries.count - 1, 0)
-            }
-        } else if nextIndex >= entries.count {
-            if phase == .across {
-                phase = .down
-                entries = downEntries
-                nextIndex = 0
-            } else {
-                phase = .across
-                entries = acrossEntries
-                nextIndex = 0
-            }
-        }
-
-        guard let entry = entries[safe: nextIndex] else {
-            return
-        }
-        let focusIndex = focusIndexForEntry(entry)
-        navigationState = NavigationState(phase: phase, entryIndex: nextIndex, cellIndex: focusIndex)
     }
 
     private func enter(letter: String) {
         guard let cell = nextEditableCell(from: navigationState) else {
             return
         }
+        if let state = navigationState, isEntryLocked(state: state) {
+            if let nextState = nextEntryState(from: state, offset: 1) {
+                navigationState = nextState
+            }
+            return
+        }
         filledGrid[cell.row][cell.col] = letter
         if let state = navigationState {
-            handleEntryCompletion(for: state)
-            navigationState = advanceStateSkippingLocked(from: state)
+            let entries = entriesForPhase(state.phase)
+            let entry = entries[safe: state.entryIndex]
+            if let entry, ValidationLogic.isEntryComplete(entry, filledGrid: filledGrid) {
+                handleEntryCompletion(for: state)
+                if let nextState = nextEntryState(from: state, offset: 1) {
+                    navigationState = nextState
+                }
+            } else {
+                navigationState = advanceStateSkippingLocked(from: state)
+            }
         }
         handlePuzzleCompletion()
     }
@@ -340,7 +319,6 @@ struct PuzzleView: View {
             }
             navigationState = advanceStateSkippingLocked(from: targetState)
             handlePuzzleCompletion()
-            toggleDirectionForCurrentCell()
         }
     }
 
@@ -537,16 +515,11 @@ struct PuzzleView: View {
     }
 
     private func focusIndexForEntry(_ entry: Entry) -> Int {
-        var lastFilled: Int? = nil
-        for (index, cell) in entry.cells.enumerated() {
-            if let letter = filledGrid[safe: cell.row]?[safe: cell.col],
-               let value = letter,
-               !value.isEmpty {
-                lastFilled = index
-            }
-        }
-        if let lastFilled {
-            return min(lastFilled + 1, entry.cells.count - 1)
+        if let firstEmpty = entry.cells.firstIndex(where: { cell in
+            let value = filledGrid[safe: cell.row]?[safe: cell.col] ?? nil
+            return value == nil || value?.isEmpty == true
+        }) {
+            return firstEmpty
         }
         return 0
     }
@@ -562,6 +535,58 @@ struct PuzzleView: View {
            let cellIndex = cellIndex(for: cell, entries: toggledEntries) {
             navigationState = NavigationState(phase: toggledPhase, entryIndex: entryIndex, cellIndex: cellIndex)
         }
+    }
+
+    private func isEntryLocked(state: NavigationState) -> Bool {
+        let entries = entriesForPhase(state.phase)
+        guard let entry = entries[safe: state.entryIndex] else {
+            return false
+        }
+        return entry.cells.allSatisfy { lockedCells.contains($0) }
+    }
+
+    private func nextEntryState(from state: NavigationState, offset: Int) -> NavigationState? {
+        let phases: [NavigationPhase] = [.across, .down]
+        guard let phaseIndex = phases.firstIndex(of: state.phase) else {
+            return nil
+        }
+        let totalEntries = entriesForPhase(.across).count + entriesForPhase(.down).count
+        if totalEntries == 0 {
+            return nil
+        }
+
+        var currentPhaseIndex = phaseIndex
+        var entryIndex = state.entryIndex
+        var attempts = 0
+
+        while attempts < totalEntries {
+            var entries = entriesForPhase(phases[currentPhaseIndex])
+            guard !entries.isEmpty else {
+                currentPhaseIndex = (currentPhaseIndex + (offset > 0 ? 1 : -1) + phases.count) % phases.count
+                attempts += 1
+                continue
+            }
+
+            entryIndex += offset
+            if entryIndex < 0 {
+                currentPhaseIndex = (currentPhaseIndex - 1 + phases.count) % phases.count
+                entries = entriesForPhase(phases[currentPhaseIndex])
+                entryIndex = max(entries.count - 1, 0)
+            } else if entryIndex >= entries.count {
+                currentPhaseIndex = (currentPhaseIndex + 1) % phases.count
+                entries = entriesForPhase(phases[currentPhaseIndex])
+                entryIndex = 0
+            }
+
+            if let entry = entries[safe: entryIndex],
+               !entry.cells.allSatisfy({ lockedCells.contains($0) }) {
+                let focusIndex = focusIndexForEntry(entry)
+                return NavigationState(phase: phases[currentPhaseIndex], entryIndex: entryIndex, cellIndex: focusIndex)
+            }
+            attempts += 1
+        }
+
+        return nil
     }
 
     private func saveCompletionProgress() {
