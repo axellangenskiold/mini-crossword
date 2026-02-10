@@ -4,6 +4,7 @@ struct ChallengeDetailView: View {
     let challenge: ChallengeDefinition
     @StateObject private var viewModel: ChallengeDetailViewModel
     @State private var selectedPuzzle: SelectedChallengePuzzle? = nil
+    @State private var showAlreadyPlayed: Bool = false
 
     @Environment(\.dismiss) private var dismiss
 
@@ -61,24 +62,37 @@ struct ChallengeDetailView: View {
                     LazyVGrid(columns: columns, spacing: 8) {
                         ForEach(viewModel.puzzleItems) { item in
                             Button {
-                                selectedPuzzle = SelectedChallengePuzzle(
-                                    puzzle: item.puzzle,
-                                    progressKey: item.progressKey,
-                                    index: item.index
-                                )
+                                if item.isComplete {
+                                    showAlreadyPlayed = true
+                                } else if item.isLocked {
+                                    return
+                                } else {
+                                    selectedPuzzle = SelectedChallengePuzzle(
+                                        puzzle: item.puzzle,
+                                        progressKey: item.progressKey,
+                                        index: item.index
+                                    )
+                                }
                             } label: {
-                                ZStack(alignment: .topLeading) {
+                                ZStack(alignment: .topTrailing) {
                                     RoundedRectangle(cornerRadius: 12, style: .continuous)
                                         .fill(item.isComplete ? Theme.complete.opacity(0.85) : Theme.card)
                                         .overlay(
                                             RoundedRectangle(cornerRadius: 12, style: .continuous)
                                                 .stroke(Theme.ink.opacity(0.12), lineWidth: 1)
                                         )
-                                    Text("\(item.index + 1)")
-                                        .font(Theme.bodyFont(size: 16))
-                                        .fontWeight(.bold)
-                                        .foregroundStyle(Theme.ink)
-                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                    if item.isLocked {
+                                        Image(systemName: "lock.fill")
+                                            .font(.headline)
+                                            .foregroundStyle(Theme.muted)
+                                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                    } else {
+                                        Text("\(item.index + 1)")
+                                            .font(Theme.bodyFont(size: 16))
+                                            .fontWeight(.bold)
+                                            .foregroundStyle(Theme.ink)
+                                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                    }
                                     if item.isComplete {
                                         Image(systemName: "checkmark.circle.fill")
                                             .foregroundStyle(.white)
@@ -109,6 +123,11 @@ struct ChallengeDetailView: View {
         }
         .navigationDestination(item: $selectedPuzzle) { item in
             PuzzleView(puzzle: item.puzzle, progressKeyOverride: item.progressKey)
+        }
+        .overlay {
+            if showAlreadyPlayed {
+                AlreadyPlayedOverlay(onDismiss: { showAlreadyPlayed = false })
+            }
         }
         .navigationBarBackButtonHidden(true)
     }
@@ -162,11 +181,16 @@ private final class ChallengeDetailViewModel: ObservableObject {
 
             var items: [ChallengePuzzleItem] = []
             var completed = 0
+            var allPreviousComplete = true
             for index in 0..<challenge.puzzleCount {
                 let key = ChallengeLogic.progressKey(challengeId: challenge.id, index: index)
                 let isComplete = (try? progressStore.loadProgress(puzzleId: key))?.isComplete ?? false
                 if isComplete {
                     completed += 1
+                }
+                let isLocked = !allPreviousComplete && !isComplete
+                if !isComplete {
+                    allPreviousComplete = false
                 }
                 items.append(
                     ChallengePuzzleItem(
@@ -174,7 +198,8 @@ private final class ChallengeDetailViewModel: ObservableObject {
                         index: index,
                         puzzle: puzzle,
                         progressKey: key,
-                        isComplete: isComplete
+                        isComplete: isComplete,
+                        isLocked: isLocked
                     )
                 )
             }
@@ -194,6 +219,7 @@ private struct ChallengePuzzleItem: Identifiable {
     let puzzle: Puzzle
     let progressKey: String
     let isComplete: Bool
+    let isLocked: Bool
 }
 
 private struct SelectedChallengePuzzle: Identifiable, Hashable {
@@ -209,5 +235,47 @@ private struct NoopChallengeProgressStore: PuzzleProgressStoring {
     }
 
     func saveProgress(_ progress: PuzzleProgress) throws {
+    }
+}
+
+private struct AlreadyPlayedOverlay: View {
+    let onDismiss: () -> Void
+
+    var body: some View {
+        ZStack {
+            Color.black.opacity(0.35)
+                .ignoresSafeArea()
+                .onTapGesture { onDismiss() }
+            VStack(spacing: 12) {
+                HStack {
+                    Button(action: onDismiss) {
+                        Image(systemName: "xmark")
+                            .font(.headline)
+                            .padding(6)
+                            .background(Theme.card)
+                            .clipShape(Circle())
+                    }
+                    .buttonStyle(.plain)
+                    Spacer()
+                }
+                Text("Already Played")
+                    .font(Theme.titleFont(size: 22))
+                    .fontWeight(.bold)
+                    .foregroundStyle(Theme.ink)
+                Text("You have already played this puzzle.")
+                    .font(Theme.bodyFont(size: 16))
+                    .foregroundStyle(Theme.muted)
+                    .multilineTextAlignment(.center)
+            }
+            .padding(20)
+            .background(Theme.card)
+            .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+            .overlay(
+                RoundedRectangle(cornerRadius: 18, style: .continuous)
+                    .stroke(Theme.ink.opacity(0.12), lineWidth: 1)
+            )
+            .shadow(color: Theme.ink.opacity(0.12), radius: 18, x: 0, y: 8)
+            .padding(24)
+        }
     }
 }
