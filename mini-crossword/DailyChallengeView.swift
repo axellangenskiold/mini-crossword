@@ -87,27 +87,30 @@ struct DailyChallengeView: View {
 
                     Button(action: openSelectedPuzzle) {
                         HStack {
-                            Text("Play crossword")
-                                .font(Theme.bodyFont(size: 18))
-                                .foregroundStyle(.white)
-                            Spacer()
-                            Image(systemName: "arrow.right")
-                                .foregroundStyle(.white)
+                            if isSelectedComplete {
+                                Text("Puzzle complete")
+                                    .font(Theme.bodyFont(size: 18))
+                                    .foregroundStyle(Theme.ink)
+                                Spacer()
+                                Image(systemName: "checkmark.circle.fill")
+                                    .foregroundStyle(Theme.complete)
+                            } else {
+                                Text("Play crossword")
+                                    .font(Theme.bodyFont(size: 18))
+                                    .foregroundStyle(.white)
+                                Spacer()
+                                Image(systemName: "arrow.right")
+                                    .foregroundStyle(.white)
+                            }
                         }
                         .padding(.horizontal, 18)
                         .padding(.vertical, 14)
-                        .background(
-                            LinearGradient(
-                                colors: [Theme.accent, Theme.accent.opacity(0.7)],
-                                startPoint: .leading,
-                                endPoint: .trailing
-                            )
-                        )
+                        .background(buttonBackground)
                         .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
                         .shadow(color: Theme.accent.opacity(0.3), radius: 12, x: 0, y: 6)
                     }
-                    .disabled(viewModel.puzzle(for: viewModel.selectedDate) == nil)
-                    .opacity(viewModel.puzzle(for: viewModel.selectedDate) == nil ? 0.5 : 1.0)
+                    .disabled(viewModel.puzzle(for: viewModel.selectedDate) == nil || isSelectedComplete)
+                    .opacity((viewModel.puzzle(for: viewModel.selectedDate) == nil || isSelectedComplete) ? 0.6 : 1.0)
 
                     if let error = viewModel.loadError {
                         Text(error)
@@ -125,8 +128,31 @@ struct DailyChallengeView: View {
             .navigationDestination(item: $selectedPuzzle) { item in
                 PuzzleView(puzzle: item.puzzle)
             }
+            .onChange(of: selectedPuzzle) { value in
+                if value == nil {
+                    viewModel.load()
+                }
+            }
         }
         .font(Theme.bodyFont(size: 16))
+    }
+
+    private var isSelectedComplete: Bool {
+        viewModel.isComplete(date: viewModel.selectedDate)
+    }
+
+    private var buttonBackground: some View {
+        Group {
+            if isSelectedComplete {
+                Theme.complete.opacity(0.3)
+            } else {
+                LinearGradient(
+                    colors: [Theme.accent, Theme.accent.opacity(0.7)],
+                    startPoint: .leading,
+                    endPoint: .trailing
+                )
+            }
+        }
     }
 
     private func monthTitle() -> String {
@@ -238,6 +264,9 @@ private struct SelectedPuzzle: Identifiable, Hashable {
 private extension DailyChallengeView {
     func openSelectedPuzzle() {
         guard let puzzle = viewModel.puzzle(for: viewModel.selectedDate) else {
+            return
+        }
+        if viewModel.isComplete(date: viewModel.selectedDate) {
             return
         }
         selectedPuzzle = SelectedPuzzle(puzzle: puzzle)

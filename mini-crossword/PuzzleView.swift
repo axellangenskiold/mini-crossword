@@ -10,11 +10,16 @@ struct PuzzleView: View {
     @State private var showCompletionAlert: Bool = false
     @State private var completionMessage: String = ""
     @State private var completionIsCorrect: Bool = false
+    @State private var showInfo: Bool = false
+    @State private var showDifficultyPicker: Bool = false
 
     @Environment(\.dismiss) private var dismiss
 
+    private let progressStore: PuzzleProgressStoring
+
     init(puzzle: Puzzle) {
         self.puzzle = puzzle
+        self.progressStore = (try? FilePuzzleProgressStore()) ?? NoopProgressStore()
         let empty = PuzzleView.makeEmptyGrid(width: puzzle.width, height: puzzle.height)
         _filledGrid = State(initialValue: empty)
         let blackCells = Set(puzzle.blackCells)
@@ -40,8 +45,6 @@ struct PuzzleView: View {
             VStack(spacing: 16) {
                 topBar
 
-                headerControls
-
                 PuzzleGridView(
                     width: puzzle.width,
                     height: puzzle.height,
@@ -63,13 +66,16 @@ struct PuzzleView: View {
                 )
                 .shadow(color: Theme.ink.opacity(0.08), radius: 10, x: 0, y: 6)
 
-                clueBar
+                Spacer(minLength: 8)
 
-                keyboard
-
-                Spacer()
+                VStack(spacing: 12) {
+                    clueBar
+                    headerControls
+                    keyboard
+                }
             }
             .padding()
+            .padding(.bottom, 12)
 
             if showCompletionAlert {
                 CompletionOverlay(
@@ -81,6 +87,21 @@ struct PuzzleView: View {
                             dismiss()
                         }
                     }
+                )
+            }
+
+            if showInfo {
+                InfoOverlay(onDismiss: { showInfo = false })
+            }
+
+            if showDifficultyPicker {
+                DifficultyOverlay(
+                    current: difficulty,
+                    onSelect: { value in
+                        difficulty = value
+                        showDifficultyPicker = false
+                    },
+                    onDismiss: { showDifficultyPicker = false }
                 )
             }
         }
@@ -116,6 +137,16 @@ struct PuzzleView: View {
 
     private var headerControls: some View {
         HStack {
+            Button(action: { showInfo = true }) {
+                Image(systemName: "info.circle")
+                    .font(.headline)
+                    .padding(8)
+                    .background(Theme.card)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(Theme.ink.opacity(0.15), lineWidth: 1))
+            }
+            .buttonStyle(.plain)
+
             Spacer()
             Button("Hint") {
                 applyHint()
@@ -124,13 +155,7 @@ struct PuzzleView: View {
             .tint(Theme.accent)
             .disabled(!canUseHint)
 
-            Menu {
-                ForEach(Difficulty.allCases, id: \.self) { value in
-                    Button(value.rawValue.capitalized) {
-                        difficulty = value
-                    }
-                }
-            } label: {
+            Button(action: { showDifficultyPicker = true }) {
                 HStack(spacing: 6) {
                     Text(difficulty.rawValue.capitalized)
                         .font(Theme.bodyFont(size: 15))
@@ -146,6 +171,7 @@ struct PuzzleView: View {
                         .stroke(Theme.ink.opacity(0.15), lineWidth: 1)
                 )
             }
+            .buttonStyle(.plain)
         }
     }
 
@@ -224,21 +250,43 @@ struct PuzzleView: View {
         guard let state = navigationState else {
             return
         }
-        let entries = entriesForPhase(state.phase)
+        let acrossEntries = entriesForPhase(.across)
+        let downEntries = entriesForPhase(.down)
+        var phase = state.phase
+        var entries = entriesForPhase(phase)
+
         guard !entries.isEmpty else {
             return
         }
+
         var nextIndex = state.entryIndex + offset
         if nextIndex < 0 {
-            nextIndex = entries.count - 1
+            if phase == .across {
+                phase = .down
+                entries = downEntries
+                nextIndex = max(downEntries.count - 1, 0)
+            } else {
+                phase = .across
+                entries = acrossEntries
+                nextIndex = max(acrossEntries.count - 1, 0)
+            }
         } else if nextIndex >= entries.count {
-            nextIndex = 0
+            if phase == .across {
+                phase = .down
+                entries = downEntries
+                nextIndex = 0
+            } else {
+                phase = .across
+                entries = acrossEntries
+                nextIndex = 0
+            }
         }
+
         guard let entry = entries[safe: nextIndex] else {
             return
         }
         let focusIndex = focusIndexForEntry(entry)
-        navigationState = NavigationState(phase: state.phase, entryIndex: nextIndex, cellIndex: focusIndex)
+        navigationState = NavigationState(phase: phase, entryIndex: nextIndex, cellIndex: focusIndex)
     }
 
     private func enter(letter: String) {
@@ -292,6 +340,7 @@ struct PuzzleView: View {
             }
             navigationState = advanceStateSkippingLocked(from: targetState)
             handlePuzzleCompletion()
+            toggleDirectionForCurrentCell()
         }
     }
 
@@ -384,6 +433,9 @@ struct PuzzleView: View {
             completionIsCorrect = isCorrect
             completionMessage = isCorrect ? "Congratulations, you did it!" : "Something is wrong."
             showCompletionAlert = true
+            if isCorrect {
+                saveCompletionProgress()
+            }
         }
     }
 
@@ -497,6 +549,35 @@ struct PuzzleView: View {
             return min(lastFilled + 1, entry.cells.count - 1)
         }
         return 0
+    }
+
+    private func toggleDirectionForCurrentCell() {
+        guard let cell = activeCell,
+              let state = navigationState else {
+            return
+        }
+        let toggledPhase: NavigationPhase = state.phase == .across ? .down : .across
+        let toggledEntries = entriesForPhase(toggledPhase)
+        if let entryIndex = entryIndex(for: cell, entries: toggledEntries),
+           let cellIndex = cellIndex(for: cell, entries: toggledEntries) {
+            navigationState = NavigationState(phase: toggledPhase, entryIndex: entryIndex, cellIndex: cellIndex)
+        }
+    }
+
+    private func saveCompletionProgress() {
+        let progress = PuzzleProgress(
+            puzzleId: progressKey,
+            filledGrid: filledGrid,
+            lockedCells: Array(lockedCells),
+            hintsUsed: hintsUsed,
+            difficulty: difficulty,
+            isComplete: true
+        )
+        try? progressStore.saveProgress(progress)
+    }
+
+    private var progressKey: String {
+        "\(puzzle.id)_\(puzzle.date)"
     }
 
     private func keyboardRow(_ letters: String) -> some View {
@@ -653,5 +734,115 @@ private extension Array {
             return nil
         }
         return self[index]
+    }
+}
+
+private struct InfoOverlay: View {
+    let onDismiss: () -> Void
+
+    var body: some View {
+        ZStack {
+            Color.black.opacity(0.35)
+                .ignoresSafeArea()
+                .onTapGesture { onDismiss() }
+            VStack(alignment: .leading, spacing: 12) {
+                HStack {
+                    Button(action: onDismiss) {
+                        Image(systemName: "xmark")
+                            .font(.headline)
+                            .padding(6)
+                            .background(Theme.card)
+                            .clipShape(Circle())
+                    }
+                    .buttonStyle(.plain)
+                    Spacer()
+                }
+                Text("Difficulty")
+                    .font(Theme.titleFont(size: 22))
+                    .fontWeight(.bold)
+                Text("Easy: unlimited hints, correct entries lock green.")
+                    .font(Theme.bodyFont(size: 15))
+                    .foregroundStyle(Theme.muted)
+                Text("Medium: 2 hints total, correct entries lock green.")
+                    .font(Theme.bodyFont(size: 15))
+                    .foregroundStyle(Theme.muted)
+                Text("Hard: 2 hints total, no entry locking. Grid only checks when full.")
+                    .font(Theme.bodyFont(size: 15))
+                    .foregroundStyle(Theme.muted)
+            }
+            .padding(20)
+            .background(Theme.card)
+            .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+            .overlay(
+                RoundedRectangle(cornerRadius: 18, style: .continuous)
+                    .stroke(Theme.ink.opacity(0.12), lineWidth: 1)
+            )
+            .shadow(color: Theme.ink.opacity(0.12), radius: 18, x: 0, y: 8)
+            .padding(24)
+        }
+    }
+}
+
+private struct DifficultyOverlay: View {
+    let current: Difficulty
+    let onSelect: (Difficulty) -> Void
+    let onDismiss: () -> Void
+
+    var body: some View {
+        ZStack {
+            Color.black.opacity(0.35)
+                .ignoresSafeArea()
+                .onTapGesture { onDismiss() }
+            VStack(alignment: .leading, spacing: 12) {
+                HStack {
+                    Button(action: onDismiss) {
+                        Image(systemName: "xmark")
+                            .font(.headline)
+                            .padding(6)
+                            .background(Theme.card)
+                            .clipShape(Circle())
+                    }
+                    .buttonStyle(.plain)
+                    Spacer()
+                }
+                Text("Choose difficulty")
+                    .font(Theme.titleFont(size: 22))
+                    .fontWeight(.bold)
+                ForEach(Difficulty.allCases, id: \.self) { value in
+                    Button(action: { onSelect(value) }) {
+                        HStack {
+                            Text(value.rawValue.capitalized)
+                                .font(Theme.bodyFont(size: 16))
+                                .foregroundStyle(Theme.ink)
+                            Spacer()
+                            if value == current {
+                                Image(systemName: "checkmark")
+                                    .foregroundStyle(Theme.accent)
+                            }
+                        }
+                        .padding(.vertical, 6)
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+            .padding(20)
+            .background(Theme.card)
+            .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+            .overlay(
+                RoundedRectangle(cornerRadius: 18, style: .continuous)
+                    .stroke(Theme.ink.opacity(0.12), lineWidth: 1)
+            )
+            .shadow(color: Theme.ink.opacity(0.12), radius: 18, x: 0, y: 8)
+            .padding(24)
+        }
+    }
+}
+
+private struct NoopProgressStore: PuzzleProgressStoring {
+    func loadProgress(puzzleId: String) throws -> PuzzleProgress? {
+        nil
+    }
+
+    func saveProgress(_ progress: PuzzleProgress) throws {
     }
 }

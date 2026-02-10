@@ -3,7 +3,7 @@ import Foundation
 final class DailyChallengeViewModel: ObservableObject {
     @Published var eligibleDates: [Date] = []
     @Published var puzzlesByDate: [String: Puzzle] = [:]
-    @Published var completedPuzzleIds: Set<String> = []
+    @Published var completedPuzzleDates: Set<String> = []
     @Published var selectedDate: Date = Date()
     @Published var loadError: String? = nil
 
@@ -43,7 +43,7 @@ final class DailyChallengeViewModel: ObservableObject {
             let fallbackPuzzle = bundledPuzzles.first
 
             var loaded: [String: Puzzle] = [:]
-            var completedIds: Set<String> = []
+            var completedDates: Set<String> = []
 
             for date in eligible {
                 let dateString = PuzzleDateFormatter.string(from: date)
@@ -57,14 +57,14 @@ final class DailyChallengeViewModel: ObservableObject {
                 }
                 if let puzzle = try puzzleStore.loadPuzzle(dateString: dateString) {
                     loaded[dateString] = puzzle
-                    if let progress = try progressStore.loadProgress(puzzleId: puzzle.id), progress.isComplete {
-                        completedIds.insert(puzzle.id)
+                    if let progress = try progressStore.loadProgress(puzzleId: progressKey(for: puzzle)), progress.isComplete {
+                        completedDates.insert(dateString)
                     }
                 }
             }
 
             puzzlesByDate = loaded
-            completedPuzzleIds = completedIds
+            completedPuzzleDates = completedDates
             loadError = nil
         } catch {
             loadError = (error as? LocalizedError)?.errorDescription ?? "Failed to load puzzles"
@@ -79,7 +79,11 @@ final class DailyChallengeViewModel: ObservableObject {
         guard let puzzle = puzzle(for: date) else {
             return false
         }
-        return completedPuzzleIds.contains(puzzle.id)
+        return completedPuzzleDates.contains(PuzzleDateFormatter.string(from: date))
+    }
+
+    private func progressKey(for puzzle: Puzzle) -> String {
+        "\(puzzle.id)_\(puzzle.date)"
     }
 }
 
