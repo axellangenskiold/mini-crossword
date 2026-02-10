@@ -136,16 +136,6 @@ struct PuzzleView: View {
 
     private var headerControls: some View {
         HStack {
-            Button(action: { showInfo = true }) {
-                Image(systemName: "info.circle")
-                    .font(.headline)
-                    .padding(8)
-                    .background(Theme.card)
-                    .clipShape(Circle())
-                    .overlay(Circle().stroke(Theme.ink.opacity(0.15), lineWidth: 1))
-            }
-            .buttonStyle(.plain)
-
             Spacer()
             Button("Hint") {
                 applyHint()
@@ -169,6 +159,16 @@ struct PuzzleView: View {
                     RoundedRectangle(cornerRadius: 10, style: .continuous)
                         .stroke(Theme.ink.opacity(0.15), lineWidth: 1)
                 )
+            }
+            .buttonStyle(.plain)
+
+            Button(action: { showInfo = true }) {
+                Image(systemName: "info.circle")
+                    .font(.headline)
+                    .padding(8)
+                    .background(Theme.card)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(Theme.ink.opacity(0.15), lineWidth: 1))
             }
             .buttonStyle(.plain)
         }
@@ -196,6 +196,9 @@ struct PuzzleView: View {
         .padding(12)
         .background(Theme.card)
         .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+        .onTapGesture {
+            toggleDirectionForCurrentCell()
+        }
     }
 
     private var keyboard: some View {
