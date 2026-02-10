@@ -257,6 +257,7 @@ struct DailyChallengeView: View {
                                         .foregroundStyle(Theme.complete)
                                 }
                             }
+                            progressBar(value: challengeProgress(for: challenge))
                         }
                         .padding(14)
                         .frame(maxWidth: .infinity, minHeight: 110, alignment: .leading)
@@ -283,6 +284,30 @@ struct DailyChallengeView: View {
                 Theme.card
             }
         }
+    }
+
+    private func challengeProgress(for challenge: ChallengeSummary) -> Double {
+        guard challenge.puzzleCount > 0 else {
+            return 0
+        }
+        let ratio = Double(challenge.completedCount) / Double(challenge.puzzleCount)
+        return min(max(ratio, 0), 1)
+    }
+
+    private func progressBar(value: Double) -> some View {
+        GeometryReader { proxy in
+            let clamped = min(max(value, 0), 1)
+            let width = clamped > 0 ? max(4, proxy.size.width * CGFloat(clamped)) : 0
+            ZStack(alignment: .leading) {
+                RoundedRectangle(cornerRadius: 6, style: .continuous)
+                    .fill(Theme.ink.opacity(0.08))
+                    .frame(height: 8)
+                RoundedRectangle(cornerRadius: 6, style: .continuous)
+                    .fill(Theme.complete)
+                    .frame(width: width, height: 8, alignment: .leading)
+            }
+        }
+        .frame(height: 8)
     }
 }
 

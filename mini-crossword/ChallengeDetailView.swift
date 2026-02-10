@@ -67,7 +67,7 @@ struct ChallengeDetailView: View {
                                     index: item.index
                                 )
                             } label: {
-                                ZStack(alignment: .topTrailing) {
+                                ZStack(alignment: .topLeading) {
                                     RoundedRectangle(cornerRadius: 12, style: .continuous)
                                         .fill(item.isComplete ? Theme.complete.opacity(0.85) : Theme.card)
                                         .overlay(
@@ -76,7 +76,9 @@ struct ChallengeDetailView: View {
                                         )
                                     Text("\(item.index + 1)")
                                         .font(Theme.bodyFont(size: 16))
+                                        .fontWeight(.bold)
                                         .foregroundStyle(Theme.ink)
+                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                                     if item.isComplete {
                                         Image(systemName: "checkmark.circle.fill")
                                             .foregroundStyle(.white)
