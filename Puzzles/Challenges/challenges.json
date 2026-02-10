@@ -23,6 +23,12 @@
       "name": "Sunrise Shuffle",
       "puzzleFile": "puzzle_2026-02-01.json",
       "puzzleCount": 25
+    },
+    {
+      "id": "blizzful_blazt",
+      "name": "Blizzful Blazt",
+      "puzzleFile": "puzzle_2026-02-01.json",
+      "puzzleCount": 25
     }
   ]
 }
