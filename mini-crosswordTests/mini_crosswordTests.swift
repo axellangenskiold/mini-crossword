@@ -120,4 +120,20 @@ struct mini_crosswordTests {
         #expect(ValidationLogic.isPuzzleComplete(width: 3, height: 3, blackCells: blackCells, filledGrid: filled))
         #expect(ValidationLogic.isPuzzleCorrect(width: 3, height: 3, blackCells: blackCells, filledGrid: filled, solutionGrid: solution))
     }
+
+    @Test func challengeProgressKeyIsStable() async throws {
+        let key = ChallengeLogic.progressKey(challengeId: "neon", index: 4)
+        #expect(key == "challenge_neon_4")
+    }
+
+    @Test func challengesSortIncompleteFirst() async throws {
+        let summaries = [
+            ChallengeSummary(id: "a", name: "Alpha", puzzleFile: "p.json", puzzleCount: 25, completedCount: 25, isComplete: true),
+            ChallengeSummary(id: "b", name: "Beta", puzzleFile: "p.json", puzzleCount: 25, completedCount: 5, isComplete: false),
+            ChallengeSummary(id: "c", name: "Gamma", puzzleFile: "p.json", puzzleCount: 25, completedCount: 25, isComplete: true)
+        ]
+        let sorted = ChallengeLogic.sortSummaries(summaries)
+        #expect(sorted.first?.id == "b")
+        #expect(sorted.last?.name == "Gamma")
+    }
 }

@@ -1,0 +1,28 @@
+{
+  "challenges": [
+    {
+      "id": "neon_nights",
+      "name": "Neon Nights",
+      "puzzleFile": "puzzle_2026-02-01.json",
+      "puzzleCount": 25
+    },
+    {
+      "id": "cosmic_sprint",
+      "name": "Cosmic Sprint",
+      "puzzleFile": "puzzle_2026-02-01.json",
+      "puzzleCount": 25
+    },
+    {
+      "id": "weekend_blitz",
+      "name": "Weekend Blitz",
+      "puzzleFile": "puzzle_2026-02-01.json",
+      "puzzleCount": 25
+    },
+    {
+      "id": "sunrise_shuffle",
+      "name": "Sunrise Shuffle",
+      "puzzleFile": "puzzle_2026-02-01.json",
+      "puzzleCount": 25
+    }
+  ]
+}

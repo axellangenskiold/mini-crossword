@@ -16,9 +16,11 @@ struct PuzzleView: View {
     @Environment(\.dismiss) private var dismiss
 
     private let progressStore: PuzzleProgressStoring
+    private let progressKeyOverride: String?
 
-    init(puzzle: Puzzle) {
+    init(puzzle: Puzzle, progressKeyOverride: String? = nil) {
         self.puzzle = puzzle
+        self.progressKeyOverride = progressKeyOverride
         self.progressStore = (try? FilePuzzleProgressStore()) ?? NoopProgressStore()
         let empty = PuzzleView.makeEmptyGrid(width: puzzle.width, height: puzzle.height)
         _filledGrid = State(initialValue: empty)
@@ -605,7 +607,7 @@ struct PuzzleView: View {
     }
 
     private var progressKey: String {
-        "\(puzzle.id)_\(puzzle.date)"
+        progressKeyOverride ?? "\(puzzle.id)_\(puzzle.date)"
     }
 
     private func keyboardRow(_ letters: String) -> some View {
