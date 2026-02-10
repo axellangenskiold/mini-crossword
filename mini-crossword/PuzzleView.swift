@@ -174,28 +174,17 @@ struct PuzzleView: View {
     }
 
     private var keyboard: some View {
-        let letters = Array("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
-        return LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 6), count: 7), spacing: 6) {
-            ForEach(letters, id: \.self) { letter in
-                Button(String(letter)) {
-                    enter(letter: String(letter))
+        VStack(spacing: 8) {
+            keyboardRow("QWERTYUIOP")
+            keyboardRow("ASDFGHJKL")
+            HStack(spacing: 6) {
+                Spacer(minLength: 8)
+                ForEach(Array("ZXCVBNM"), id: \.self) { letter in
+                    keyButton(String(letter))
                 }
-                .frame(height: 40)
-                .frame(maxWidth: .infinity)
-                .background(Theme.card)
-                .foregroundStyle(Theme.ink)
-                .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                backspaceButton
+                Spacer(minLength: 8)
             }
-            Button {
-                backspace()
-            } label: {
-                Image(systemName: "delete.left")
-            }
-            .frame(height: 40)
-            .frame(maxWidth: .infinity)
-            .background(Theme.card)
-            .foregroundStyle(Theme.ink)
-            .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
         }
         .padding(12)
         .background(Theme.ink.opacity(0.06))
@@ -235,33 +224,21 @@ struct PuzzleView: View {
         guard let state = navigationState else {
             return
         }
-        var phase = state.phase
-        var entries = entriesForPhase(phase)
-        var nextIndex = state.entryIndex + offset
-
-        if nextIndex < 0 {
-            if phase == .down {
-                phase = .across
-                entries = entriesForPhase(phase)
-                nextIndex = entries.count - 1
-            } else {
-                return
-            }
-        } else if nextIndex >= entries.count {
-            if phase == .across {
-                phase = .down
-                entries = entriesForPhase(phase)
-                nextIndex = 0
-            } else {
-                return
-            }
+        let entries = entriesForPhase(state.phase)
+        guard !entries.isEmpty else {
+            return
         }
-
+        var nextIndex = state.entryIndex + offset
+        if nextIndex < 0 {
+            nextIndex = entries.count - 1
+        } else if nextIndex >= entries.count {
+            nextIndex = 0
+        }
         guard let entry = entries[safe: nextIndex] else {
             return
         }
         let focusIndex = focusIndexForEntry(entry)
-        navigationState = NavigationState(phase: phase, entryIndex: nextIndex, cellIndex: focusIndex)
+        navigationState = NavigationState(phase: state.phase, entryIndex: nextIndex, cellIndex: focusIndex)
     }
 
     private func enter(letter: String) {
@@ -464,18 +441,33 @@ struct PuzzleView: View {
     private func selectCell(_ cell: Coordinate) {
         let acrossEntries = entriesForPhase(.across)
         let downEntries = entriesForPhase(.down)
-        if let acrossIndex = entryIndex(for: cell, entries: acrossEntries) {
-            if navigationState?.phase == .across {
-                navigationState = NavigationState(phase: .across, entryIndex: acrossIndex, cellIndex: cellIndex(for: cell, entries: acrossEntries) ?? 0)
+        if let state = navigationState,
+           let currentCell = activeCell,
+           currentCell == cell {
+            let toggledPhase: NavigationPhase = state.phase == .across ? .down : .across
+            let toggledEntries = entriesForPhase(toggledPhase)
+            if let entryIndex = entryIndex(for: cell, entries: toggledEntries),
+               let cellIndex = cellIndex(for: cell, entries: toggledEntries) {
+                navigationState = NavigationState(phase: toggledPhase, entryIndex: entryIndex, cellIndex: cellIndex)
                 return
             }
         }
-        if let downIndex = entryIndex(for: cell, entries: downEntries) {
-            navigationState = NavigationState(phase: .down, entryIndex: downIndex, cellIndex: cellIndex(for: cell, entries: downEntries) ?? 0)
+        if let state = navigationState {
+            let preferredEntries = entriesForPhase(state.phase)
+            if let entryIndex = entryIndex(for: cell, entries: preferredEntries),
+               let cellIndex = cellIndex(for: cell, entries: preferredEntries) {
+                navigationState = NavigationState(phase: state.phase, entryIndex: entryIndex, cellIndex: cellIndex)
+                return
+            }
+        }
+        if let entryIndex = entryIndex(for: cell, entries: acrossEntries),
+           let cellIndex = cellIndex(for: cell, entries: acrossEntries) {
+            navigationState = NavigationState(phase: .across, entryIndex: entryIndex, cellIndex: cellIndex)
             return
         }
-        if let acrossIndex = entryIndex(for: cell, entries: acrossEntries) {
-            navigationState = NavigationState(phase: .across, entryIndex: acrossIndex, cellIndex: cellIndex(for: cell, entries: acrossEntries) ?? 0)
+        if let entryIndex = entryIndex(for: cell, entries: downEntries),
+           let cellIndex = cellIndex(for: cell, entries: downEntries) {
+            navigationState = NavigationState(phase: .down, entryIndex: entryIndex, cellIndex: cellIndex)
         }
     }
 
@@ -505,6 +497,38 @@ struct PuzzleView: View {
             return min(lastFilled + 1, entry.cells.count - 1)
         }
         return 0
+    }
+
+    private func keyboardRow(_ letters: String) -> some View {
+        HStack(spacing: 6) {
+            ForEach(Array(letters), id: \.self) { letter in
+                keyButton(String(letter))
+            }
+        }
+    }
+
+    private func keyButton(_ letter: String) -> some View {
+        Button(letter) {
+            enter(letter: letter)
+        }
+        .frame(height: 40)
+        .frame(maxWidth: .infinity)
+        .background(Theme.card)
+        .foregroundStyle(Theme.ink)
+        .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+    }
+
+    private var backspaceButton: some View {
+        Button {
+            backspace()
+        } label: {
+            Image(systemName: "delete.left")
+        }
+        .frame(height: 40)
+        .frame(maxWidth: .infinity)
+        .background(Theme.card)
+        .foregroundStyle(Theme.ink)
+        .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
     }
 }
 
