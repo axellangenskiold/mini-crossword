@@ -76,7 +76,7 @@ final class DailyChallengeViewModel: ObservableObject {
     }
 
     func isComplete(date: Date) -> Bool {
-        guard let puzzle = puzzle(for: date) else {
+        guard let _ = puzzle(for: date) else {
             return false
         }
         return completedPuzzleDates.contains(PuzzleDateFormatter.string(from: date))
