@@ -3,8 +3,10 @@ import SwiftUI
 struct DailyChallengeView: View {
     @StateObject private var viewModel = DailyChallengeViewModel()
     @StateObject private var challengeViewModel = ChallengeListViewModel()
+    @StateObject private var accessManager = AccessManager()
     @State private var selectedPuzzle: SelectedPuzzle? = nil
     @State private var selectedChallenge: SelectedChallenge? = nil
+    @State private var paywallTarget: PaywallTarget? = nil
 
     private let columns = Array(repeating: GridItem(.flexible(), spacing: 8), count: 7)
     private let challengeColumns = Array(repeating: GridItem(.flexible(), spacing: 12), count: 2)
@@ -139,13 +141,16 @@ struct DailyChallengeView: View {
             .onAppear {
                 viewModel.load()
                 challengeViewModel.load()
+                Task {
+                    await accessManager.load()
+                }
             }
             .toolbar(.hidden, for: .navigationBar)
             .navigationDestination(item: $selectedPuzzle) { item in
                 PuzzleView(puzzle: item.puzzle)
             }
             .navigationDestination(item: $selectedChallenge) { item in
-                ChallengeDetailView(challenge: item.challenge)
+                ChallengeDetailView(challenge: item.challenge, accessManager: accessManager)
             }
             .onChange(of: selectedPuzzle) { value in
                 if value == nil {
@@ -155,6 +160,45 @@ struct DailyChallengeView: View {
             .onChange(of: selectedChallenge) { value in
                 if value == nil {
                     challengeViewModel.load()
+                }
+            }
+            .overlay {
+                if let target = paywallTarget {
+                    PaywallOverlay(
+                        title: "Unlock Puzzle",
+                        message: "Watch an ad to unlock this puzzle permanently, or go Premium to unlock all daily puzzles and challenges.",
+                        premiumPrice: accessManager.premiumPrice,
+                        isProcessing: accessManager.isProcessing,
+                        errorMessage: accessManager.lastErrorMessage,
+                        onWatchAd: {
+                            Task {
+                                let unlocked = await accessManager.unlockWithAd(puzzleKey: target.puzzleKey)
+                                if unlocked {
+                                    paywallTarget = nil
+                                    selectedPuzzle = SelectedPuzzle(puzzle: target.puzzle)
+                                }
+                            }
+                        },
+                        onGoPremium: {
+                            Task {
+                                let unlocked = await accessManager.purchasePremium()
+                                if unlocked {
+                                    paywallTarget = nil
+                                    selectedPuzzle = SelectedPuzzle(puzzle: target.puzzle)
+                                }
+                            }
+                        },
+                        onRestore: {
+                            Task {
+                                await accessManager.restorePurchases()
+                                if accessManager.isPremium {
+                                    paywallTarget = nil
+                                    selectedPuzzle = SelectedPuzzle(puzzle: target.puzzle)
+                                }
+                            }
+                        },
+                        onDismiss: { paywallTarget = nil }
+                    )
                 }
             }
         }
@@ -309,6 +353,10 @@ struct DailyChallengeView: View {
         }
         .frame(height: 8)
     }
+
+    private func progressKey(for puzzle: Puzzle) -> String {
+        "\(puzzle.id)_\(puzzle.date)"
+    }
 }
 
 private struct CalendarDay {
@@ -387,6 +435,18 @@ private extension DailyChallengeView {
         if viewModel.isComplete(date: viewModel.selectedDate) {
             return
         }
-        selectedPuzzle = SelectedPuzzle(puzzle: puzzle)
+        let key = progressKey(for: puzzle)
+        if accessManager.canAccess(puzzleKey: key) {
+            selectedPuzzle = SelectedPuzzle(puzzle: puzzle)
+        } else {
+            accessManager.clearError()
+            paywallTarget = PaywallTarget(puzzle: puzzle, puzzleKey: key)
+        }
     }
+}
+
+private struct PaywallTarget: Hashable, Identifiable {
+    let id = UUID()
+    let puzzle: Puzzle
+    let puzzleKey: String
 }

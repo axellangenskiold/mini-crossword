@@ -2,9 +2,11 @@ import SwiftUI
 
 struct ChallengeDetailView: View {
     let challenge: ChallengeDefinition
+    @ObservedObject var accessManager: AccessManager
     @StateObject private var viewModel: ChallengeDetailViewModel
     @State private var selectedPuzzle: SelectedChallengePuzzle? = nil
     @State private var showAlreadyPlayed: Bool = false
+    @State private var paywallTarget: ChallengePaywallTarget? = nil
 
     @Environment(\.dismiss) private var dismiss
 
@@ -12,10 +14,12 @@ struct ChallengeDetailView: View {
 
     init(
         challenge: ChallengeDefinition,
+        accessManager: AccessManager,
         puzzleLoader: PuzzleFileLoader = PuzzleFileLoader(),
         progressStore: PuzzleProgressStoring? = nil
     ) {
         self.challenge = challenge
+        self.accessManager = accessManager
         _viewModel = StateObject(
             wrappedValue: ChallengeDetailViewModel(
                 puzzleLoader: puzzleLoader,
@@ -66,10 +70,17 @@ struct ChallengeDetailView: View {
                                     showAlreadyPlayed = true
                                 } else if item.isLocked {
                                     return
-                                } else {
+                                } else if accessManager.canAccess(puzzleKey: item.progressKey) {
                                     selectedPuzzle = SelectedChallengePuzzle(
                                         puzzle: item.puzzle,
                                         progressKey: item.progressKey,
+                                        index: item.index
+                                    )
+                                } else {
+                                    accessManager.clearError()
+                                    paywallTarget = ChallengePaywallTarget(
+                                        puzzle: item.puzzle,
+                                        puzzleKey: item.progressKey,
                                         index: item.index
                                     )
                                 }
@@ -127,6 +138,55 @@ struct ChallengeDetailView: View {
         .overlay {
             if showAlreadyPlayed {
                 AlreadyPlayedOverlay(onDismiss: { showAlreadyPlayed = false })
+            }
+            if let target = paywallTarget {
+                PaywallOverlay(
+                    title: "Unlock Puzzle",
+                    message: "Watch an ad to unlock this puzzle permanently, or go Premium to unlock all daily puzzles and challenges.",
+                    premiumPrice: accessManager.premiumPrice,
+                    isProcessing: accessManager.isProcessing,
+                    errorMessage: accessManager.lastErrorMessage,
+                    onWatchAd: {
+                        Task {
+                            let unlocked = await accessManager.unlockWithAd(puzzleKey: target.puzzleKey)
+                                if unlocked {
+                                    paywallTarget = nil
+                                    selectedPuzzle = SelectedChallengePuzzle(
+                                        puzzle: target.puzzle,
+                                        progressKey: target.puzzleKey,
+                                        index: target.index
+                                    )
+                                }
+                            }
+                        },
+                    onGoPremium: {
+                        Task {
+                            let unlocked = await accessManager.purchasePremium()
+                            if unlocked {
+                                paywallTarget = nil
+                                selectedPuzzle = SelectedChallengePuzzle(
+                                    puzzle: target.puzzle,
+                                    progressKey: target.puzzleKey,
+                                    index: target.index
+                                )
+                            }
+                        }
+                    },
+                    onRestore: {
+                        Task {
+                            await accessManager.restorePurchases()
+                            if accessManager.isPremium {
+                                paywallTarget = nil
+                                selectedPuzzle = SelectedChallengePuzzle(
+                                    puzzle: target.puzzle,
+                                    progressKey: target.puzzleKey,
+                                    index: target.index
+                                )
+                            }
+                        }
+                    },
+                    onDismiss: { paywallTarget = nil }
+                )
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -226,6 +286,13 @@ private struct SelectedChallengePuzzle: Identifiable, Hashable {
     let id = UUID()
     let puzzle: Puzzle
     let progressKey: String
+    let index: Int
+}
+
+private struct ChallengePaywallTarget: Hashable, Identifiable {
+    let id = UUID()
+    let puzzle: Puzzle
+    let puzzleKey: String
     let index: Int
 }
 
