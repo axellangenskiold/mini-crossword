@@ -5,17 +5,17 @@ import UIKit
 import GoogleMobileAds
 
 @MainActor
-final class RewardedAdManager: NSObject, ObservableObject, GADFullScreenContentDelegate {
+final class RewardedAdManager: NSObject, ObservableObject, FullScreenContentDelegate {
     @Published private(set) var isReady: Bool = false
     @Published private(set) var lastErrorMessage: String? = nil
 
-    private var rewardedAd: GADRewardedAd?
+    private var rewardedAd: RewardedAd?
     private var rewardCompletion: ((Bool) -> Void)? = nil
     private var didEarnReward: Bool = false
 
     func load() {
         lastErrorMessage = nil
-        GADRewardedAd.load(withAdUnitID: AdMobConfiguration.rewardedAdUnitId, request: GADRequest()) { [weak self] ad, error in
+        RewardedAd.load(with: AdMobConfiguration.rewardedAdUnitId, request: Request()) { [weak self] ad, error in
             guard let self else { return }
             if let error {
                 self.lastErrorMessage = error.localizedDescription
@@ -43,7 +43,7 @@ final class RewardedAdManager: NSObject, ObservableObject, GADFullScreenContentD
         }
         rewardCompletion = onReward
         didEarnReward = false
-        rewardedAd.present(fromRootViewController: rootViewController) { [weak self] in
+        rewardedAd.present(from: rootViewController) { [weak self] in
             self?.didEarnReward = true
         }
         self.rewardedAd = nil
@@ -51,7 +51,7 @@ final class RewardedAdManager: NSObject, ObservableObject, GADFullScreenContentD
         load()
     }
 
-    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+    func adDidDismissFullScreenContent(_ ad: FullScreenPresentingAd) {
         if let rewardCompletion {
             rewardCompletion(didEarnReward)
         }
@@ -60,7 +60,7 @@ final class RewardedAdManager: NSObject, ObservableObject, GADFullScreenContentD
         load()
     }
 
-    func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+    func ad(_ ad: FullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
         lastErrorMessage = error.localizedDescription
         isReady = false
         rewardCompletion?(false)

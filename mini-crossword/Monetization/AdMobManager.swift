@@ -7,7 +7,7 @@ import GoogleMobileAds
 enum AdMobManager {
     static func start() {
         #if canImport(GoogleMobileAds)
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        MobileAds.shared.start()
         #endif
     }
 }

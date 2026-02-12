@@ -142,7 +142,7 @@ struct ChallengeDetailView: View {
             if let target = paywallTarget {
                 PaywallOverlay(
                     title: "Unlock Puzzle",
-                    message: "Watch an ad to unlock this puzzle permanently, or go Premium to unlock all daily puzzles and challenges.",
+                    message: "Watch an ad to unlock this puzzle permanently, or go Premium to unlock all challenges.",
                     premiumPrice: accessManager.premiumPrice,
                     isProcessing: accessManager.isProcessing,
                     errorMessage: accessManager.lastErrorMessage,
