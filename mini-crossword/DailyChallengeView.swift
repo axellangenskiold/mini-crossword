@@ -148,13 +148,13 @@ struct DailyChallengeView: View {
             .navigationDestination(item: $selectedChallenge) { item in
                 ChallengeDetailView(challenge: item.challenge, accessManager: accessManager)
             }
-            .onChange(of: selectedPuzzle) { value in
-                if value == nil {
+            .onChange(of: selectedPuzzle) {
+                if selectedPuzzle == nil {
                     viewModel.load()
                 }
             }
-            .onChange(of: selectedChallenge) { value in
-                if value == nil {
+            .onChange(of: selectedChallenge) {
+                if selectedChallenge == nil {
                     challengeViewModel.load()
                 }
             }
