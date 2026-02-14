@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   LastUpgradeVersion = "1610"
+   version = "1.7">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1A29BB862F362CED001508A3"
+               BuildableName = "mini-crossword.app"
+               BlueprintName = "mini-crossword"
+               ReferencedContainer = "container:mini-crossword.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      shouldUseLaunchSchemeArgsEnv = "YES">
+      <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1A29BB952F362CEF001508A3"
+               BuildableName = "mini-crosswordTests.xctest"
+               BlueprintName = "mini-crosswordTests"
+               ReferencedContainer = "container:mini-crossword.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1A29BB9F2F362CEF001508A3"
+               BuildableName = "mini-crosswordUITests.xctest"
+               BlueprintName = "mini-crosswordUITests"
+               ReferencedContainer = "container:mini-crossword.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "1A29BB862F362CED001508A3"
+            BuildableName = "mini-crossword.app"
+            BlueprintName = "mini-crossword"
+            ReferencedContainer = "container:mini-crossword.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+   </TestAction>
+   <LaunchAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      launchStyle = "0"
+      useCustomWorkingDirectory = "NO"
+      ignoresPersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      debugServiceExtension = "internal"
+      allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "1A29BB862F362CED001508A3"
+            BuildableName = "mini-crossword.app"
+            BlueprintName = "mini-crossword"
+            ReferencedContainer = "container:mini-crossword.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+      <StoreKitConfigurationFileReference
+         identifier = "StoreKitConfig.storekit">
+      </StoreKitConfigurationFileReference>
+   </LaunchAction>
+   <ProfileAction
+      buildConfiguration = "Release"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "1A29BB862F362CED001508A3"
+            BuildableName = "mini-crossword.app"
+            BlueprintName = "mini-crossword"
+            ReferencedContainer = "container:mini-crossword.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+      <StoreKitConfigurationFileReference
+         identifier = "StoreKitConfig.storekit">
+      </StoreKitConfigurationFileReference>
+   </ProfileAction>
+   <AnalyzeAction
+      buildConfiguration = "Debug">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Release"
+      revealArchiveInOrganizer = "YES">
+   </ArchiveAction>
+</Scheme>

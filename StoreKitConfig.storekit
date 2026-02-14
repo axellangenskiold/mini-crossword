@@ -1,0 +1,28 @@
+{
+  "identifier" : "C57E143F-A21C-4904-B75B-4623BC1FAD76",
+  "version" : 1,
+  "settings" : {
+    "storefront" : "USA",
+    "timeRate" : 1,
+    "timeRateUnit" : "days"
+  },
+  "products" : [
+    {
+      "displayName" : "Premium Monthly",
+      "productID" : "com.axellangenskiold.minicrossword.premium_monthly",
+      "type" : "auto-renewable-subscription",
+      "subscription" : {
+        "groupIdentifier" : "0782ACD4-360A-4D4B-8500-E9E852FBAEB3",
+        "groupName" : "Premium",
+        "recurringSubscriptionPeriod" : "P1M",
+        "prices" : [
+          {
+            "currencyCode" : "USD",
+            "price" : 1.99,
+            "subscriptionPeriod" : "P1M"
+          }
+        ]
+      }
+    }
+  ]
+}
