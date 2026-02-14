@@ -31,6 +31,7 @@
 		1A29BB872F362CED001508A3 /* mini-crossword.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mini-crossword.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A29BB962F362CEF001508A3 /* mini-crosswordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mini-crosswordTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A29BBA02F362CEF001508A3 /* mini-crosswordUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mini-crosswordUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A55C4822F40D0B900E28D8E /* StoreKitConfig.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKitConfig.storekit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -93,6 +94,7 @@
 		1A29BB7E2F362CED001508A3 = {
 			isa = PBXGroup;
 			children = (
+				1A55C4822F40D0B900E28D8E /* StoreKitConfig.storekit */,
 				1A29BB892F362CED001508A3 /* mini-crossword */,
 				1A29BB992F362CEF001508A3 /* mini-crosswordTests */,
 				1A29BBA32F362CEF001508A3 /* mini-crosswordUITests */,
