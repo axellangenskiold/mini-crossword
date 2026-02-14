@@ -44,6 +44,17 @@ struct PuzzleView: View {
             )
             .ignoresSafeArea()
 
+            Circle()
+                .fill(Theme.accent.opacity(0.12))
+                .frame(width: 220, height: 220)
+                .offset(x: 140, y: -240)
+
+            RoundedRectangle(cornerRadius: 60, style: .continuous)
+                .fill(Theme.accent.opacity(0.08))
+                .frame(width: 200, height: 140)
+                .rotationEffect(.degrees(14))
+                .offset(x: -150, y: 280)
+
             VStack(spacing: 16) {
                 topBar
 
@@ -109,6 +120,8 @@ struct PuzzleView: View {
         .navigationTitle("Puzzle")
         .toolbar(.hidden, for: .navigationBar)
         .font(Theme.bodyFont(size: 16))
+        .background(SwipeBackEnabler())
+        .onAppear { loadProgressIfNeeded() }
     }
 
     private var topBar: some View {
@@ -116,6 +129,7 @@ struct PuzzleView: View {
             Button(action: { dismiss() }) {
                 Image(systemName: "chevron.left")
                     .font(.headline)
+                    .foregroundStyle(Theme.ink)
                     .padding(8)
                     .background(Theme.card)
                     .clipShape(Circle())
@@ -127,6 +141,7 @@ struct PuzzleView: View {
                 Text("Crossword")
                     .font(Theme.titleFont(size: 22))
                     .fontWeight(.bold)
+                    .foregroundStyle(Theme.ink)
                 Text(puzzle.date)
                     .font(Theme.bodyFont(size: 13))
                     .foregroundStyle(Theme.muted)
@@ -150,8 +165,10 @@ struct PuzzleView: View {
                 HStack(spacing: 6) {
                     Text(difficulty.rawValue.capitalized)
                         .font(Theme.bodyFont(size: 15))
+                        .foregroundStyle(Theme.ink)
                     Image(systemName: "chevron.down")
                         .font(.caption)
+                        .foregroundStyle(Theme.ink)
                 }
                 .padding(.horizontal, 10)
                 .padding(.vertical, 6)
@@ -167,6 +184,7 @@ struct PuzzleView: View {
             Button(action: { showInfo = true }) {
                 Image(systemName: "info.circle")
                     .font(.headline)
+                    .foregroundStyle(Theme.ink)
                     .padding(8)
                     .background(Theme.card)
                     .clipShape(Circle())
@@ -186,6 +204,7 @@ struct PuzzleView: View {
 
             Text(currentClue)
                 .font(Theme.bodyFont(size: 16))
+                .foregroundStyle(Theme.ink)
                 .lineLimit(2)
                 .frame(maxWidth: .infinity, alignment: .leading)
 
@@ -282,6 +301,7 @@ struct PuzzleView: View {
                 navigationState = advanceStateSkippingLocked(from: state)
             }
         }
+        saveProgressSnapshot(isComplete: false)
         handlePuzzleCompletion()
     }
 
@@ -296,6 +316,7 @@ struct PuzzleView: View {
         if filledGrid[cell.row][cell.col] != nil {
             filledGrid[cell.row][cell.col] = nil
         }
+        saveProgressSnapshot(isComplete: false)
     }
 
     private func applyHint() {
@@ -323,6 +344,7 @@ struct PuzzleView: View {
                 handleEntryCompletion(for: targetState)
             }
             navigationState = advanceStateSkippingLocked(from: targetState)
+            saveProgressSnapshot(isComplete: false)
             handlePuzzleCompletion()
         }
     }
@@ -595,19 +617,36 @@ struct PuzzleView: View {
     }
 
     private func saveCompletionProgress() {
+        saveProgressSnapshot(isComplete: true)
+    }
+
+    private func saveProgressSnapshot(isComplete: Bool) {
         let progress = PuzzleProgress(
             puzzleId: progressKey,
             filledGrid: filledGrid,
             lockedCells: Array(lockedCells),
             hintsUsed: hintsUsed,
             difficulty: difficulty,
-            isComplete: true
+            isComplete: isComplete
         )
         try? progressStore.saveProgress(progress)
     }
 
     private var progressKey: String {
         progressKeyOverride ?? "\(puzzle.id)_\(puzzle.date)"
+    }
+
+    private func loadProgressIfNeeded() {
+        guard let progress = try? progressStore.loadProgress(puzzleId: progressKey) else {
+            return
+        }
+        if progress.filledGrid.count == puzzle.height,
+           progress.filledGrid.first?.count == puzzle.width {
+            filledGrid = progress.filledGrid
+        }
+        lockedCells = progress.lockedCellSet
+        hintsUsed = progress.hintsUsed
+        difficulty = progress.difficulty
     }
 
     private func keyboardRow(_ letters: String) -> some View {
@@ -780,6 +819,7 @@ private struct InfoOverlay: View {
                     Button(action: onDismiss) {
                         Image(systemName: "xmark")
                             .font(.headline)
+                            .foregroundStyle(Theme.ink)
                             .padding(6)
                             .background(Theme.card)
                             .clipShape(Circle())
@@ -790,6 +830,7 @@ private struct InfoOverlay: View {
                 Text("Difficulty")
                     .font(Theme.titleFont(size: 22))
                     .fontWeight(.bold)
+                    .foregroundStyle(Theme.ink)
                 Text("Easy: unlimited hints, correct entries lock green.")
                     .font(Theme.bodyFont(size: 15))
                     .foregroundStyle(Theme.muted)
@@ -828,6 +869,7 @@ private struct DifficultyOverlay: View {
                     Button(action: onDismiss) {
                         Image(systemName: "xmark")
                             .font(.headline)
+                            .foregroundStyle(Theme.ink)
                             .padding(6)
                             .background(Theme.card)
                             .clipShape(Circle())
@@ -838,6 +880,7 @@ private struct DifficultyOverlay: View {
                 Text("Choose difficulty")
                     .font(Theme.titleFont(size: 22))
                     .fontWeight(.bold)
+                    .foregroundStyle(Theme.ink)
                 ForEach(Difficulty.allCases, id: \.self) { value in
                     Button(action: { onSelect(value) }) {
                         HStack {

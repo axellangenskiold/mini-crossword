@@ -37,6 +37,17 @@ struct ChallengeDetailView: View {
             )
             .ignoresSafeArea()
 
+            Circle()
+                .fill(Theme.accent.opacity(0.14))
+                .frame(width: 240, height: 240)
+                .offset(x: -140, y: -260)
+
+            RoundedRectangle(cornerRadius: 60, style: .continuous)
+                .fill(Theme.accent.opacity(0.08))
+                .frame(width: 220, height: 150)
+                .rotationEffect(.degrees(-12))
+                .offset(x: 150, y: 260)
+
             ScrollView {
                 VStack(spacing: 20) {
                     topBar
@@ -190,6 +201,7 @@ struct ChallengeDetailView: View {
             }
         }
         .navigationBarBackButtonHidden(true)
+        .background(SwipeBackEnabler())
     }
 
     private var topBar: some View {
@@ -197,6 +209,7 @@ struct ChallengeDetailView: View {
             Button(action: { dismiss() }) {
                 Image(systemName: "chevron.left")
                     .font(.headline)
+                    .foregroundStyle(Theme.ink)
                     .padding(8)
                     .background(Theme.card)
                     .clipShape(Circle())
