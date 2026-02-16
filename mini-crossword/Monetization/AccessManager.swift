@@ -6,7 +6,9 @@ import UIKit
 final class AccessManager: ObservableObject {
     @Published private(set) var isPremium: Bool = false
     @Published private(set) var premiumPrice: String = "$2/month"
-    @Published private(set) var isProcessing: Bool = false
+    @Published private(set) var isAdProcessing: Bool = false
+    @Published private(set) var isPurchaseProcessing: Bool = false
+    @Published private(set) var isRestoreProcessing: Bool = false
     @Published private(set) var lastErrorMessage: String? = nil
 
     private let unlockStore: PuzzleUnlockStoring
@@ -15,6 +17,8 @@ final class AccessManager: ObservableObject {
     private let adManager: RewardedAdManager
     private var cancellables: Set<AnyCancellable> = []
     private var hasLoaded: Bool = false
+    private var hasPreloadedAd: Bool = false
+    private var shouldPreloadAds: Bool = false
 
     init(
         unlockStore: PuzzleUnlockStoring? = nil,
@@ -31,8 +35,16 @@ final class AccessManager: ObservableObject {
         bindPremiumUpdates()
     }
 
-    func warmUp() {
-        guard !hasLoaded else { return }
+    func warmUp(preloadAds: Bool) {
+        if preloadAds {
+            shouldPreloadAds = true
+        }
+        guard !hasLoaded else {
+            if preloadAds {
+                preloadAdIfNeeded()
+            }
+            return
+        }
         hasLoaded = true
         Task(priority: .background) { [weak self] in
             await self?.load()
@@ -48,6 +60,9 @@ final class AccessManager: ObservableObject {
         await premiumManager.refreshEntitlements()
         premiumPrice = premiumManager.displayPrice
         isPremium = premiumManager.isPremium
+        if shouldPreloadAds {
+            preloadAdIfNeeded()
+        }
     }
 
     func prepareAd() {
@@ -60,8 +75,8 @@ final class AccessManager: ObservableObject {
 
     func unlockWithAd(puzzleKey: String) async -> Bool {
         lastErrorMessage = nil
-        isProcessing = true
-        defer { isProcessing = false }
+        isAdProcessing = true
+        defer { isAdProcessing = false }
 
         let success = await withCheckedContinuation { continuation in
             adManager.show(from: rootViewController()) { rewarded in
@@ -81,8 +96,8 @@ final class AccessManager: ObservableObject {
 
     func purchasePremium() async -> Bool {
         lastErrorMessage = nil
-        isProcessing = true
-        defer { isProcessing = false }
+        isPurchaseProcessing = true
+        defer { isPurchaseProcessing = false }
 
         let success = await premiumManager.purchase()
         isPremium = premiumManager.isPremium
@@ -95,8 +110,8 @@ final class AccessManager: ObservableObject {
 
     func restorePurchases() async {
         lastErrorMessage = nil
-        isProcessing = true
-        defer { isProcessing = false }
+        isRestoreProcessing = true
+        defer { isRestoreProcessing = false }
 
         await premiumManager.restore()
         isPremium = premiumManager.isPremium
@@ -108,6 +123,13 @@ final class AccessManager: ObservableObject {
 
     func clearError() {
         lastErrorMessage = nil
+    }
+
+    private func preloadAdIfNeeded() {
+        guard !hasPreloadedAd else { return }
+        guard !isPremium else { return }
+        hasPreloadedAd = true
+        adManager.load()
     }
 
     private func rootViewController() -> UIViewController? {

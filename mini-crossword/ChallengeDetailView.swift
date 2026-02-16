@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ChallengeDetailView: View {
     let challenge: ChallengeDefinition
-    @StateObject private var accessManager = AccessManager()
+    @ObservedObject var accessManager: AccessManager
     @StateObject private var viewModel: ChallengeDetailViewModel
     @State private var selectedPuzzle: SelectedChallengePuzzle? = nil
     @State private var showAlreadyPlayed: Bool = false
@@ -14,10 +14,12 @@ struct ChallengeDetailView: View {
 
     init(
         challenge: ChallengeDefinition,
+        accessManager: AccessManager,
         puzzleLoader: PuzzleFileLoader = PuzzleFileLoader(),
         progressStore: PuzzleProgressStoring? = nil
     ) {
         self.challenge = challenge
+        self.accessManager = accessManager
         _viewModel = StateObject(
             wrappedValue: ChallengeDetailViewModel(
                 puzzleLoader: puzzleLoader,
@@ -150,7 +152,7 @@ struct ChallengeDetailView: View {
             }
         }
         .task {
-            accessManager.warmUp()
+            accessManager.warmUp(preloadAds: false)
         }
         .onAppear { viewModel.load(challenge: challenge) }
         .onChange(of: selectedPuzzle) {
@@ -175,7 +177,9 @@ struct ChallengeDetailView: View {
                     title: "Unlock Puzzle",
                     message: "Watch an ad to unlock this puzzle permanently, or go Premium to unlock all challenges.",
                     premiumPrice: accessManager.premiumPrice,
-                    isProcessing: accessManager.isProcessing,
+                    isAdProcessing: accessManager.isAdProcessing,
+                    isPremiumProcessing: accessManager.isPurchaseProcessing,
+                    isRestoreProcessing: accessManager.isRestoreProcessing,
                     errorMessage: accessManager.lastErrorMessage,
                     onWatchAd: {
                         Task {

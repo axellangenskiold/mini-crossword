@@ -4,12 +4,18 @@ struct PaywallOverlay: View {
     let title: String
     let message: String
     let premiumPrice: String
-    let isProcessing: Bool
+    let isAdProcessing: Bool
+    let isPremiumProcessing: Bool
+    let isRestoreProcessing: Bool
     let errorMessage: String?
     let onWatchAd: () -> Void
     let onGoPremium: () -> Void
     let onRestore: () -> Void
     let onDismiss: () -> Void
+
+    private var isBusy: Bool {
+        isAdProcessing || isPremiumProcessing || isRestoreProcessing
+    }
 
     var body: some View {
         ZStack {
@@ -42,7 +48,7 @@ struct PaywallOverlay: View {
 
                 VStack(spacing: 10) {
                     Button(action: onWatchAd) {
-                        Text(isProcessing ? "Loading..." : "Watch ad to unlock")
+                        Text(isAdProcessing ? "Loading..." : "Watch ad to unlock")
                             .font(Theme.bodyFont(size: 16))
                             .foregroundStyle(.white)
                             .frame(maxWidth: .infinity)
@@ -50,10 +56,10 @@ struct PaywallOverlay: View {
                             .background(Theme.accent)
                             .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
                     }
-                    .disabled(isProcessing)
+                    .disabled(isBusy)
 
                     Button(action: onGoPremium) {
-                        Text("Go Premium \(premiumPrice)")
+                        Text(isPremiumProcessing ? "Loading..." : "Go Premium \(premiumPrice)")
                             .font(Theme.bodyFont(size: 16))
                             .foregroundStyle(Theme.ink)
                             .frame(maxWidth: .infinity)
@@ -65,7 +71,7 @@ struct PaywallOverlay: View {
                                     .stroke(Theme.ink.opacity(0.15), lineWidth: 1)
                             )
                     }
-                    .disabled(isProcessing)
+                    .disabled(isBusy)
                 }
 
                 Button(action: onRestore) {
@@ -74,7 +80,7 @@ struct PaywallOverlay: View {
                         .foregroundStyle(Theme.muted)
                 }
                 .buttonStyle(.plain)
-                .disabled(isProcessing)
+                .disabled(isBusy)
 
                 if let errorMessage, !errorMessage.isEmpty {
                     Text(errorMessage)

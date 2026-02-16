@@ -3,6 +3,7 @@ import SwiftUI
 struct DailyChallengeView: View {
     @StateObject private var viewModel = DailyChallengeViewModel()
     @StateObject private var challengeViewModel = ChallengeListViewModel()
+    @StateObject private var accessManager = AccessManager()
     @State private var selectedPuzzle: SelectedPuzzle? = nil
     @State private var selectedChallenge: SelectedChallenge? = nil
 
@@ -140,12 +141,15 @@ struct DailyChallengeView: View {
                 viewModel.load()
                 challengeViewModel.load()
             }
+            .task {
+                accessManager.warmUp(preloadAds: true)
+            }
             .toolbar(.hidden, for: .navigationBar)
             .navigationDestination(item: $selectedPuzzle) { item in
                 PuzzleView(puzzle: item.puzzle)
             }
             .navigationDestination(item: $selectedChallenge) { item in
-                ChallengeDetailView(challenge: item.challenge)
+                ChallengeDetailView(challenge: item.challenge, accessManager: accessManager)
             }
             .onChange(of: selectedPuzzle) {
                 if selectedPuzzle == nil {
