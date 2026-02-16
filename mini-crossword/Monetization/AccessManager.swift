@@ -14,6 +14,7 @@ final class AccessManager: ObservableObject {
     private let premiumManager: PremiumManager
     private let adManager: RewardedAdManager
     private var cancellables: Set<AnyCancellable> = []
+    private var hasLoaded: Bool = false
 
     init(
         unlockStore: PuzzleUnlockStoring? = nil,
@@ -28,9 +29,13 @@ final class AccessManager: ObservableObject {
         self.premiumManager = premiumManager ?? PremiumManager()
         self.adManager = adManager ?? RewardedAdManager()
         bindPremiumUpdates()
+    }
 
-        Task {
-            await load()
+    func warmUp() {
+        guard !hasLoaded else { return }
+        hasLoaded = true
+        Task(priority: .background) { [weak self] in
+            await self?.load()
         }
     }
 
@@ -119,6 +124,13 @@ final class AccessManager: ObservableObject {
             .receive(on: RunLoop.main)
             .sink { [weak self] premium in
                 self?.isPremium = premium
+            }
+            .store(in: &cancellables)
+
+        premiumManager.$lastErrorMessage
+            .receive(on: RunLoop.main)
+            .sink { [weak self] message in
+                self?.lastErrorMessage = message
             }
             .store(in: &cancellables)
     }

@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ChallengeDetailView: View {
     let challenge: ChallengeDefinition
-    @ObservedObject var accessManager: AccessManager
+    @StateObject private var accessManager = AccessManager()
     @StateObject private var viewModel: ChallengeDetailViewModel
     @State private var selectedPuzzle: SelectedChallengePuzzle? = nil
     @State private var showAlreadyPlayed: Bool = false
@@ -14,12 +14,10 @@ struct ChallengeDetailView: View {
 
     init(
         challenge: ChallengeDefinition,
-        accessManager: AccessManager,
         puzzleLoader: PuzzleFileLoader = PuzzleFileLoader(),
         progressStore: PuzzleProgressStoring? = nil
     ) {
         self.challenge = challenge
-        self.accessManager = accessManager
         _viewModel = StateObject(
             wrappedValue: ChallengeDetailViewModel(
                 puzzleLoader: puzzleLoader,
@@ -136,6 +134,9 @@ struct ChallengeDetailView: View {
                 }
                 .padding(20)
             }
+        }
+        .task {
+            accessManager.warmUp()
         }
         .onAppear { viewModel.load(challenge: challenge) }
         .onChange(of: selectedPuzzle) {

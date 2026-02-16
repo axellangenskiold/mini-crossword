@@ -3,7 +3,6 @@ import SwiftUI
 struct DailyChallengeView: View {
     @StateObject private var viewModel = DailyChallengeViewModel()
     @StateObject private var challengeViewModel = ChallengeListViewModel()
-    @StateObject private var accessManager = AccessManager()
     @State private var selectedPuzzle: SelectedPuzzle? = nil
     @State private var selectedChallenge: SelectedChallenge? = nil
 
@@ -146,7 +145,7 @@ struct DailyChallengeView: View {
                 PuzzleView(puzzle: item.puzzle)
             }
             .navigationDestination(item: $selectedChallenge) { item in
-                ChallengeDetailView(challenge: item.challenge, accessManager: accessManager)
+                ChallengeDetailView(challenge: item.challenge)
             }
             .onChange(of: selectedPuzzle) {
                 if selectedPuzzle == nil {

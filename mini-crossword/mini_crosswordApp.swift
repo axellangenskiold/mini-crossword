@@ -9,10 +9,6 @@ import SwiftUI
 
 @main
 struct mini_crosswordApp: App {
-    init() {
-        AdMobManager.start()
-    }
-
     var body: some Scene {
         WindowGroup {
             ContentView()

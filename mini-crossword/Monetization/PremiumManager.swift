@@ -12,7 +12,7 @@ final class PremiumManager: ObservableObject {
 
     init(productId: String = "com.axellangenskiold.minicrossword.premium_monthly") {
         self.productId = productId
-        Task {
+        Task(priority: .background) {
             await loadProduct()
             await refreshEntitlements()
             await observeTransactions()
@@ -22,10 +22,12 @@ final class PremiumManager: ObservableObject {
     func loadProduct() async {
         do {
             let products = try await Product.products(for: [productId])
-            if let product = products.first {
-                self.product = product
-                self.displayPrice = "\(product.displayPrice)/month"
+            guard let product = products.first else {
+                lastErrorMessage = "Subscription not found. Check StoreKit config is selected in the scheme."
+                return
             }
+            self.product = product
+            self.displayPrice = "\(product.displayPrice)/month"
         } catch {
             lastErrorMessage = error.localizedDescription
         }
@@ -48,6 +50,7 @@ final class PremiumManager: ObservableObject {
     }
 
     func purchase() async -> Bool {
+        lastErrorMessage = nil
         guard let product else {
             await loadProduct()
             guard let product else { return false }

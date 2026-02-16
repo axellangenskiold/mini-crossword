@@ -15,6 +15,7 @@ final class RewardedAdManager: NSObject, ObservableObject, FullScreenContentDele
 
     func load() {
         lastErrorMessage = nil
+        AdMobManager.startIfNeeded()
         RewardedAd.load(with: AdMobConfiguration.rewardedAdUnitId, request: Request()) { [weak self] ad, error in
             guard let self else { return }
             if let error {
