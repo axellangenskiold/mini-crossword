@@ -19,7 +19,7 @@ Output completed puzzles to `Puzzles/Puzzles_FINISHED/`.
 - Vary clue types within a puzzle:
   - Straight definition (e.g., "Ocean inlet")
   - Synonym (e.g., "Swiftly")
-  - Fill-in-the-blank (e.g., "Blanket ___")
+  - Fill-in-the-blank (e.g., "Blanket \_\_\_")
   - Category hint (e.g., "U.S. state capital")
   - Abbreviation (clearly marked if needed)
 - Proper nouns:
@@ -47,5 +47,8 @@ You are generating clues for a mini crossword. Use the rules below:
 - Avoid obscure trivia.
 - Do not change answers or grid data.
 - ASCII only.
+
+Instructions can be found in AGENTS_CLUE_GEN.md
+Puzzles without clues can be found in Puzzles_NO_CLUES.
 
 Return the full updated JSON.
