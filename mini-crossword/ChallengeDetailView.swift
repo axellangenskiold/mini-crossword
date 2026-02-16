@@ -77,15 +77,29 @@ struct ChallengeDetailView: View {
                             Button {
                                 if item.isComplete {
                                     showAlreadyPlayed = true
-                                } else if item.isLocked {
                                     return
-                                } else if accessManager.canAccess(puzzleKey: item.progressKey) {
-                                    selectedPuzzle = SelectedChallengePuzzle(
-                                        puzzle: item.puzzle,
-                                        progressKey: item.progressKey,
-                                        index: item.index
-                                    )
-                                } else {
+                                }
+                                if item.isLocked {
+                                    return
+                                }
+                                Task {
+                                    if accessManager.canAccess(puzzleKey: item.progressKey) {
+                                        selectedPuzzle = SelectedChallengePuzzle(
+                                            puzzle: item.puzzle,
+                                            progressKey: item.progressKey,
+                                            index: item.index
+                                        )
+                                        return
+                                    }
+                                    await accessManager.load()
+                                    if accessManager.canAccess(puzzleKey: item.progressKey) {
+                                        selectedPuzzle = SelectedChallengePuzzle(
+                                            puzzle: item.puzzle,
+                                            progressKey: item.progressKey,
+                                            index: item.index
+                                        )
+                                        return
+                                    }
                                     accessManager.clearError()
                                     paywallTarget = ChallengePaywallTarget(
                                         puzzle: item.puzzle,
@@ -135,6 +149,9 @@ struct ChallengeDetailView: View {
                 .padding(20)
             }
         }
+        .task {
+            accessManager.warmUp()
+        }
         .onAppear { viewModel.load(challenge: challenge) }
         .onChange(of: selectedPuzzle) {
             if selectedPuzzle == nil {
@@ -143,7 +160,6 @@ struct ChallengeDetailView: View {
         }
         .onChange(of: paywallTarget) {
             if paywallTarget != nil {
-                accessManager.warmUp()
                 accessManager.prepareAd()
             }
         }
