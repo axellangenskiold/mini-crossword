@@ -37,16 +37,21 @@ final class AccessManager: ObservableObject {
         Task(priority: .background) { [weak self] in
             await self?.load()
         }
+        premiumManager.startObservingTransactions()
     }
 
     func load() async {
         unlocked = (try? unlockStore.loadUnlocks()) ?? []
         premiumPrice = premiumManager.displayPrice
         isPremium = premiumManager.isPremium
-        adManager.load()
+        await premiumManager.loadProduct()
         await premiumManager.refreshEntitlements()
         premiumPrice = premiumManager.displayPrice
         isPremium = premiumManager.isPremium
+    }
+
+    func prepareAd() {
+        adManager.load()
     }
 
     func canAccess(puzzleKey: String) -> Bool {

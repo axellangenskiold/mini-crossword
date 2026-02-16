@@ -135,13 +135,16 @@ struct ChallengeDetailView: View {
                 .padding(20)
             }
         }
-        .task {
-            accessManager.warmUp()
-        }
         .onAppear { viewModel.load(challenge: challenge) }
         .onChange(of: selectedPuzzle) {
             if selectedPuzzle == nil {
                 viewModel.load(challenge: challenge)
+            }
+        }
+        .onChange(of: paywallTarget) {
+            if paywallTarget != nil {
+                accessManager.warmUp()
+                accessManager.prepareAd()
             }
         }
         .navigationDestination(item: $selectedPuzzle) { item in

@@ -1,28 +1,79 @@
 {
-  "identifier" : "C57E143F-A21C-4904-B75B-4623BC1FAD76",
-  "version" : 1,
-  "settings" : {
-    "storefront" : "USA",
-    "timeRate" : 1,
-    "timeRateUnit" : "days"
-  },
-  "products" : [
-    {
-      "displayName" : "Premium Monthly",
-      "productID" : "com.axellangenskiold.minicrossword.premium_monthly",
-      "type" : "auto-renewable-subscription",
-      "subscription" : {
-        "groupIdentifier" : "0782ACD4-360A-4D4B-8500-E9E852FBAEB3",
-        "groupName" : "Premium",
-        "recurringSubscriptionPeriod" : "P1M",
-        "prices" : [
-          {
-            "currencyCode" : "USD",
-            "price" : 1.99,
-            "subscriptionPeriod" : "P1M"
-          }
-        ]
+  "appPolicies" : {
+    "eula" : "",
+    "policies" : [
+      {
+        "locale" : "en_US",
+        "policyText" : "",
+        "policyURL" : ""
       }
+    ]
+  },
+  "identifier" : "2E04FA34",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+
+  ],
+  "settings" : {
+    "_applicationInternalID" : "6759070726",
+    "_askToBuyEnabled" : false,
+    "_billingGracePeriodEnabled" : false,
+    "_billingIssuesEnabled" : false,
+    "_developerTeamID" : "5QWX246F7X",
+    "_disableDialogs" : false,
+    "_failTransactionsEnabled" : false,
+    "_lastSynchronizedDate" : 792951678.38802803,
+    "_locale" : "en_US",
+    "_renewalBillingIssuesEnabled" : false,
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+
+    ],
+    "_timeRate" : 0
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "21929889",
+      "localizations" : [
+
+      ],
+      "name" : "Monthly subscription",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "0.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "6759064217",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Pay monthly to access all challenges and puzzles.",
+              "displayName" : "Monthly Subscription ",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.axellangenskiold.minicrossword.premium_monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Monthly",
+          "subscriptionGroupID" : "21929889",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
+        }
+      ]
     }
-  ]
+  ],
+  "version" : {
+    "major" : 4,
+    "minor" : 0
+  }
 }

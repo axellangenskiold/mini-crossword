@@ -9,25 +9,39 @@ final class PremiumManager: ObservableObject {
 
     private let productId: String
     private var product: Product?
+    private var isObservingTransactions: Bool = false
+    private let isSimulator: Bool = {
+        #if targetEnvironment(simulator)
+        return true
+        #else
+        return false
+        #endif
+    }()
 
     init(productId: String = "com.axellangenskiold.minicrossword.premium_monthly") {
         self.productId = productId
-        Task(priority: .background) {
-            await loadProduct()
-            await refreshEntitlements()
-            await observeTransactions()
-        }
     }
 
     func loadProduct() async {
+        if let testError = StoreKitTestSessionManager.startIfNeeded(), isSimulator {
+            lastErrorMessage = testError
+            return
+        }
         do {
             let products = try await Product.products(for: [productId])
             guard let product = products.first else {
-                lastErrorMessage = "Subscription not found. Check StoreKit config is selected in the scheme."
+                if lastErrorMessage == nil {
+                    if isSimulator {
+                        lastErrorMessage = "Subscription not found. Check StoreKit config is selected in the scheme."
+                    } else {
+                        lastErrorMessage = "Subscription not found. On device, use App Store Connect sandbox or TestFlight."
+                    }
+                }
                 return
             }
             self.product = product
             self.displayPrice = "\(product.displayPrice)/month"
+            lastErrorMessage = nil
         } catch {
             lastErrorMessage = error.localizedDescription
         }
@@ -88,6 +102,14 @@ final class PremiumManager: ObservableObject {
             await refreshEntitlements()
         } catch {
             lastErrorMessage = error.localizedDescription
+        }
+    }
+
+    func startObservingTransactions() {
+        guard !isObservingTransactions else { return }
+        isObservingTransactions = true
+        Task(priority: .background) {
+            await self.observeTransactions()
         }
     }
 
