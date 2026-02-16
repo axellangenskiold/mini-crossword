@@ -48,7 +48,5 @@ You are generating clues for a mini crossword. Use the rules below:
 - Do not change answers or grid data.
 - ASCII only.
 
-Instructions can be found in AGENTS_CLUE_GEN.md
+Instructions can be found in AGENTS_CLUE_GEN.md for how to generate clues.
 Puzzles without clues can be found in Puzzles_NO_CLUES.
-
-Return the full updated JSON.
