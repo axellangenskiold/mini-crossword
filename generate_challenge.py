@@ -3,14 +3,17 @@ import argparse
 import json
 import os
 import re
+import shutil
 import sys
-from typing import Optional, Set
+from typing import List, Set
 
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-RESOURCE_PATH = os.path.join(ROOT, "mini-crossword", "Resources", "Challenges", "challenges.json")
-PUZZLE_DIR = os.path.join(ROOT, "mini-crossword", "Resources", "Puzzles")
-SECONDARY_PATH = os.path.join(ROOT, "Puzzles", "Challenges", "challenges.json")
+BANK_DIR = os.path.join(ROOT, "Puzzles", "Puzzles_FINISHED")
+CHALLENGE_ROOT = os.path.join(ROOT, "Puzzles", "Challenges")
+CHALLENGE_CATALOG_PATH = os.path.join(CHALLENGE_ROOT, "challenges.json")
+RESOURCE_CHALLENGE_ROOT = os.path.join(ROOT, "mini-crossword", "Resources", "Challenges")
+RESOURCE_CATALOG_PATH = os.path.join(RESOURCE_CHALLENGE_ROOT, "challenges.json")
 
 
 def slugify(name: str) -> str:
@@ -36,16 +39,14 @@ def write_catalog(path: str, catalog: dict) -> None:
         json.dump(catalog, handle, indent=2, ensure_ascii=True)
         handle.write("\n")
 
-
-def find_default_puzzle() -> Optional[str]:
-    if not os.path.isdir(PUZZLE_DIR):
-        return None
-    candidates = [
+def list_bank_puzzles() -> List[str]:
+    if not os.path.isdir(BANK_DIR):
+        return []
+    return sorted(
         name
-        for name in sorted(os.listdir(PUZZLE_DIR))
+        for name in os.listdir(BANK_DIR)
         if name.startswith("puzzle_") and name.endswith(".json")
-    ]
-    return candidates[0] if candidates else None
+    )
 
 
 def unique_id(base: str, existing: Set[str]) -> str:
@@ -58,19 +59,24 @@ def unique_id(base: str, existing: Set[str]) -> str:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Add a challenge to the bundled challenges catalog.")
+    parser = argparse.ArgumentParser(
+        description="Create a challenge from finished puzzles and update challenges.json."
+    )
     parser.add_argument("--name", required=True, help="Challenge display name.")
-    parser.add_argument("--puzzle", default=None, help="Puzzle file name (e.g. puzzle_2026-02-01.json).")
     parser.add_argument("--count", type=int, default=25, help="Number of puzzles in the challenge.")
     parser.add_argument("--id", default=None, help="Optional challenge id override.")
     args = parser.parse_args()
 
-    puzzle_file = args.puzzle or find_default_puzzle()
-    if not puzzle_file:
-        print("No puzzle file found. Pass --puzzle explicitly.", file=sys.stderr)
+    count = max(1, args.count)
+    bank_puzzles = list_bank_puzzles()
+    if len(bank_puzzles) < count:
+        print(
+            f"Not enough puzzles in {BANK_DIR}. Need {count}, found {len(bank_puzzles)}.",
+            file=sys.stderr
+        )
         return 1
 
-    paths = [RESOURCE_PATH, SECONDARY_PATH]
+    paths = [CHALLENGE_CATALOG_PATH, RESOURCE_CATALOG_PATH]
     catalogs = {path: load_catalog(path) for path in paths}
     existing_ids = set()
     for catalog in catalogs.values():
@@ -84,11 +90,29 @@ def main() -> int:
     else:
         challenge_id = unique_id(slugify(args.name), existing_ids)
 
-    count = max(1, args.count)
+    folder_name = slugify(args.name)
+    challenge_dir = os.path.join(CHALLENGE_ROOT, folder_name)
+    resource_dir = os.path.join(RESOURCE_CHALLENGE_ROOT, folder_name)
+    if os.path.exists(challenge_dir):
+        print(f"Challenge folder already exists: {challenge_dir}", file=sys.stderr)
+        return 1
+
+    os.makedirs(challenge_dir, exist_ok=True)
+    os.makedirs(resource_dir, exist_ok=True)
+    moved_files = []
+    for name in bank_puzzles[:count]:
+        src = os.path.join(BANK_DIR, name)
+        dst = os.path.join(challenge_dir, name)
+        shutil.move(src, dst)
+        shutil.copy2(dst, os.path.join(resource_dir, name))
+        moved_files.append(name)
+
     challenge = {
         "id": challenge_id,
         "name": args.name,
-        "puzzleFile": puzzle_file,
+        "puzzleFile": moved_files[0],
+        "puzzleFiles": moved_files,
+        "puzzleFolder": folder_name,
         "puzzleCount": count
     }
 
