@@ -36,6 +36,8 @@ final class ChallengeListViewModel: ObservableObject {
                         name: definition.name,
                         puzzleFile: definition.puzzleFile,
                         puzzleCount: definition.puzzleCount,
+                        puzzleFolder: definition.puzzleFolder,
+                        puzzleFiles: definition.puzzleFiles,
                         completedCount: completedCount,
                         isComplete: isComplete
                     )

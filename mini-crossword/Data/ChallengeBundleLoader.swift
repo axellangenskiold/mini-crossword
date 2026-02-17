@@ -24,8 +24,7 @@ struct ChallengeBundleLoader {
     func loadChallenges() throws -> [ChallengeDefinition] {
         let candidates = [
             bundle.url(forResource: "challenges", withExtension: "json", subdirectory: "Challenges"),
-            bundle.url(forResource: "challenges", withExtension: "json", subdirectory: "Resources/Challenges"),
-            bundle.url(forResource: "challenges", withExtension: "json", subdirectory: nil)
+            bundle.url(forResource: "challenges", withExtension: "json", subdirectory: "Resources/Challenges")
         ]
 
         guard let url = candidates.compactMap({ $0 }).first else {

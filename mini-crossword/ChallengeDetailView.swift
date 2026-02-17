@@ -269,11 +269,24 @@ private final class ChallengeDetailViewModel: ObservableObject {
 
     func load(challenge: ChallengeDefinition) {
         do {
-            let puzzle: Puzzle
-            do {
-                puzzle = try puzzleLoader.loadPuzzle(named: challenge.puzzleFile)
-            } catch {
-                puzzle = try puzzleLoader.loadFallbackPuzzle()
+            let puzzleFiles = challenge.puzzleFiles ?? [challenge.puzzleFile]
+            let puzzleFolder = challenge.puzzleFolder
+            var puzzleCache: [String: Puzzle] = [:]
+            let fallbackPuzzle = try? puzzleLoader.loadFallbackPuzzle()
+
+            func loadPuzzle(named fileName: String) throws -> Puzzle {
+                if let cached = puzzleCache[fileName] {
+                    return cached
+                }
+                let puzzle: Puzzle
+                if let folder = puzzleFolder, !folder.isEmpty {
+                    let subdirectory = "Challenges/\(folder)"
+                    puzzle = try puzzleLoader.loadPuzzle(named: fileName, subdirectory: subdirectory)
+                } else {
+                    puzzle = try puzzleLoader.loadPuzzle(named: fileName)
+                }
+                puzzleCache[fileName] = puzzle
+                return puzzle
             }
 
             var items: [ChallengePuzzleItem] = []
@@ -289,6 +302,19 @@ private final class ChallengeDetailViewModel: ObservableObject {
                 if !isComplete {
                     allPreviousComplete = false
                 }
+
+                let fileName = index < puzzleFiles.count ? puzzleFiles[index] : (puzzleFiles.last ?? challenge.puzzleFile)
+                let puzzle: Puzzle
+                do {
+                    puzzle = try loadPuzzle(named: fileName)
+                } catch {
+                    if let fallbackPuzzle {
+                        puzzle = fallbackPuzzle
+                    } else {
+                        throw error
+                    }
+                }
+
                 items.append(
                     ChallengePuzzleItem(
                         id: key,

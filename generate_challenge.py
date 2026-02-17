@@ -11,7 +11,6 @@ from typing import List, Set
 ROOT = os.path.dirname(os.path.abspath(__file__))
 BANK_DIR = os.path.join(ROOT, "Puzzles", "Puzzles_FINISHED")
 CHALLENGE_ROOT = os.path.join(ROOT, "Puzzles", "Challenges")
-CHALLENGE_CATALOG_PATH = os.path.join(CHALLENGE_ROOT, "challenges.json")
 RESOURCE_CHALLENGE_ROOT = os.path.join(ROOT, "mini-crossword", "Resources", "Challenges")
 RESOURCE_CATALOG_PATH = os.path.join(RESOURCE_CHALLENGE_ROOT, "challenges.json")
 
@@ -76,11 +75,9 @@ def main() -> int:
         )
         return 1
 
-    paths = [CHALLENGE_CATALOG_PATH, RESOURCE_CATALOG_PATH]
-    catalogs = {path: load_catalog(path) for path in paths}
+    catalog = load_catalog(RESOURCE_CATALOG_PATH)
     existing_ids = set()
-    for catalog in catalogs.values():
-        existing_ids.update(item.get("id") for item in catalog.get("challenges", []) if isinstance(item, dict))
+    existing_ids.update(item.get("id") for item in catalog.get("challenges", []) if isinstance(item, dict))
 
     if args.id:
         if args.id in existing_ids:
@@ -116,9 +113,8 @@ def main() -> int:
         "puzzleCount": count
     }
 
-    for path, catalog in catalogs.items():
-        catalog.setdefault("challenges", []).append(challenge)
-        write_catalog(path, catalog)
+    catalog.setdefault("challenges", []).append(challenge)
+    write_catalog(RESOURCE_CATALOG_PATH, catalog)
 
     print(f"Added challenge '{args.name}' ({challenge_id}) with {count} puzzles.")
     return 0

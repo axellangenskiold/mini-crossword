@@ -22,24 +22,33 @@ struct PuzzleFileLoader {
     }
 
     func loadPuzzle(named fileName: String) throws -> Puzzle {
+        try loadPuzzle(named: fileName, subdirectory: nil)
+    }
+
+    func loadPuzzle(named fileName: String, subdirectory: String?) throws -> Puzzle {
         let trimmed = fileName.replacingOccurrences(of: ".json", with: "")
-        let candidates = [
-            bundle.url(forResource: trimmed, withExtension: "json", subdirectory: "Puzzles"),
-            bundle.url(forResource: trimmed, withExtension: "json", subdirectory: "Resources/Puzzles"),
-            bundle.url(forResource: trimmed, withExtension: "json", subdirectory: nil)
-        ]
+        var candidates: [URL?] = []
+        if let subdirectory, !subdirectory.isEmpty {
+            candidates.append(bundle.url(forResource: trimmed, withExtension: "json", subdirectory: subdirectory))
+            candidates.append(bundle.url(forResource: trimmed, withExtension: "json", subdirectory: "Resources/\(subdirectory)"))
+        }
+        candidates.append(bundle.url(forResource: trimmed, withExtension: "json", subdirectory: "Puzzles"))
+        candidates.append(bundle.url(forResource: trimmed, withExtension: "json", subdirectory: "Resources/Puzzles"))
+        candidates.append(bundle.url(forResource: trimmed, withExtension: "json", subdirectory: nil))
 
         let urls = candidates.compactMap { $0 }
         if let url = urls.first {
             return try decodePuzzle(from: url)
         }
 
-        let scanCandidates = [
-            bundle.urls(forResourcesWithExtension: "json", subdirectory: "Puzzles") ?? [],
-            bundle.urls(forResourcesWithExtension: "json", subdirectory: "Resources/Puzzles") ?? [],
-            bundle.urls(forResourcesWithExtension: "json", subdirectory: nil) ?? []
-        ]
-        .flatMap { $0 }
+        var scanCandidates: [URL] = []
+        if let subdirectory, !subdirectory.isEmpty {
+            scanCandidates.append(contentsOf: bundle.urls(forResourcesWithExtension: "json", subdirectory: subdirectory) ?? [])
+            scanCandidates.append(contentsOf: bundle.urls(forResourcesWithExtension: "json", subdirectory: "Resources/\(subdirectory)") ?? [])
+        }
+        scanCandidates.append(contentsOf: bundle.urls(forResourcesWithExtension: "json", subdirectory: "Puzzles") ?? [])
+        scanCandidates.append(contentsOf: bundle.urls(forResourcesWithExtension: "json", subdirectory: "Resources/Puzzles") ?? [])
+        scanCandidates.append(contentsOf: bundle.urls(forResourcesWithExtension: "json", subdirectory: nil) ?? [])
 
         if let url = scanCandidates.first(where: { $0.lastPathComponent == fileName }) {
             return try decodePuzzle(from: url)

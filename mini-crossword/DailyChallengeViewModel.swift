@@ -39,7 +39,16 @@ final class DailyChallengeViewModel: ObservableObject {
 
         do {
             let bundledPuzzles = try bundleLoader.loadPuzzles()
-            let bundleByDate = Dictionary(uniqueKeysWithValues: bundledPuzzles.map { ($0.date, $0) })
+            var bundleByDate: [String: Puzzle] = [:]
+            for puzzle in bundledPuzzles {
+                let dateKey = puzzle.date
+                if dateKey.isEmpty {
+                    continue
+                }
+                if bundleByDate[dateKey] == nil {
+                    bundleByDate[dateKey] = puzzle
+                }
+            }
             let fallbackPuzzle = bundledPuzzles.first
 
             var loaded: [String: Puzzle] = [:]

@@ -24,8 +24,7 @@ struct PuzzleBundleLoader {
     func loadPuzzles() throws -> [Puzzle] {
         let candidates = [
             bundle.urls(forResourcesWithExtension: "json", subdirectory: "Puzzles") ?? [],
-            bundle.urls(forResourcesWithExtension: "json", subdirectory: "Resources/Puzzles") ?? [],
-            bundle.urls(forResourcesWithExtension: "json", subdirectory: nil) ?? []
+            bundle.urls(forResourcesWithExtension: "json", subdirectory: "Resources/Puzzles") ?? []
         ]
         .flatMap { $0 }
         .filter { $0.lastPathComponent.hasPrefix("puzzle_") }

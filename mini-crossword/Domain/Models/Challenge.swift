@@ -9,6 +9,8 @@ struct ChallengeDefinition: Codable, Identifiable, Hashable {
     let name: String
     let puzzleFile: String
     let puzzleCount: Int
+    let puzzleFolder: String?
+    let puzzleFiles: [String]?
 }
 
 struct ChallengeSummary: Identifiable, Hashable {
@@ -16,6 +18,8 @@ struct ChallengeSummary: Identifiable, Hashable {
     let name: String
     let puzzleFile: String
     let puzzleCount: Int
+    let puzzleFolder: String?
+    let puzzleFiles: [String]?
     let completedCount: Int
     let isComplete: Bool
 }

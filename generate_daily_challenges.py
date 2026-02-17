@@ -49,8 +49,8 @@ def main() -> int:
     parser.add_argument(
         "--start-date",
         type=parse_date,
-        default=dt.date.today(),
-        help="Start date (YYYY-MM-DD). Defaults to today.",
+        default=dt.date.today().replace(day=1),
+        help="Start date (YYYY-MM-DD). Defaults to first of current month.",
     )
     args = parser.parse_args()
 

@@ -242,7 +242,9 @@ struct DailyChallengeView: View {
                             id: challenge.id,
                             name: challenge.name,
                             puzzleFile: challenge.puzzleFile,
-                            puzzleCount: challenge.puzzleCount
+                            puzzleCount: challenge.puzzleCount,
+                            puzzleFolder: challenge.puzzleFolder,
+                            puzzleFiles: challenge.puzzleFiles
                         ))
                     } label: {
                         VStack(alignment: .leading, spacing: 10) {
