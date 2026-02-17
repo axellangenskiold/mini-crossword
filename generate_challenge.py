@@ -10,7 +10,6 @@ from typing import List, Set
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 BANK_DIR = os.path.join(ROOT, "Puzzles", "Puzzles_FINISHED")
-CHALLENGE_ROOT = os.path.join(ROOT, "Puzzles", "Challenges")
 RESOURCE_CHALLENGE_ROOT = os.path.join(ROOT, "mini-crossword", "Resources", "Challenges")
 RESOURCE_CATALOG_PATH = os.path.join(RESOURCE_CHALLENGE_ROOT, "challenges.json")
 
@@ -88,20 +87,17 @@ def main() -> int:
         challenge_id = unique_id(slugify(args.name), existing_ids)
 
     folder_name = slugify(args.name)
-    challenge_dir = os.path.join(CHALLENGE_ROOT, folder_name)
     resource_dir = os.path.join(RESOURCE_CHALLENGE_ROOT, folder_name)
-    if os.path.exists(challenge_dir):
-        print(f"Challenge folder already exists: {challenge_dir}", file=sys.stderr)
+    if os.path.exists(resource_dir):
+        print(f"Challenge folder already exists: {resource_dir}", file=sys.stderr)
         return 1
 
-    os.makedirs(challenge_dir, exist_ok=True)
     os.makedirs(resource_dir, exist_ok=True)
     moved_files = []
     for name in bank_puzzles[:count]:
         src = os.path.join(BANK_DIR, name)
-        dst = os.path.join(challenge_dir, name)
+        dst = os.path.join(resource_dir, name)
         shutil.move(src, dst)
-        shutil.copy2(dst, os.path.join(resource_dir, name))
         moved_files.append(name)
 
     challenge = {
