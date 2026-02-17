@@ -1,0 +1,316 @@
+{
+  "gridPreview": [
+    "--PIE",
+    "UTICA",
+    "MANOR",
+    "AGENT",
+    "-SSSH"
+  ],
+  "id": "mcw_v1_070ec3c5e6a80c69",
+  "date": "",
+  "width": 5,
+  "height": 5,
+  "blackCells": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      4,
+      0
+    ]
+  ],
+  "gridSolution": [
+    [
+      null,
+      null,
+      "P",
+      "I",
+      "E"
+    ],
+    [
+      "U",
+      "T",
+      "I",
+      "C",
+      "A"
+    ],
+    [
+      "M",
+      "A",
+      "N",
+      "O",
+      "R"
+    ],
+    [
+      "A",
+      "G",
+      "E",
+      "N",
+      "T"
+    ],
+    [
+      null,
+      "S",
+      "S",
+      "S",
+      "H"
+    ]
+  ],
+  "entries": {
+    "across": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ]
+        ],
+        "answer": "PIE",
+        "clue": "Baked, filled pastry"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "answer": "UTICA",
+        "clue": "Borough in Pennsylvania."
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "answer": "MANOR",
+        "clue": "One's neighbourhood."
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "answer": "AGENT",
+        "clue": "Active power or cause or substance"
+      },
+      {
+        "number": 8,
+        "cells": [
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "SSSH",
+        "clue": "Quieting sound"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "answer": "PINES",
+        "clue": "Ellipsis of"
+      },
+      {
+        "number": 2,
+        "cells": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "answer": "ICONS",
+        "clue": "Third studio album by None More Black, released on Fat"
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "EARTH",
+        "clue": "World of our current life ."
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "answer": "UMA",
+        "clue": "Airport code for Maisi, CU"
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "answer": "TAGS",
+        "clue": "Sheep in its first year."
+      }
+    ]
+  }
+}

@@ -1,0 +1,98 @@
+[
+  {
+    "file": "puzzle_000001.json",
+    "direction": "across",
+    "number": 7,
+    "answer": "ALAT",
+    "clue": "Liver enzyme measured in blood tests",
+    "reason": "pattern_based_fragment_clue"
+  },
+  {
+    "file": "puzzle_000011.json",
+    "direction": "down",
+    "number": 6,
+    "answer": "LLER",
+    "clue": "One who makes phone contact, without CA",
+    "reason": "pattern_based_fragment_clue"
+  },
+  {
+    "file": "puzzle_000012.json",
+    "direction": "across",
+    "number": 7,
+    "answer": "AVENUE",
+    "clue": "City street, often tree-lined",
+    "reason": "pattern_based_fragment_clue"
+  },
+  {
+    "file": "puzzle_000019.json",
+    "direction": "across",
+    "number": 4,
+    "answer": "LLER",
+    "clue": "One who makes phone contact, without CA",
+    "reason": "pattern_based_fragment_clue"
+  },
+  {
+    "file": "puzzle_000027.json",
+    "direction": "down",
+    "number": 3,
+    "answer": "MATIT",
+    "clue": "TATIM anagram",
+    "reason": "pattern_based_fragment_clue"
+  },
+  {
+    "file": "puzzle_000033.json",
+    "direction": "down",
+    "number": 3,
+    "answer": "NTGEN",
+    "clue": "X-ray, in Swedish, minus first 2 letters",
+    "reason": "pattern_based_fragment_clue"
+  },
+  {
+    "file": "puzzle_000035.json",
+    "direction": "across",
+    "number": 4,
+    "answer": "MOLN",
+    "clue": "Swedish cloud",
+    "reason": "pattern_based_fragment_clue"
+  },
+  {
+    "file": "puzzle_000042.json",
+    "direction": "down",
+    "number": 2,
+    "answer": "HERET",
+    "clue": "One who defies religious doctrine, minus \"IC\"",
+    "reason": "pattern_based_fragment_clue"
+  },
+  {
+    "file": "puzzle_000052.json",
+    "direction": "down",
+    "number": 1,
+    "answer": "ORGER",
+    "clue": "Roger anagram",
+    "reason": "pattern_based_fragment_clue"
+  },
+  {
+    "file": "puzzle_000065.json",
+    "direction": "across",
+    "number": 7,
+    "answer": "ATENI",
+    "clue": "\"Addressed to\", in japanese",
+    "reason": "pattern_based_fragment_clue"
+  },
+  {
+    "file": "puzzle_000074.json",
+    "direction": "across",
+    "number": 7,
+    "answer": "RICAN",
+    "clue": "Suffix in Puerto ___",
+    "reason": "pattern_based_fragment_clue"
+  },
+  {
+    "file": "puzzle_000094.json",
+    "direction": "down",
+    "number": 1,
+    "answer": "ORGER",
+    "clue": "Roger anagram",
+    "reason": "pattern_based_fragment_clue"
+  }
+]

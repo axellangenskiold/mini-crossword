@@ -1,0 +1,312 @@
+{
+  "gridPreview": [
+    "AVL--",
+    "LOOK-",
+    "LION-",
+    "ACKER",
+    "HESET"
+  ],
+  "id": "mcw_v1_53c1a50319f2ac20",
+  "date": "",
+  "width": 5,
+  "height": 5,
+  "blackCells": [
+    [
+      0,
+      3
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      2,
+      4
+    ]
+  ],
+  "gridSolution": [
+    [
+      "A",
+      "V",
+      "L",
+      null,
+      null
+    ],
+    [
+      "L",
+      "O",
+      "O",
+      "K",
+      null
+    ],
+    [
+      "L",
+      "I",
+      "O",
+      "N",
+      null
+    ],
+    [
+      "A",
+      "C",
+      "K",
+      "E",
+      "R"
+    ],
+    [
+      "H",
+      "E",
+      "S",
+      "E",
+      "T"
+    ]
+  ],
+  "entries": {
+    "across": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "answer": "AVL",
+        "clue": "Airport code for Asheville, US"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "answer": "LOOK",
+        "clue": "Give an appearance of being."
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "answer": "LION",
+        "clue": "Species of big cat"
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "answer": "ACKER",
+        "clue": "Visible current in a lake or river"
+      },
+      {
+        "number": 9,
+        "cells": [
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "HESET",
+        "clue": "Egyptian cow goddess, variant of Hesat"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "answer": "ALLAH",
+        "clue": "Islamic conception of God"
+      },
+      {
+        "number": 2,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "answer": "VOICE",
+        "clue": "One who speaks; a speaker."
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "answer": "LOOKS",
+        "clue": "One's appearance or attractiveness."
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "answer": "KNEE",
+        "clue": "In birds"
+      },
+      {
+        "number": 8,
+        "cells": [
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "RT",
+        "clue": "Initialism of right twist."
+      }
+    ]
+  }
+}

@@ -1,0 +1,420 @@
+{
+  "gridPreview": [
+    "SOPDET-",
+    "AWARDED",
+    "INSIDER",
+    "DECLINE",
+    "-ROLES-"
+  ],
+  "id": "mcw_v1_f2c0b0cf83f3d16e",
+  "date": "",
+  "width": 7,
+  "height": 5,
+  "blackCells": [
+    [
+      0,
+      6
+    ],
+    [
+      4,
+      0
+    ],
+    [
+      4,
+      6
+    ]
+  ],
+  "gridSolution": [
+    [
+      "S",
+      "O",
+      "P",
+      "D",
+      "E",
+      "T",
+      null
+    ],
+    [
+      "A",
+      "W",
+      "A",
+      "R",
+      "D",
+      "E",
+      "D"
+    ],
+    [
+      "I",
+      "N",
+      "S",
+      "I",
+      "D",
+      "E",
+      "R"
+    ],
+    [
+      "D",
+      "E",
+      "C",
+      "L",
+      "I",
+      "N",
+      "E"
+    ],
+    [
+      null,
+      "R",
+      "O",
+      "L",
+      "E",
+      "S",
+      null
+    ]
+  ],
+  "entries": {
+    "across": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            5
+          ]
+        ],
+        "answer": "SOPDET",
+        "clue": "Egyptian goddess linked with Sirius"
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            1,
+            6
+          ]
+        ],
+        "answer": "AWARDED",
+        "clue": "Give an award."
+      },
+      {
+        "number": 9,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            2,
+            6
+          ]
+        ],
+        "answer": "INSIDER",
+        "clue": "Person who is within an enclosed space."
+      },
+      {
+        "number": 10,
+        "cells": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            6
+          ]
+        ],
+        "answer": "DECLINE",
+        "clue": "Downward movement, fall."
+      },
+      {
+        "number": 11,
+        "cells": [
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "answer": "ROLES",
+        "clue": "Expected social behavioural norms"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "answer": "SAID",
+        "clue": "Surname from Arabic."
+      },
+      {
+        "number": 2,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "answer": "OWNER",
+        "clue": "One who owns something."
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "answer": "PASCO",
+        "clue": "City, the county seat of Franklin County, Washington,"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "answer": "DRILL",
+        "clue": "Row of seed sown in a furrow."
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "EDDIE",
+        "clue": "Member of the Loyal Edmonton Regiment."
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            0,
+            5
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "answer": "TEENS",
+        "clue": "Second decade of a century"
+      },
+      {
+        "number": 8,
+        "cells": [
+          [
+            1,
+            6
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            3,
+            6
+          ]
+        ],
+        "answer": "DRE",
+        "clue": "Airport code for Drummond Island, US"
+      }
+    ]
+  }
+}

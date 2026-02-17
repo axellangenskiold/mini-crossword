@@ -1,0 +1,312 @@
+{
+  "gridPreview": [
+    "--ES-",
+    "GYATT",
+    "ROGER",
+    "BRAVE",
+    "-KNEE"
+  ],
+  "id": "mcw_v1_16d2f32c602df064",
+  "date": "",
+  "width": 5,
+  "height": 5,
+  "blackCells": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      4,
+      0
+    ]
+  ],
+  "gridSolution": [
+    [
+      null,
+      null,
+      "E",
+      "S",
+      null
+    ],
+    [
+      "G",
+      "Y",
+      "A",
+      "T",
+      "T"
+    ],
+    [
+      "R",
+      "O",
+      "G",
+      "E",
+      "R"
+    ],
+    [
+      "B",
+      "R",
+      "A",
+      "V",
+      "E"
+    ],
+    [
+      null,
+      "K",
+      "N",
+      "E",
+      "E"
+    ]
+  ],
+  "entries": {
+    "across": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        "answer": "ES",
+        "clue": "Initialism of ECMAScript"
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "answer": "GYATT",
+        "clue": "Goddamn ! Wow !"
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "answer": "ROGER",
+        "clue": "Act of sexual intercourse."
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "answer": "BRAVE",
+        "clue": "Native American warrior."
+      },
+      {
+        "number": 8,
+        "cells": [
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "KNEE",
+        "clue": "In birds"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "answer": "EAGAN",
+        "clue": "City in Dakota County, Minnesota, United States."
+      },
+      {
+        "number": 2,
+        "cells": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "answer": "STEVE",
+        "clue": "Atmospheric optical phenomenon, which appears as a light"
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "answer": "GRB",
+        "clue": "Airport code for Green Bay, US"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "answer": "YORK",
+        "clue": "Place in the United Kingdom"
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "TREE",
+        "clue": "Structural frame of a saddle."
+      }
+    ]
+  }
+}

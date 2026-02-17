@@ -1,0 +1,312 @@
+{
+  "gridPreview": [
+    "-EAR-",
+    "ADLER",
+    "LEONA",
+    "INNER",
+    "--GEE"
+  ],
+  "id": "mcw_v1_45c37ca5e60d9f47",
+  "date": "",
+  "width": 5,
+  "height": 5,
+  "blackCells": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      4,
+      0
+    ],
+    [
+      4,
+      1
+    ]
+  ],
+  "gridSolution": [
+    [
+      null,
+      "E",
+      "A",
+      "R",
+      null
+    ],
+    [
+      "A",
+      "D",
+      "L",
+      "E",
+      "R"
+    ],
+    [
+      "L",
+      "E",
+      "O",
+      "N",
+      "A"
+    ],
+    [
+      "I",
+      "N",
+      "N",
+      "E",
+      "R"
+    ],
+    [
+      null,
+      null,
+      "G",
+      "E",
+      "E"
+    ]
+  ],
+  "entries": {
+    "across": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        "answer": "EAR",
+        "clue": "Fruiting body of a grain plant."
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "answer": "ADLER",
+        "clue": "American psychologist"
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "answer": "LEONA",
+        "clue": "Name list"
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "answer": "INNER",
+        "clue": "Duvet, excluding the cover."
+      },
+      {
+        "number": 8,
+        "cells": [
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "GEE",
+        "clue": "Airport code for George Town, AU"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "answer": "EDEN",
+        "clue": "Town in Erie County, New York."
+      },
+      {
+        "number": 2,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "answer": "ALONG",
+        "clue": "By the length of"
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "answer": "RENEE",
+        "clue": "Interviewed for the American Indian relocation project"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "answer": "ALI",
+        "clue": "French rapper"
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "RARE",
+        "clue": "Scarce or uncommon item."
+      }
+    ]
+  }
+}

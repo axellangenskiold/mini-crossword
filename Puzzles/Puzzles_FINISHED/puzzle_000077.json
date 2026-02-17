@@ -1,0 +1,312 @@
+{
+  "gridPreview": [
+    "-CORE",
+    "-ATEN",
+    "-CHAD",
+    "NEEDS",
+    "VERY-"
+  ],
+  "id": "mcw_v1_fc63177902789d5e",
+  "date": "",
+  "width": 5,
+  "height": 5,
+  "blackCells": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      4,
+      4
+    ]
+  ],
+  "gridSolution": [
+    [
+      null,
+      "C",
+      "O",
+      "R",
+      "E"
+    ],
+    [
+      null,
+      "A",
+      "T",
+      "E",
+      "N"
+    ],
+    [
+      null,
+      "C",
+      "H",
+      "A",
+      "D"
+    ],
+    [
+      "N",
+      "E",
+      "E",
+      "D",
+      "S"
+    ],
+    [
+      "V",
+      "E",
+      "R",
+      "Y",
+      null
+    ]
+  ],
+  "entries": {
+    "across": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ]
+        ],
+        "answer": "CORE",
+        "clue": "Alternative form of cor"
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "answer": "ATEN",
+        "clue": "Ancient Egyptian god"
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "answer": "CHAD",
+        "clue": "One of these pieces of paper."
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "answer": "NEEDS",
+        "clue": "Be obliged or required ."
+      },
+      {
+        "number": 8,
+        "cells": [
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "answer": "VERY",
+        "clue": "With limiting effect: mere."
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "answer": "CACEE",
+        "clue": "TV personality ___ Cobb"
+      },
+      {
+        "number": 2,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "answer": "OTHER",
+        "clue": "Left, as opposed to right."
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "answer": "READY",
+        "clue": "Inclined; apt to happen."
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "answer": "ENDS",
+        "clue": "Finish, terminate."
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "answer": "NV",
+        "clue": "Initialism of novel / new variant ."
+      }
+    ]
+  }
+}

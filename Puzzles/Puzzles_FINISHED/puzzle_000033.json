@@ -1,0 +1,353 @@
+{
+  "gridPreview": [
+    "-WINGS",
+    "SARTRE",
+    "-LEGAL",
+    "-ENEMY",
+    "-SENSE"
+  ],
+  "id": "mcw_v1_651fb31542c1ea72",
+  "date": "",
+  "width": 6,
+  "height": 5,
+  "blackCells": [
+    [
+      0,
+      0
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      3,
+      0
+    ],
+    [
+      4,
+      0
+    ]
+  ],
+  "gridSolution": [
+    [
+      null,
+      "W",
+      "I",
+      "N",
+      "G",
+      "S"
+    ],
+    [
+      "S",
+      "A",
+      "R",
+      "T",
+      "R",
+      "E"
+    ],
+    [
+      null,
+      "L",
+      "E",
+      "G",
+      "A",
+      "L"
+    ],
+    [
+      null,
+      "E",
+      "N",
+      "E",
+      "M",
+      "Y"
+    ],
+    [
+      null,
+      "S",
+      "E",
+      "N",
+      "S",
+      "E"
+    ]
+  ],
+  "entries": {
+    "across": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            5
+          ]
+        ],
+        "answer": "WINGS",
+        "clue": "2016 studio album by BTS"
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            5
+          ]
+        ],
+        "answer": "SARTRE",
+        "clue": "French-language occupational surname."
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            5
+          ]
+        ],
+        "answer": "LEGAL",
+        "clue": "System of enforceable rules"
+      },
+      {
+        "number": 8,
+        "cells": [
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            5
+          ]
+        ],
+        "answer": "ENEMY",
+        "clue": "Hostile force or nation"
+      },
+      {
+        "number": 9,
+        "cells": [
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "answer": "SENSE",
+        "clue": "Instinctively be aware."
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "answer": "WALES",
+        "clue": "Town in Massachusetts."
+      },
+      {
+        "number": 2,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "answer": "IRENE",
+        "clue": "Hydrocarbon formed by dehydration of an irone ."
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "answer": "NTGEN",
+        "clue": "X-ray, in Swedish, minus first 2 letters"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "GRAMS",
+        "clue": "Grandmother"
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            0,
+            5
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "answer": "SELYE",
+        "clue": "Austro-Hungarian scientist"
+      }
+    ]
+  }
+}

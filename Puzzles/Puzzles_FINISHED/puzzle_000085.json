@@ -1,0 +1,316 @@
+{
+  "gridPreview": [
+    "-TAFT",
+    "ARBOR",
+    "HABRA",
+    "ENEMY",
+    "MSY--"
+  ],
+  "id": "mcw_v1_183169199f66bf5d",
+  "date": "",
+  "width": 5,
+  "height": 5,
+  "blackCells": [
+    [
+      0,
+      0
+    ],
+    [
+      4,
+      3
+    ],
+    [
+      4,
+      4
+    ]
+  ],
+  "gridSolution": [
+    [
+      null,
+      "T",
+      "A",
+      "F",
+      "T"
+    ],
+    [
+      "A",
+      "R",
+      "B",
+      "O",
+      "R"
+    ],
+    [
+      "H",
+      "A",
+      "B",
+      "R",
+      "A"
+    ],
+    [
+      "E",
+      "N",
+      "E",
+      "M",
+      "Y"
+    ],
+    [
+      "M",
+      "S",
+      "Y",
+      null,
+      null
+    ]
+  ],
+  "entries": {
+    "across": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ]
+        ],
+        "answer": "TAFT",
+        "clue": "Town in Taylor County, Wisconsin."
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "answer": "ARBOR",
+        "clue": "Bar for supporting cutting tools."
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "answer": "HABRA",
+        "clue": "City in West Bengal, India"
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "answer": "ENEMY",
+        "clue": "Hostile force or nation"
+      },
+      {
+        "number": 8,
+        "cells": [
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "answer": "MSY",
+        "clue": "Airport code for New Orleans, US"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "answer": "TRANS",
+        "clue": "Cause to cross from one side to another of ."
+      },
+      {
+        "number": 2,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "answer": "ABBEY",
+        "clue": "Church of a monastery."
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ]
+        ],
+        "answer": "FORM",
+        "clue": "Give to a thing or person."
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "answer": "TRAY",
+        "clue": "Trouble; annoyance; anger"
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "answer": "AHEM",
+        "clue": "Sound made by a throat"
+      }
+    ]
+  }
+}

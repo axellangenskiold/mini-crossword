@@ -1,0 +1,364 @@
+{
+  "gridPreview": [
+    "DALE--",
+    "ODETS-",
+    "ELOHIM",
+    "SENATE",
+    "-RENEW"
+  ],
+  "id": "mcw_v1_a921061c0eb83a1b",
+  "date": "",
+  "width": 6,
+  "height": 5,
+  "blackCells": [
+    [
+      0,
+      4
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      4,
+      0
+    ]
+  ],
+  "gridSolution": [
+    [
+      "D",
+      "A",
+      "L",
+      "E",
+      null,
+      null
+    ],
+    [
+      "O",
+      "D",
+      "E",
+      "T",
+      "S",
+      null
+    ],
+    [
+      "E",
+      "L",
+      "O",
+      "H",
+      "I",
+      "M"
+    ],
+    [
+      "S",
+      "E",
+      "N",
+      "A",
+      "T",
+      "E"
+    ],
+    [
+      null,
+      "R",
+      "E",
+      "N",
+      "E",
+      "W"
+    ]
+  ],
+  "entries": {
+    "across": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        "answer": "DALE",
+        "clue": "Town in Spencer County, Indiana."
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "answer": "ODETS",
+        "clue": "United states playwright"
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            5
+          ]
+        ],
+        "answer": "ELOHIM",
+        "clue": "Hebrew word often translated as God"
+      },
+      {
+        "number": 9,
+        "cells": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            5
+          ]
+        ],
+        "answer": "SENATE",
+        "clue": "Any of several legislative bodies."
+      },
+      {
+        "number": 10,
+        "cells": [
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "answer": "RENEW",
+        "clue": "Become new, or as new"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "answer": "DOES",
+        "clue": "Second album by indie rock band The Slip."
+      },
+      {
+        "number": 2,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "answer": "ADLER",
+        "clue": "American psychologist"
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "answer": "LEONE",
+        "clue": "Sergio ___, western director"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "answer": "ETHAN",
+        "clue": "Town in South Dakota, United States."
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "SITE",
+        "clue": "Place where anything is fixed"
+      },
+      {
+        "number": 8,
+        "cells": [
+          [
+            2,
+            5
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "answer": "MEW",
+        "clue": "Airport code for Mweka, CD"
+      }
+    ]
+  }
+}

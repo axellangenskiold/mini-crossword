@@ -1,0 +1,312 @@
+{
+  "gridPreview": [
+    "-SBP-",
+    "MOORE",
+    "ERWIN",
+    "GRIND",
+    "-YET-"
+  ],
+  "id": "mcw_v1_448ac9f247137293",
+  "date": "",
+  "width": 5,
+  "height": 5,
+  "blackCells": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      4,
+      0
+    ],
+    [
+      4,
+      4
+    ]
+  ],
+  "gridSolution": [
+    [
+      null,
+      "S",
+      "B",
+      "P",
+      null
+    ],
+    [
+      "M",
+      "O",
+      "O",
+      "R",
+      "E"
+    ],
+    [
+      "E",
+      "R",
+      "W",
+      "I",
+      "N"
+    ],
+    [
+      "G",
+      "R",
+      "I",
+      "N",
+      "D"
+    ],
+    [
+      null,
+      "Y",
+      "E",
+      "T",
+      null
+    ]
+  ],
+  "entries": {
+    "across": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        "answer": "SBP",
+        "clue": "Airport code for San Luis Obispo, US"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "answer": "MOORE",
+        "clue": "Town in Fergus County, Montana."
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "answer": "ERWIN",
+        "clue": "Town in Steuben County, New York, United States."
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "answer": "GRIND",
+        "clue": "Rotate the hips erotically."
+      },
+      {
+        "number": 8,
+        "cells": [
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "answer": "YET",
+        "clue": "Airport code for Edson, CA"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "answer": "SORRY",
+        "clue": "Pathetic; contemptibly inadequate."
+      },
+      {
+        "number": 2,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "answer": "BOWIE",
+        "clue": "City in Montague County, Texas."
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "answer": "PRINT",
+        "clue": "Stamp something in or upon"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "answer": "MEG",
+        "clue": "Dollar"
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "answer": "END",
+        "clue": "Finish, terminate."
+      }
+    ]
+  }
+}
