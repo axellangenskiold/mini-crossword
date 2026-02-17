@@ -1,0 +1,312 @@
+{
+  "gridPreview": [
+    "-CD--",
+    "-HART",
+    "MINOR",
+    "UNCLE",
+    "DOYLE"
+  ],
+  "id": "mcw_v1_528dc178a556bfb9",
+  "date": "",
+  "width": 5,
+  "height": 5,
+  "blackCells": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      0
+    ]
+  ],
+  "gridSolution": [
+    [
+      null,
+      "C",
+      "D",
+      null,
+      null
+    ],
+    [
+      null,
+      "H",
+      "A",
+      "R",
+      "T"
+    ],
+    [
+      "M",
+      "I",
+      "N",
+      "O",
+      "R"
+    ],
+    [
+      "U",
+      "N",
+      "C",
+      "L",
+      "E"
+    ],
+    [
+      "D",
+      "O",
+      "Y",
+      "L",
+      "E"
+    ]
+  ],
+  "entries": {
+    "across": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "answer": "CD",
+        "clue": "Very short word"
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "answer": "HART",
+        "clue": "Common four-letter word"
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "answer": "MINOR",
+        "clue": "Common five-letter word"
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "answer": "UNCLE",
+        "clue": "Everyday five-letter term"
+      },
+      {
+        "number": 8,
+        "cells": [
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "DOYLE",
+        "clue": "Personal name"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "answer": "CHINO",
+        "clue": "Coarse cotton fabric commonly used to make trousers"
+      },
+      {
+        "number": 2,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "answer": "DANCY",
+        "clue": "Surname or first name"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "answer": "ROLL",
+        "clue": "Leave or begin a journey"
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "TREE",
+        "clue": "Structural frame of a saddle"
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "answer": "MUD",
+        "clue": "Short everyday word"
+      }
+    ]
+  }
+}

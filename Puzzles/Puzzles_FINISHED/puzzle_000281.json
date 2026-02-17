@@ -1,0 +1,364 @@
+{
+  "gridPreview": [
+    "-SAMMI",
+    "BABIES",
+    "ALONSO",
+    "DEVOS-",
+    "-SERI-"
+  ],
+  "id": "mcw_v1_0b67fc4ef650f62c",
+  "date": "",
+  "width": 6,
+  "height": 5,
+  "blackCells": [
+    [
+      0,
+      0
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      4,
+      0
+    ],
+    [
+      4,
+      5
+    ]
+  ],
+  "gridSolution": [
+    [
+      null,
+      "S",
+      "A",
+      "M",
+      "M",
+      "I"
+    ],
+    [
+      "B",
+      "A",
+      "B",
+      "I",
+      "E",
+      "S"
+    ],
+    [
+      "A",
+      "L",
+      "O",
+      "N",
+      "S",
+      "O"
+    ],
+    [
+      "D",
+      "E",
+      "V",
+      "O",
+      "S",
+      null
+    ],
+    [
+      null,
+      "S",
+      "E",
+      "R",
+      "I",
+      null
+    ]
+  ],
+  "entries": {
+    "across": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            5
+          ]
+        ],
+        "answer": "SAMMI",
+        "clue": "Personal name"
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            5
+          ]
+        ],
+        "answer": "BABIES",
+        "clue": "Plural form"
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            5
+          ]
+        ],
+        "answer": "ALONSO",
+        "clue": "Surname or first name"
+      },
+      {
+        "number": 8,
+        "cells": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "answer": "DEVOS",
+        "clue": "Surname list"
+      },
+      {
+        "number": 9,
+        "cells": [
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "SERI",
+        "clue": "Place on a map"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "answer": "SALES",
+        "clue": "Amount or value of goods and services sold"
+      },
+      {
+        "number": 2,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "answer": "ABOVE",
+        "clue": "Common five-letter word"
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "answer": "MINOR",
+        "clue": "Everyday five-letter term"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "MESSI",
+        "clue": "Argentine footballer"
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            0,
+            5
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            5
+          ]
+        ],
+        "answer": "ISO",
+        "clue": "Short everyday word"
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "answer": "BAD",
+        "clue": "Common three-letter word"
+      }
+    ]
+  }
+}

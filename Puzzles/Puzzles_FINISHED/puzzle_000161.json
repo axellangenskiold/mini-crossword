@@ -1,0 +1,367 @@
+{
+  "gridPreview": [
+    "OMANI",
+    "RUMER",
+    "GRAVE",
+    "-PLAN",
+    "-HIDE",
+    "-YEA-"
+  ],
+  "id": "mcw_v1_6b4055f22316e23d",
+  "date": "",
+  "width": 5,
+  "height": 6,
+  "blackCells": [
+    [
+      3,
+      0
+    ],
+    [
+      4,
+      0
+    ],
+    [
+      5,
+      0
+    ],
+    [
+      5,
+      4
+    ]
+  ],
+  "gridSolution": [
+    [
+      "O",
+      "M",
+      "A",
+      "N",
+      "I"
+    ],
+    [
+      "R",
+      "U",
+      "M",
+      "E",
+      "R"
+    ],
+    [
+      "G",
+      "R",
+      "A",
+      "V",
+      "E"
+    ],
+    [
+      null,
+      "P",
+      "L",
+      "A",
+      "N"
+    ],
+    [
+      null,
+      "H",
+      "I",
+      "D",
+      "E"
+    ],
+    [
+      null,
+      "Y",
+      "E",
+      "A",
+      null
+    ]
+  ],
+  "entries": {
+    "across": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ]
+        ],
+        "answer": "OMANI",
+        "clue": "Place on a map"
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "answer": "RUMER",
+        "clue": "Personal name"
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "answer": "GRAVE",
+        "clue": "Common five-letter word"
+      },
+      {
+        "number": 8,
+        "cells": [
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "answer": "PLAN",
+        "clue": "Common four-letter word"
+      },
+      {
+        "number": 9,
+        "cells": [
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "HIDE",
+        "clue": "Skin of an animal"
+      },
+      {
+        "number": 10,
+        "cells": [
+          [
+            5,
+            1
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        "answer": "YEA",
+        "clue": "Casual exclamation"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ]
+        ],
+        "answer": "ORG",
+        "clue": "Short everyday word"
+      },
+      {
+        "number": 2,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            5,
+            1
+          ]
+        ],
+        "answer": "MURPHY",
+        "clue": "Common six-letter word"
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            5,
+            2
+          ]
+        ],
+        "answer": "AMALIE",
+        "clue": "Geographic name"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        "answer": "NEVADA",
+        "clue": "U"
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "IRENE",
+        "clue": "Surname or first name"
+      }
+    ]
+  }
+}

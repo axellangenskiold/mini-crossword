@@ -1,33 +1,37 @@
 {
   "challenges": [
     {
-      "id": "neon_nights",
-      "name": "Neon Nights",
-      "puzzleFile": "puzzle_2026-02-01.json",
-      "puzzleCount": 25
-    },
-    {
-      "id": "cosmic_sprint",
-      "name": "Cosmic Sprint",
-      "puzzleFile": "puzzle_2026-02-01.json",
-      "puzzleCount": 25
-    },
-    {
-      "id": "weekend_blitz",
-      "name": "Weekend Blitz",
-      "puzzleFile": "puzzle_2026-02-01.json",
-      "puzzleCount": 25
-    },
-    {
-      "id": "sunrise_shuffle",
-      "name": "Sunrise Shuffle",
-      "puzzleFile": "puzzle_2026-02-01.json",
-      "puzzleCount": 25
-    },
-    {
-      "id": "blizzful_blazt",
-      "name": "Blizzful Blazt",
-      "puzzleFile": "puzzle_2026-02-01.json",
+      "id": "gangnamn_style",
+      "name": "Gangnamn Style",
+      "puzzleFile": "puzzle_000026.json",
+      "puzzleFiles": [
+        "puzzle_000026.json",
+        "puzzle_000027.json",
+        "puzzle_000028.json",
+        "puzzle_000029.json",
+        "puzzle_000030.json",
+        "puzzle_000031.json",
+        "puzzle_000032.json",
+        "puzzle_000033.json",
+        "puzzle_000034.json",
+        "puzzle_000035.json",
+        "puzzle_000036.json",
+        "puzzle_000037.json",
+        "puzzle_000038.json",
+        "puzzle_000039.json",
+        "puzzle_000040.json",
+        "puzzle_000041.json",
+        "puzzle_000042.json",
+        "puzzle_000043.json",
+        "puzzle_000044.json",
+        "puzzle_000045.json",
+        "puzzle_000046.json",
+        "puzzle_000047.json",
+        "puzzle_000048.json",
+        "puzzle_000049.json",
+        "puzzle_000050.json"
+      ],
+      "puzzleFolder": "gangnamn_style",
       "puzzleCount": 25
     }
   ]

@@ -1,0 +1,364 @@
+{
+  "gridPreview": [
+    "PASSED",
+    "AVATAR",
+    "SALARY",
+    "TRANS-",
+    "-ADD--"
+  ],
+  "id": "mcw_v1_1ff1ee8126531c3c",
+  "date": "",
+  "width": 6,
+  "height": 5,
+  "blackCells": [
+    [
+      3,
+      5
+    ],
+    [
+      4,
+      0
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      4,
+      5
+    ]
+  ],
+  "gridSolution": [
+    [
+      "P",
+      "A",
+      "S",
+      "S",
+      "E",
+      "D"
+    ],
+    [
+      "A",
+      "V",
+      "A",
+      "T",
+      "A",
+      "R"
+    ],
+    [
+      "S",
+      "A",
+      "L",
+      "A",
+      "R",
+      "Y"
+    ],
+    [
+      "T",
+      "R",
+      "A",
+      "N",
+      "S",
+      null
+    ],
+    [
+      null,
+      "A",
+      "D",
+      "D",
+      null,
+      null
+    ]
+  ],
+  "entries": {
+    "across": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            5
+          ]
+        ],
+        "answer": "PASSED",
+        "clue": "Past-tense verb form"
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            5
+          ]
+        ],
+        "answer": "AVATAR",
+        "clue": "Common six-letter word"
+      },
+      {
+        "number": 8,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            5
+          ]
+        ],
+        "answer": "SALARY",
+        "clue": "General six-letter term"
+      },
+      {
+        "number": 9,
+        "cells": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "answer": "TRANS",
+        "clue": "Plural form"
+      },
+      {
+        "number": 10,
+        "cells": [
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "answer": "ADD",
+        "clue": "Short everyday word"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "answer": "PAST",
+        "clue": "Common four-letter word"
+      },
+      {
+        "number": 2,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "answer": "AVARA",
+        "clue": "Personal name"
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "answer": "SALAD",
+        "clue": "Common five-letter word"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "answer": "STAND",
+        "clue": "Everyday five-letter term"
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "answer": "EARS",
+        "clue": "More than one"
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            0,
+            5
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            5
+          ]
+        ],
+        "answer": "DRY",
+        "clue": "Common three-letter word"
+      }
+    ]
+  }
+}

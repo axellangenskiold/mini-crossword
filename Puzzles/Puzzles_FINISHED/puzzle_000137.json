@@ -1,0 +1,367 @@
+{
+  "gridPreview": [
+    "--SIT",
+    "-ACNE",
+    "-LOST",
+    "JIREH",
+    "EVERY",
+    "TESTS"
+  ],
+  "id": "mcw_v1_7581c59169fd7af0",
+  "date": "",
+  "width": 5,
+  "height": 6,
+  "blackCells": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      2,
+      0
+    ]
+  ],
+  "gridSolution": [
+    [
+      null,
+      null,
+      "S",
+      "I",
+      "T"
+    ],
+    [
+      null,
+      "A",
+      "C",
+      "N",
+      "E"
+    ],
+    [
+      null,
+      "L",
+      "O",
+      "S",
+      "T"
+    ],
+    [
+      "J",
+      "I",
+      "R",
+      "E",
+      "H"
+    ],
+    [
+      "E",
+      "V",
+      "E",
+      "R",
+      "Y"
+    ],
+    [
+      "T",
+      "E",
+      "S",
+      "T",
+      "S"
+    ]
+  ],
+  "entries": {
+    "across": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ]
+        ],
+        "answer": "SIT",
+        "clue": "Be accepted or acceptable"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "answer": "ACNE",
+        "clue": "Common four-letter word"
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "answer": "LOST",
+        "clue": "Everyday four-letter term"
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "answer": "JIREH",
+        "clue": "Personal name"
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "EVERY",
+        "clue": "Common five-letter word"
+      },
+      {
+        "number": 8,
+        "cells": [
+          [
+            5,
+            0
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            5,
+            3
+          ],
+          [
+            5,
+            4
+          ]
+        ],
+        "answer": "TESTS",
+        "clue": "Plural form"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            5,
+            2
+          ]
+        ],
+        "answer": "SCORES",
+        "clue": "More than one"
+      },
+      {
+        "number": 2,
+        "cells": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        "answer": "INSERT",
+        "clue": "Common six-letter word"
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ]
+        ],
+        "answer": "TETHYS",
+        "clue": "Surname or first name"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            5,
+            1
+          ]
+        ],
+        "answer": "ALIVE",
+        "clue": "Everyday five-letter term"
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            5,
+            0
+          ]
+        ],
+        "answer": "JET",
+        "clue": "Spray out of a container"
+      }
+    ]
+  }
+}

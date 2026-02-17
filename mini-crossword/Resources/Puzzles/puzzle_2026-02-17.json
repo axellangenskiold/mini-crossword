@@ -1,0 +1,368 @@
+{
+  "gridPreview": [
+    "ASCH--",
+    "COLOUR",
+    "CLAUSE",
+    "RAISES",
+    "ARMED-"
+  ],
+  "id": "mcw_v1_356f0e86d1648e33",
+  "date": "2026-02-17",
+  "width": 6,
+  "height": 5,
+  "blackCells": [
+    [
+      0,
+      4
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      4,
+      5
+    ]
+  ],
+  "gridSolution": [
+    [
+      "A",
+      "S",
+      "C",
+      "H",
+      null,
+      null
+    ],
+    [
+      "C",
+      "O",
+      "L",
+      "O",
+      "U",
+      "R"
+    ],
+    [
+      "C",
+      "L",
+      "A",
+      "U",
+      "S",
+      "E"
+    ],
+    [
+      "R",
+      "A",
+      "I",
+      "S",
+      "E",
+      "S"
+    ],
+    [
+      "A",
+      "R",
+      "M",
+      "E",
+      "D",
+      null
+    ]
+  ],
+  "entries": {
+    "across": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        "answer": "ASCH",
+        "clue": "Personal name"
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            5
+          ]
+        ],
+        "answer": "COLOUR",
+        "clue": "Commonwealth and Ireland standard spelling of color"
+      },
+      {
+        "number": 8,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            5
+          ]
+        ],
+        "answer": "CLAUSE",
+        "clue": "Common six-letter word"
+      },
+      {
+        "number": 9,
+        "cells": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            5
+          ]
+        ],
+        "answer": "RAISES",
+        "clue": "Exponentiate, to involute"
+      },
+      {
+        "number": 10,
+        "cells": [
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "ARMED",
+        "clue": "Past-tense verb form"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "answer": "ACCRA",
+        "clue": "Place on a map"
+      },
+      {
+        "number": 2,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "answer": "SOLAR",
+        "clue": "Of or pertaining to the sun"
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "answer": "CLAIM",
+        "clue": "Common five-letter word"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "answer": "HOUSE",
+        "clue": "Place of rest or repose"
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "USED",
+        "clue": "Behave, act, comport oneself"
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            3,
+            5
+          ]
+        ],
+        "answer": "RES",
+        "clue": "Act of discerning detail"
+      }
+    ]
+  }
+}

@@ -1,0 +1,324 @@
+{
+  "gridPreview": [
+    "WALSH",
+    "ELITE",
+    "LOVER",
+    "THEIA",
+    "YARN-"
+  ],
+  "id": "mcw_v1_f11b2534c64f40c3",
+  "date": "",
+  "width": 5,
+  "height": 5,
+  "blackCells": [
+    [
+      4,
+      4
+    ]
+  ],
+  "gridSolution": [
+    [
+      "W",
+      "A",
+      "L",
+      "S",
+      "H"
+    ],
+    [
+      "E",
+      "L",
+      "I",
+      "T",
+      "E"
+    ],
+    [
+      "L",
+      "O",
+      "V",
+      "E",
+      "R"
+    ],
+    [
+      "T",
+      "H",
+      "E",
+      "I",
+      "A"
+    ],
+    [
+      "Y",
+      "A",
+      "R",
+      "N",
+      null
+    ]
+  ],
+  "entries": {
+    "across": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ]
+        ],
+        "answer": "WALSH",
+        "clue": "Personal name"
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "answer": "ELITE",
+        "clue": "Common five-letter word"
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "answer": "LOVER",
+        "clue": "Everyday five-letter term"
+      },
+      {
+        "number": 8,
+        "cells": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "answer": "THEIA",
+        "clue": "Surname or first name"
+      },
+      {
+        "number": 9,
+        "cells": [
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "answer": "YARN",
+        "clue": "Common four-letter word"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "answer": "WELTY",
+        "clue": "Name in many families"
+      },
+      {
+        "number": 2,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "answer": "ALOHA",
+        "clue": "Hawaiian word for love, affection, peace, compassion"
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "answer": "LIVER",
+        "clue": "Someone who lives"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "answer": "STEIN",
+        "clue": "Familiar name"
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "answer": "HERA",
+        "clue": "Common first name"
+      }
+    ]
+  }
+}

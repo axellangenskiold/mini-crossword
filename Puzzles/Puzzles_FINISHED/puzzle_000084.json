@@ -1,0 +1,312 @@
+{
+  "gridPreview": [
+    "--ST-",
+    "-YOUR",
+    "NANNA",
+    "ALGER",
+    "HESSE"
+  ],
+  "id": "mcw_v1_c3938be7c77cf0ec",
+  "date": "",
+  "width": 5,
+  "height": 5,
+  "blackCells": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      0
+    ]
+  ],
+  "gridSolution": [
+    [
+      null,
+      null,
+      "S",
+      "T",
+      null
+    ],
+    [
+      null,
+      "Y",
+      "O",
+      "U",
+      "R"
+    ],
+    [
+      "N",
+      "A",
+      "N",
+      "N",
+      "A"
+    ],
+    [
+      "A",
+      "L",
+      "G",
+      "E",
+      "R"
+    ],
+    [
+      "H",
+      "E",
+      "S",
+      "S",
+      "E"
+    ]
+  ],
+  "entries": {
+    "across": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        "answer": "ST",
+        "clue": "Very short word"
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "answer": "YOUR",
+        "clue": "Misspelling of you're"
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "answer": "NANNA",
+        "clue": "Personal name"
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "answer": "ALGER",
+        "clue": "Place on a map"
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "HESSE",
+        "clue": "Surname or first name"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "answer": "SONGS",
+        "clue": "Plural form"
+      },
+      {
+        "number": 2,
+        "cells": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "answer": "TUNES",
+        "clue": "Sing with melody or harmony"
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "answer": "YALE",
+        "clue": "Common four-letter word"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "RARE",
+        "clue": "Everyday four-letter term"
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "answer": "NAH",
+        "clue": "Here !"
+      }
+    ]
+  }
+}

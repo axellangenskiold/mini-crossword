@@ -1,23 +1,23 @@
 {
   "gridPreview": [
-    "SETON-",
-    "PLACES",
-    "ALBANY",
-    "MILLER",
-    "-SEA--"
+    "-BEGUN",
+    "DENISE",
+    "ANDREW",
+    "NIELS-",
+    "ENDS--"
   ],
-  "id": "mcw_v1_6a68d9419c61efa8",
+  "id": "mcw_v1_3c9b3fc1a1eae08c",
   "date": "2026-02-05",
   "width": 6,
   "height": 5,
   "blackCells": [
     [
       0,
-      5
+      0
     ],
     [
-      4,
-      0
+      3,
+      5
     ],
     [
       4,
@@ -30,42 +30,42 @@
   ],
   "gridSolution": [
     [
-      "S",
+      null,
+      "B",
       "E",
-      "T",
-      "O",
+      "G",
+      "U",
+      "N"
+    ],
+    [
+      "D",
+      "E",
       "N",
+      "I",
+      "S",
+      "E"
+    ],
+    [
+      "A",
+      "N",
+      "D",
+      "R",
+      "E",
+      "W"
+    ],
+    [
+      "N",
+      "I",
+      "E",
+      "L",
+      "S",
       null
     ],
     [
-      "P",
-      "L",
-      "A",
-      "C",
       "E",
-      "S"
-    ],
-    [
-      "A",
-      "L",
-      "B",
-      "A",
       "N",
-      "Y"
-    ],
-    [
-      "M",
-      "I",
-      "L",
-      "L",
-      "E",
-      "R"
-    ],
-    [
-      null,
+      "D",
       "S",
-      "E",
-      "A",
       null,
       null
     ]
@@ -75,10 +75,6 @@
       {
         "number": 1,
         "cells": [
-          [
-            0,
-            0
-          ],
           [
             0,
             1
@@ -94,10 +90,14 @@
           [
             0,
             4
+          ],
+          [
+            0,
+            5
           ]
         ],
-        "answer": "SETON",
-        "clue": "Saint Elizabeth ___"
+        "answer": "BEGUN",
+        "clue": "Come into existence"
       },
       {
         "number": 6,
@@ -127,75 +127,75 @@
             5
           ]
         ],
-        "answer": "PLACES",
-        "clue": "Puts somewhere"
+        "answer": "DENISE",
+        "clue": "Personal name"
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            5
+          ]
+        ],
+        "answer": "ANDREW",
+        "clue": "Common six-letter word"
       },
       {
         "number": 8,
         "cells": [
           [
-            2,
+            3,
             0
           ],
           [
-            2,
+            3,
             1
           ],
           [
-            2,
+            3,
             2
           ],
           [
-            2,
+            3,
             3
           ],
           [
-            2,
+            3,
             4
-          ],
-          [
-            2,
-            5
           ]
         ],
-        "answer": "ALBANY",
-        "clue": "New York's capital"
+        "answer": "NIELS",
+        "clue": "Name list"
       },
       {
         "number": 9,
         "cells": [
           [
-            3,
+            4,
             0
           ],
           [
-            3,
-            1
-          ],
-          [
-            3,
-            2
-          ],
-          [
-            3,
-            3
-          ],
-          [
-            3,
-            4
-          ],
-          [
-            3,
-            5
-          ]
-        ],
-        "answer": "MILLER",
-        "clue": "Grain grinder"
-      },
-      {
-        "number": 10,
-        "cells": [
-          [
             4,
             1
           ],
@@ -208,8 +208,8 @@
             3
           ]
         ],
-        "answer": "SEA",
-        "clue": "Saltwater expanse"
+        "answer": "ENDS",
+        "clue": "Plural form"
       }
     ],
     "down": [
@@ -218,146 +218,146 @@
         "cells": [
           [
             0,
-            0
+            1
           ],
           [
             1,
-            0
+            1
           ],
           [
             2,
-            0
+            1
           ],
           [
             3,
-            0
+            1
+          ],
+          [
+            4,
+            1
           ]
         ],
-        "answer": "SPAM",
-        "clue": "Canned meat"
+        "answer": "BENIN",
+        "clue": "Country in West Africa"
       },
       {
         "number": 2,
         "cells": [
           [
             0,
-            1
+            2
           ],
           [
             1,
-            1
+            2
           ],
           [
             2,
-            1
+            2
           ],
           [
             3,
-            1
+            2
           ],
           [
             4,
-            1
+            2
           ]
         ],
-        "answer": "ELLIS",
-        "clue": "NYC island gateway"
+        "answer": "ENDED",
+        "clue": "Having ends"
       },
       {
         "number": 3,
         "cells": [
           [
             0,
-            2
+            3
           ],
           [
             1,
-            2
+            3
           ],
           [
             2,
-            2
+            3
           ],
           [
             3,
-            2
+            3
           ],
           [
             4,
-            2
+            3
           ]
         ],
-        "answer": "TABLE",
-        "clue": "Dining surface"
+        "answer": "GIRLS",
+        "clue": "More than one"
       },
       {
         "number": 4,
         "cells": [
           [
             0,
-            3
+            4
           ],
           [
             1,
-            3
+            4
           ],
           [
             2,
-            3
+            4
           ],
           [
             3,
-            3
-          ],
-          [
-            4,
-            3
+            4
           ]
         ],
-        "answer": "OCALA",
-        "clue": "Florida city"
+        "answer": "USES",
+        "clue": "Common four-letter word"
       },
       {
         "number": 5,
         "cells": [
           [
             0,
-            4
+            5
           ],
           [
             1,
-            4
+            5
           ],
           [
             2,
-            4
-          ],
-          [
-            3,
-            4
+            5
           ]
         ],
-        "answer": "NENE",
-        "clue": "Hawaiian goose"
+        "answer": "NEW",
+        "clue": "Recently made , or created"
       },
       {
-        "number": 7,
+        "number": 6,
         "cells": [
           [
             1,
-            5
+            0
           ],
           [
             2,
-            5
+            0
           ],
           [
             3,
-            5
+            0
+          ],
+          [
+            4,
+            0
           ]
         ],
-        "answer": "SYR",
-        "clue": "Upstate NY city, briefly"
+        "answer": "DANE",
+        "clue": "Surname or first name"
       }
     ]
   }

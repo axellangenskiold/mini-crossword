@@ -1,23 +1,23 @@
 {
   "gridPreview": [
-    "SETON-",
-    "PLACES",
-    "ALBANY",
-    "MILLER",
-    "-SEA--"
+    "ARABIA",
+    "RAFAEL",
+    "METRES",
+    "STEREO",
+    "--RY--"
   ],
-  "id": "mcw_v1_6a68d9419c61efa8",
+  "id": "mcw_v1_7bb59cf0f3853950",
   "date": "2026-02-04",
   "width": 6,
   "height": 5,
   "blackCells": [
     [
-      0,
-      5
+      4,
+      0
     ],
     [
       4,
-      0
+      1
     ],
     [
       4,
@@ -30,42 +30,42 @@
   ],
   "gridSolution": [
     [
-      "S",
-      "E",
-      "T",
-      "O",
-      "N",
-      null
+      "A",
+      "R",
+      "A",
+      "B",
+      "I",
+      "A"
     ],
     [
-      "P",
-      "L",
+      "R",
       "A",
-      "C",
+      "F",
+      "A",
+      "E",
+      "L"
+    ],
+    [
+      "M",
+      "E",
+      "T",
+      "R",
       "E",
       "S"
     ],
     [
-      "A",
-      "L",
-      "B",
-      "A",
-      "N",
-      "Y"
-    ],
-    [
-      "M",
-      "I",
-      "L",
-      "L",
+      "S",
+      "T",
       "E",
-      "R"
+      "R",
+      "E",
+      "O"
     ],
     [
       null,
-      "S",
-      "E",
-      "A",
+      null,
+      "R",
+      "Y",
       null,
       null
     ]
@@ -94,13 +94,17 @@
           [
             0,
             4
+          ],
+          [
+            0,
+            5
           ]
         ],
-        "answer": "SETON",
-        "clue": "Saint Elizabeth ___"
+        "answer": "ARABIA",
+        "clue": "Common six-letter word"
       },
       {
-        "number": 6,
+        "number": 7,
         "cells": [
           [
             1,
@@ -127,8 +131,8 @@
             5
           ]
         ],
-        "answer": "PLACES",
-        "clue": "Puts somewhere"
+        "answer": "RAFAEL",
+        "clue": "Place on a map"
       },
       {
         "number": 8,
@@ -158,8 +162,8 @@
             5
           ]
         ],
-        "answer": "ALBANY",
-        "clue": "New York's capital"
+        "answer": "METRES",
+        "clue": "Plural form"
       },
       {
         "number": 9,
@@ -189,16 +193,12 @@
             5
           ]
         ],
-        "answer": "MILLER",
-        "clue": "Grain grinder"
+        "answer": "STEREO",
+        "clue": "General six-letter term"
       },
       {
         "number": 10,
         "cells": [
-          [
-            4,
-            1
-          ],
           [
             4,
             2
@@ -208,8 +208,8 @@
             3
           ]
         ],
-        "answer": "SEA",
-        "clue": "Saltwater expanse"
+        "answer": "RY",
+        "clue": "Personal name"
       }
     ],
     "down": [
@@ -233,8 +233,8 @@
             0
           ]
         ],
-        "answer": "SPAM",
-        "clue": "Canned meat"
+        "answer": "ARMS",
+        "clue": "More than one"
       },
       {
         "number": 2,
@@ -254,14 +254,10 @@
           [
             3,
             1
-          ],
-          [
-            4,
-            1
           ]
         ],
-        "answer": "ELLIS",
-        "clue": "NYC island gateway"
+        "answer": "RAET",
+        "clue": "Surname or first name"
       },
       {
         "number": 3,
@@ -287,8 +283,8 @@
             2
           ]
         ],
-        "answer": "TABLE",
-        "clue": "Dining surface"
+        "answer": "AFTER",
+        "clue": "In pursuit of, seeking"
       },
       {
         "number": 4,
@@ -314,8 +310,8 @@
             3
           ]
         ],
-        "answer": "OCALA",
-        "clue": "Florida city"
+        "answer": "BARRY",
+        "clue": "Common five-letter word"
       },
       {
         "number": 5,
@@ -337,12 +333,16 @@
             4
           ]
         ],
-        "answer": "NENE",
-        "clue": "Hawaiian goose"
+        "answer": "IEEE",
+        "clue": "Common four-letter word"
       },
       {
-        "number": 7,
+        "number": 6,
         "cells": [
+          [
+            0,
+            5
+          ],
           [
             1,
             5
@@ -356,8 +356,8 @@
             5
           ]
         ],
-        "answer": "SYR",
-        "clue": "Upstate NY city, briefly"
+        "answer": "ALSO",
+        "clue": "Everyday four-letter term"
       }
     ]
   }

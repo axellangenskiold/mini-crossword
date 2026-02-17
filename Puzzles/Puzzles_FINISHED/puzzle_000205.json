@@ -1,0 +1,364 @@
+{
+  "gridPreview": [
+    "ISLAM-",
+    "SHILOH",
+    "LEVINE",
+    "ELECT-",
+    "-FREE-"
+  ],
+  "id": "mcw_v1_ff0ef0c37aa06675",
+  "date": "",
+  "width": 6,
+  "height": 5,
+  "blackCells": [
+    [
+      0,
+      5
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      4,
+      0
+    ],
+    [
+      4,
+      5
+    ]
+  ],
+  "gridSolution": [
+    [
+      "I",
+      "S",
+      "L",
+      "A",
+      "M",
+      null
+    ],
+    [
+      "S",
+      "H",
+      "I",
+      "L",
+      "O",
+      "H"
+    ],
+    [
+      "L",
+      "E",
+      "V",
+      "I",
+      "N",
+      "E"
+    ],
+    [
+      "E",
+      "L",
+      "E",
+      "C",
+      "T",
+      null
+    ],
+    [
+      null,
+      "F",
+      "R",
+      "E",
+      "E",
+      null
+    ]
+  ],
+  "entries": {
+    "across": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ]
+        ],
+        "answer": "ISLAM",
+        "clue": "Common five-letter word"
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            5
+          ]
+        ],
+        "answer": "SHILOH",
+        "clue": "Personal name"
+      },
+      {
+        "number": 8,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            5
+          ]
+        ],
+        "answer": "LEVINE",
+        "clue": "Surname list"
+      },
+      {
+        "number": 9,
+        "cells": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "answer": "ELECT",
+        "clue": "One chosen or set apart"
+      },
+      {
+        "number": 10,
+        "cells": [
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "FREE",
+        "clue": "Unattached or uncombined"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "answer": "ISLE",
+        "clue": "Common four-letter word"
+      },
+      {
+        "number": 2,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "answer": "SHELF",
+        "clue": "Capacity of such an object"
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "answer": "LIVER",
+        "clue": "Someone who lives"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "answer": "ALICE",
+        "clue": "Everyday five-letter term"
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "MONTE",
+        "clue": "General word"
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            5
+          ]
+        ],
+        "answer": "HE",
+        "clue": "Very short word"
+      }
+    ]
+  }
+}

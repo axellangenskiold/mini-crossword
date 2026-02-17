@@ -1,0 +1,364 @@
+{
+  "gridPreview": [
+    "LIVER-",
+    "ADELE-",
+    "SELLER",
+    "TALESE",
+    "-LANE-"
+  ],
+  "id": "mcw_v1_3b1d319b4deabda4",
+  "date": "",
+  "width": 6,
+  "height": 5,
+  "blackCells": [
+    [
+      0,
+      5
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      4,
+      0
+    ],
+    [
+      4,
+      5
+    ]
+  ],
+  "gridSolution": [
+    [
+      "L",
+      "I",
+      "V",
+      "E",
+      "R",
+      null
+    ],
+    [
+      "A",
+      "D",
+      "E",
+      "L",
+      "E",
+      null
+    ],
+    [
+      "S",
+      "E",
+      "L",
+      "L",
+      "E",
+      "R"
+    ],
+    [
+      "T",
+      "A",
+      "L",
+      "E",
+      "S",
+      "E"
+    ],
+    [
+      null,
+      "L",
+      "A",
+      "N",
+      "E",
+      null
+    ]
+  ],
+  "entries": {
+    "across": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ]
+        ],
+        "answer": "LIVER",
+        "clue": "Someone who lives"
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "answer": "ADELE",
+        "clue": "English singer-songwriter"
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            5
+          ]
+        ],
+        "answer": "SELLER",
+        "clue": "Something which sells"
+      },
+      {
+        "number": 9,
+        "cells": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            5
+          ]
+        ],
+        "answer": "TALESE",
+        "clue": "Aragonese noble"
+      },
+      {
+        "number": 10,
+        "cells": [
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "LANE",
+        "clue": "Narrow road, as in the country"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "answer": "LAST",
+        "clue": "Common four-letter word"
+      },
+      {
+        "number": 2,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "answer": "IDEAL",
+        "clue": "Common five-letter word"
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "answer": "VELLA",
+        "clue": "Place on a map"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "answer": "ELLEN",
+        "clue": "Everyday five-letter term"
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "REESE",
+        "clue": "Personal name"
+      },
+      {
+        "number": 8,
+        "cells": [
+          [
+            2,
+            5
+          ],
+          [
+            3,
+            5
+          ]
+        ],
+        "answer": "RE",
+        "clue": "Very short word"
+      }
+    ]
+  }
+}

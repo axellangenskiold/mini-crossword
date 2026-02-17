@@ -1,0 +1,301 @@
+{
+  "gridPreview": [
+    "--I--",
+    "FUNDS",
+    "ULTRA",
+    "CAREY",
+    "KNOWS"
+  ],
+  "id": "mcw_v1_a782e7e1adf21209",
+  "date": "",
+  "width": 5,
+  "height": 5,
+  "blackCells": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      0,
+      4
+    ]
+  ],
+  "gridSolution": [
+    [
+      null,
+      null,
+      "I",
+      null,
+      null
+    ],
+    [
+      "F",
+      "U",
+      "N",
+      "D",
+      "S"
+    ],
+    [
+      "U",
+      "L",
+      "T",
+      "R",
+      "A"
+    ],
+    [
+      "C",
+      "A",
+      "R",
+      "E",
+      "Y"
+    ],
+    [
+      "K",
+      "N",
+      "O",
+      "W",
+      "S"
+    ]
+  ],
+  "entries": {
+    "across": [
+      {
+        "number": 2,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "answer": "FUNDS",
+        "clue": "Plural form"
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "answer": "ULTRA",
+        "clue": "Extreme"
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "answer": "CAREY",
+        "clue": "Common five-letter word"
+      },
+      {
+        "number": 8,
+        "cells": [
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "KNOWS",
+        "clue": "More than one"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "answer": "INTRO",
+        "clue": "Everyday five-letter term"
+      },
+      {
+        "number": 2,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "answer": "FUCK",
+        "clue": "Common four-letter word"
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "answer": "ULAN",
+        "clue": "Place on a map"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "answer": "DREW",
+        "clue": "Everyday four-letter term"
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "SAYS",
+        "clue": "Basic word"
+      }
+    ]
+  }
+}

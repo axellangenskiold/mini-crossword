@@ -1,0 +1,301 @@
+{
+  "gridPreview": [
+    "DOME-",
+    "OLAM-",
+    "VILI-",
+    "EVIL-",
+    "RENEW"
+  ],
+  "id": "mcw_v1_a5d401c742911e20",
+  "date": "",
+  "width": 5,
+  "height": 5,
+  "blackCells": [
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      4
+    ]
+  ],
+  "gridSolution": [
+    [
+      "D",
+      "O",
+      "M",
+      "E",
+      null
+    ],
+    [
+      "O",
+      "L",
+      "A",
+      "M",
+      null
+    ],
+    [
+      "V",
+      "I",
+      "L",
+      "I",
+      null
+    ],
+    [
+      "E",
+      "V",
+      "I",
+      "L",
+      null
+    ],
+    [
+      "R",
+      "E",
+      "N",
+      "E",
+      "W"
+    ]
+  ],
+  "entries": {
+    "across": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        "answer": "DOME",
+        "clue": "Common four-letter word"
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "answer": "OLAM",
+        "clue": "Personal name"
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "answer": "VILI",
+        "clue": "Surname or first name"
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ]
+        ],
+        "answer": "EVIL",
+        "clue": "Everyday four-letter term"
+      },
+      {
+        "number": 8,
+        "cells": [
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "RENEW",
+        "clue": "Common five-letter word"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "answer": "DOVER",
+        "clue": "Everyday five-letter term"
+      },
+      {
+        "number": 2,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "answer": "OLIVE",
+        "clue": "General word"
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "answer": "MALIN",
+        "clue": "Name in many families"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "answer": "EMILE",
+        "clue": "Familiar name"
+      }
+    ]
+  }
+}

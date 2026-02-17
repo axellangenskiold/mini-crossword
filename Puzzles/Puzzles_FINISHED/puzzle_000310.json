@@ -1,0 +1,367 @@
+{
+  "gridPreview": [
+    "AMA--",
+    "RADAR",
+    "CRUDE",
+    "TILES",
+    "INTL-",
+    "CASE-"
+  ],
+  "id": "mcw_v1_1114941446c61b04",
+  "date": "",
+  "width": 5,
+  "height": 6,
+  "blackCells": [
+    [
+      0,
+      3
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      5,
+      4
+    ]
+  ],
+  "gridSolution": [
+    [
+      "A",
+      "M",
+      "A",
+      null,
+      null
+    ],
+    [
+      "R",
+      "A",
+      "D",
+      "A",
+      "R"
+    ],
+    [
+      "C",
+      "R",
+      "U",
+      "D",
+      "E"
+    ],
+    [
+      "T",
+      "I",
+      "L",
+      "E",
+      "S"
+    ],
+    [
+      "I",
+      "N",
+      "T",
+      "L",
+      null
+    ],
+    [
+      "C",
+      "A",
+      "S",
+      "E",
+      null
+    ]
+  ],
+  "entries": {
+    "across": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "answer": "AMA",
+        "clue": "Airport code letters"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "answer": "RADAR",
+        "clue": "Superior ability to detect something"
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "answer": "CRUDE",
+        "clue": "Common five-letter word"
+      },
+      {
+        "number": 8,
+        "cells": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "answer": "TILES",
+        "clue": "Plural form"
+      },
+      {
+        "number": 9,
+        "cells": [
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "answer": "INTL",
+        "clue": "Common four-letter word"
+      },
+      {
+        "number": 10,
+        "cells": [
+          [
+            5,
+            0
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        "answer": "CASE",
+        "clue": "Everyday four-letter term"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            5,
+            0
+          ]
+        ],
+        "answer": "ARCTIC",
+        "clue": "Common six-letter word"
+      },
+      {
+        "number": 2,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            5,
+            1
+          ]
+        ],
+        "answer": "MARINA",
+        "clue": "General six-letter term"
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            5,
+            2
+          ]
+        ],
+        "answer": "ADULTS",
+        "clue": "More than one"
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        "answer": "ADELE",
+        "clue": "English singer-songwriter"
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "answer": "RES",
+        "clue": "Act of discerning detail"
+      }
+    ]
+  }
+}

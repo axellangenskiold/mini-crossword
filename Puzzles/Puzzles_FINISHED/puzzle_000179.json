@@ -1,0 +1,312 @@
+{
+  "gridPreview": [
+    "--HU-",
+    "GRAPH",
+    "ROUTE",
+    "BATOR",
+    "-DENY"
+  ],
+  "id": "mcw_v1_b7c30ca4afb5746e",
+  "date": "",
+  "width": 5,
+  "height": 5,
+  "blackCells": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      4,
+      0
+    ]
+  ],
+  "gridSolution": [
+    [
+      null,
+      null,
+      "H",
+      "U",
+      null
+    ],
+    [
+      "G",
+      "R",
+      "A",
+      "P",
+      "H"
+    ],
+    [
+      "R",
+      "O",
+      "U",
+      "T",
+      "E"
+    ],
+    [
+      "B",
+      "A",
+      "T",
+      "O",
+      "R"
+    ],
+    [
+      null,
+      "D",
+      "E",
+      "N",
+      "Y"
+    ]
+  ],
+  "entries": {
+    "across": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        "answer": "HU",
+        "clue": "Very short word"
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "answer": "GRAPH",
+        "clue": "Set of vertices connected together by edges"
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "answer": "ROUTE",
+        "clue": "Common five-letter word"
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "answer": "BATOR",
+        "clue": "Surname list"
+      },
+      {
+        "number": 8,
+        "cells": [
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "DENY",
+        "clue": "Prevent from scoring"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "answer": "HAUTE",
+        "clue": "Place on a map"
+      },
+      {
+        "number": 2,
+        "cells": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "answer": "UPTON",
+        "clue": "Personal name"
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "answer": "GRB",
+        "clue": "Airport code letters"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "answer": "ROAD",
+        "clue": "Common four-letter word"
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "HERY",
+        "clue": "Surname or first name"
+      }
+    ]
+  }
+}

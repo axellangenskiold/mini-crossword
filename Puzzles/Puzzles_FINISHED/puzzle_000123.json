@@ -1,0 +1,367 @@
+{
+  "gridPreview": [
+    "-PNS-",
+    "-LANA",
+    "BATOR",
+    "ACUTE",
+    "TERRA",
+    "-SEAS"
+  ],
+  "id": "mcw_v1_536d070fab242aa5",
+  "date": "",
+  "width": 5,
+  "height": 6,
+  "blackCells": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      5,
+      0
+    ]
+  ],
+  "gridSolution": [
+    [
+      null,
+      "P",
+      "N",
+      "S",
+      null
+    ],
+    [
+      null,
+      "L",
+      "A",
+      "N",
+      "A"
+    ],
+    [
+      "B",
+      "A",
+      "T",
+      "O",
+      "R"
+    ],
+    [
+      "A",
+      "C",
+      "U",
+      "T",
+      "E"
+    ],
+    [
+      "T",
+      "E",
+      "R",
+      "R",
+      "A"
+    ],
+    [
+      null,
+      "S",
+      "E",
+      "A",
+      "S"
+    ]
+  ],
+  "entries": {
+    "across": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        "answer": "PNS",
+        "clue": "Airport code letters"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "answer": "LANA",
+        "clue": "Personal name"
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "answer": "BATOR",
+        "clue": "Surname list"
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "answer": "ACUTE",
+        "clue": "Common five-letter word"
+      },
+      {
+        "number": 8,
+        "cells": [
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "TERRA",
+        "clue": "Material world as opposed to the heavens"
+      },
+      {
+        "number": 9,
+        "cells": [
+          [
+            5,
+            1
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            5,
+            3
+          ],
+          [
+            5,
+            4
+          ]
+        ],
+        "answer": "SEAS",
+        "clue": "Plural form"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            5,
+            1
+          ]
+        ],
+        "answer": "PLACES",
+        "clue": "Puts somewhere"
+      },
+      {
+        "number": 2,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            5,
+            2
+          ]
+        ],
+        "answer": "NATURE",
+        "clue": "Common six-letter word"
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        "answer": "SNOTRA",
+        "clue": "Norse deity"
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ]
+        ],
+        "answer": "AREAS",
+        "clue": "More than one"
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "answer": "BAT",
+        "clue": "Shale or bituminous shale"
+      }
+    ]
+  }
+}

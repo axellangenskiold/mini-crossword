@@ -1,0 +1,367 @@
+{
+  "gridPreview": [
+    "--PPM",
+    "-HALO",
+    "HORAN",
+    "ARENA",
+    "RENEE",
+    "MATS-"
+  ],
+  "id": "mcw_v1_7692e27a2b278a16",
+  "date": "",
+  "width": 5,
+  "height": 6,
+  "blackCells": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      5,
+      4
+    ]
+  ],
+  "gridSolution": [
+    [
+      null,
+      null,
+      "P",
+      "P",
+      "M"
+    ],
+    [
+      null,
+      "H",
+      "A",
+      "L",
+      "O"
+    ],
+    [
+      "H",
+      "O",
+      "R",
+      "A",
+      "N"
+    ],
+    [
+      "A",
+      "R",
+      "E",
+      "N",
+      "A"
+    ],
+    [
+      "R",
+      "E",
+      "N",
+      "E",
+      "E"
+    ],
+    [
+      "M",
+      "A",
+      "T",
+      "S",
+      null
+    ]
+  ],
+  "entries": {
+    "across": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ]
+        ],
+        "answer": "PPM",
+        "clue": "Initialism of page per minute"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "answer": "HALO",
+        "clue": "Anything resembling this band, such as an effect"
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "answer": "HORAN",
+        "clue": "Personal name"
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "answer": "ARENA",
+        "clue": "Common five-letter word"
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "RENEE",
+        "clue": "Surname or first name"
+      },
+      {
+        "number": 8,
+        "cells": [
+          [
+            5,
+            0
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        "answer": "MATS",
+        "clue": "Form a thick, tangled mess"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            5,
+            2
+          ]
+        ],
+        "answer": "PARENT",
+        "clue": "Common six-letter word"
+      },
+      {
+        "number": 2,
+        "cells": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        "answer": "PLANES",
+        "clue": "Plural form"
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "MONAE",
+        "clue": "Name in many families"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            5,
+            1
+          ]
+        ],
+        "answer": "HOREA",
+        "clue": "Familiar name"
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            5,
+            0
+          ]
+        ],
+        "answer": "HARM",
+        "clue": "Emotional or figurative hurt"
+      }
+    ]
+  }
+}

@@ -1,12 +1,12 @@
 {
   "gridPreview": [
-    "SETON-",
-    "PLACES",
-    "ALBANY",
-    "MILLER",
-    "-SEA--"
+    "THONG-",
+    "HAZARD",
+    "ADONAI",
+    "TENNIS",
+    "-SEAN-"
   ],
-  "id": "mcw_v1_6a68d9419c61efa8",
+  "id": "mcw_v1_f2af841fde6c8e34",
   "date": "2026-02-07",
   "width": 6,
   "height": 5,
@@ -21,52 +21,48 @@
     ],
     [
       4,
-      4
-    ],
-    [
-      4,
       5
     ]
   ],
   "gridSolution": [
     [
-      "S",
-      "E",
       "T",
+      "H",
       "O",
       "N",
+      "G",
       null
     ],
     [
-      "P",
-      "L",
+      "H",
       "A",
-      "C",
-      "E",
-      "S"
+      "Z",
+      "A",
+      "R",
+      "D"
     ],
     [
       "A",
-      "L",
-      "B",
-      "A",
+      "D",
+      "O",
       "N",
-      "Y"
+      "A",
+      "I"
     ],
     [
-      "M",
-      "I",
-      "L",
-      "L",
+      "T",
       "E",
-      "R"
+      "N",
+      "N",
+      "I",
+      "S"
     ],
     [
       null,
       "S",
       "E",
       "A",
-      null,
+      "N",
       null
     ]
   ],
@@ -96,8 +92,8 @@
             4
           ]
         ],
-        "answer": "SETON",
-        "clue": "Saint Elizabeth ___"
+        "answer": "THONG",
+        "clue": "Common five-letter word"
       },
       {
         "number": 6,
@@ -127,8 +123,8 @@
             5
           ]
         ],
-        "answer": "PLACES",
-        "clue": "Puts somewhere"
+        "answer": "HAZARD",
+        "clue": "Common six-letter word"
       },
       {
         "number": 8,
@@ -158,8 +154,8 @@
             5
           ]
         ],
-        "answer": "ALBANY",
-        "clue": "New York's capital"
+        "answer": "ADONAI",
+        "clue": "Personal name"
       },
       {
         "number": 9,
@@ -189,8 +185,8 @@
             5
           ]
         ],
-        "answer": "MILLER",
-        "clue": "Grain grinder"
+        "answer": "TENNIS",
+        "clue": "Plural form"
       },
       {
         "number": 10,
@@ -206,10 +202,14 @@
           [
             4,
             3
+          ],
+          [
+            4,
+            4
           ]
         ],
-        "answer": "SEA",
-        "clue": "Saltwater expanse"
+        "answer": "SEAN",
+        "clue": "Common four-letter word"
       }
     ],
     "down": [
@@ -233,8 +233,8 @@
             0
           ]
         ],
-        "answer": "SPAM",
-        "clue": "Canned meat"
+        "answer": "THAT",
+        "clue": "Everyday four-letter term"
       },
       {
         "number": 2,
@@ -260,8 +260,8 @@
             1
           ]
         ],
-        "answer": "ELLIS",
-        "clue": "NYC island gateway"
+        "answer": "HADES",
+        "clue": "God of the underworld in Greek mythology"
       },
       {
         "number": 3,
@@ -287,8 +287,8 @@
             2
           ]
         ],
-        "answer": "TABLE",
-        "clue": "Dining surface"
+        "answer": "OZONE",
+        "clue": "Everyday five-letter term"
       },
       {
         "number": 4,
@@ -314,8 +314,8 @@
             3
           ]
         ],
-        "answer": "OCALA",
-        "clue": "Florida city"
+        "answer": "NANNA",
+        "clue": "Surname or first name"
       },
       {
         "number": 5,
@@ -335,10 +335,14 @@
           [
             3,
             4
+          ],
+          [
+            4,
+            4
           ]
         ],
-        "answer": "NENE",
-        "clue": "Hawaiian goose"
+        "answer": "GRAIN",
+        "clue": "General word"
       },
       {
         "number": 7,
@@ -356,8 +360,8 @@
             5
           ]
         ],
-        "answer": "SYR",
-        "clue": "Upstate NY city, briefly"
+        "answer": "DIS",
+        "clue": "Short everyday word"
       }
     ]
   }

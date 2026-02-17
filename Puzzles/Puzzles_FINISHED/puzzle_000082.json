@@ -1,0 +1,312 @@
+{
+  "gridPreview": [
+    "-SLC-",
+    "SALON",
+    "PROVO",
+    "EASE-",
+    "CHAR-"
+  ],
+  "id": "mcw_v1_0a94aa107f93ddea",
+  "date": "",
+  "width": 5,
+  "height": 5,
+  "blackCells": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      4,
+      4
+    ]
+  ],
+  "gridSolution": [
+    [
+      null,
+      "S",
+      "L",
+      "C",
+      null
+    ],
+    [
+      "S",
+      "A",
+      "L",
+      "O",
+      "N"
+    ],
+    [
+      "P",
+      "R",
+      "O",
+      "V",
+      "O"
+    ],
+    [
+      "E",
+      "A",
+      "S",
+      "E",
+      null
+    ],
+    [
+      "C",
+      "H",
+      "A",
+      "R",
+      null
+    ]
+  ],
+  "entries": {
+    "across": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        "answer": "SLC",
+        "clue": "Airport code letters"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "answer": "SALON",
+        "clue": "Common five-letter word"
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "answer": "PROVO",
+        "clue": "Place on a map"
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ]
+        ],
+        "answer": "EASE",
+        "clue": "Common four-letter word"
+      },
+      {
+        "number": 8,
+        "cells": [
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "answer": "CHAR",
+        "clue": "Everyday four-letter term"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "answer": "SARAH",
+        "clue": "Everyday five-letter term"
+      },
+      {
+        "number": 2,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "answer": "LLOSA",
+        "clue": "Personal name"
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "answer": "COVER",
+        "clue": "General word"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "answer": "SPEC",
+        "clue": "Basic word"
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "answer": "NO",
+        "clue": "Casual exclamation"
+      }
+    ]
+  }
+}

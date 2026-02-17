@@ -1,0 +1,312 @@
+{
+  "gridPreview": [
+    "-ROSS",
+    "MULTI",
+    "ELDER",
+    "SEEM-",
+    "ARR--"
+  ],
+  "id": "mcw_v1_63a7433bd60aef2b",
+  "date": "",
+  "width": 5,
+  "height": 5,
+  "blackCells": [
+    [
+      0,
+      0
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      4,
+      3
+    ],
+    [
+      4,
+      4
+    ]
+  ],
+  "gridSolution": [
+    [
+      null,
+      "R",
+      "O",
+      "S",
+      "S"
+    ],
+    [
+      "M",
+      "U",
+      "L",
+      "T",
+      "I"
+    ],
+    [
+      "E",
+      "L",
+      "D",
+      "E",
+      "R"
+    ],
+    [
+      "S",
+      "E",
+      "E",
+      "M",
+      null
+    ],
+    [
+      "A",
+      "R",
+      "R",
+      null,
+      null
+    ]
+  ],
+  "entries": {
+    "across": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ]
+        ],
+        "answer": "ROSS",
+        "clue": "Plural form"
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "answer": "MULTI",
+        "clue": "Common five-letter word"
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "answer": "ELDER",
+        "clue": "Everyday five-letter term"
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ]
+        ],
+        "answer": "SEEM",
+        "clue": "Common four-letter word"
+      },
+      {
+        "number": 8,
+        "cells": [
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "answer": "ARR",
+        "clue": "Personal name"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "answer": "RULER",
+        "clue": "Person who rules or governs"
+      },
+      {
+        "number": 2,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ]
+        ],
+        "answer": "OLDER",
+        "clue": "General word"
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ]
+        ],
+        "answer": "STEM",
+        "clue": "Everyday four-letter term"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "answer": "SIR",
+        "clue": "Superior military officer"
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "answer": "MESA",
+        "clue": "Basic word"
+      }
+    ]
+  }
+}

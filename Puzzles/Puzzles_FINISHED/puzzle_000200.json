@@ -1,0 +1,367 @@
+{
+  "gridPreview": [
+    "ARAB-",
+    "RULES",
+    "IDAHO",
+    "SONIC",
+    "ELIN-",
+    "-FSD-"
+  ],
+  "id": "mcw_v1_c427f1a0f9627c03",
+  "date": "",
+  "width": 5,
+  "height": 6,
+  "blackCells": [
+    [
+      0,
+      4
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      5,
+      0
+    ],
+    [
+      5,
+      4
+    ]
+  ],
+  "gridSolution": [
+    [
+      "A",
+      "R",
+      "A",
+      "B",
+      null
+    ],
+    [
+      "R",
+      "U",
+      "L",
+      "E",
+      "S"
+    ],
+    [
+      "I",
+      "D",
+      "A",
+      "H",
+      "O"
+    ],
+    [
+      "S",
+      "O",
+      "N",
+      "I",
+      "C"
+    ],
+    [
+      "E",
+      "L",
+      "I",
+      "N",
+      null
+    ],
+    [
+      null,
+      "F",
+      "S",
+      "D",
+      null
+    ]
+  ],
+  "entries": {
+    "across": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        "answer": "ARAB",
+        "clue": "Common four-letter word"
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "answer": "RULES",
+        "clue": "Set of guidelines"
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "answer": "IDAHO",
+        "clue": "U"
+      },
+      {
+        "number": 8,
+        "cells": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "answer": "SONIC",
+        "clue": "Common five-letter word"
+      },
+      {
+        "number": 9,
+        "cells": [
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "answer": "ELIN",
+        "clue": "Name list"
+      },
+      {
+        "number": 10,
+        "cells": [
+          [
+            5,
+            1
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        "answer": "FSD",
+        "clue": "Airport code letters"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "answer": "ARISE",
+        "clue": "Everyday five-letter term"
+      },
+      {
+        "number": 2,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            5,
+            1
+          ]
+        ],
+        "answer": "RUDOLF",
+        "clue": "Personal name"
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            5,
+            2
+          ]
+        ],
+        "answer": "ALANIS",
+        "clue": "Surname or first name"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        "answer": "BEHIND",
+        "clue": "Common six-letter word"
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "answer": "SOC",
+        "clue": "Short everyday word"
+      }
+    ]
+  }
+}

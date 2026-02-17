@@ -1,0 +1,367 @@
+{
+  "gridPreview": [
+    "HER--",
+    "OMAHA",
+    "MINOR",
+    "ENGLE",
+    "SEEDS",
+    "-MRS-"
+  ],
+  "id": "mcw_v1_73dd4c399081a558",
+  "date": "",
+  "width": 5,
+  "height": 6,
+  "blackCells": [
+    [
+      0,
+      3
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      5,
+      0
+    ],
+    [
+      5,
+      4
+    ]
+  ],
+  "gridSolution": [
+    [
+      "H",
+      "E",
+      "R",
+      null,
+      null
+    ],
+    [
+      "O",
+      "M",
+      "A",
+      "H",
+      "A"
+    ],
+    [
+      "M",
+      "I",
+      "N",
+      "O",
+      "R"
+    ],
+    [
+      "E",
+      "N",
+      "G",
+      "L",
+      "E"
+    ],
+    [
+      "S",
+      "E",
+      "E",
+      "D",
+      "S"
+    ],
+    [
+      null,
+      "M",
+      "R",
+      "S",
+      null
+    ]
+  ],
+  "entries": {
+    "across": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "answer": "HER",
+        "clue": "Female person or animal"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "answer": "OMAHA",
+        "clue": "Common five-letter word"
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "answer": "MINOR",
+        "clue": "Everyday five-letter term"
+      },
+      {
+        "number": 8,
+        "cells": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "answer": "ENGLE",
+        "clue": "Personal name"
+      },
+      {
+        "number": 9,
+        "cells": [
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "SEEDS",
+        "clue": "Plural form"
+      },
+      {
+        "number": 10,
+        "cells": [
+          [
+            5,
+            1
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        "answer": "MRS",
+        "clue": "Short everyday word"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "answer": "HOMES",
+        "clue": "Seek or aim for something"
+      },
+      {
+        "number": 2,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            5,
+            1
+          ]
+        ],
+        "answer": "EMINEM",
+        "clue": "Surname or first name"
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            5,
+            2
+          ]
+        ],
+        "answer": "RANGER",
+        "clue": "Common six-letter word"
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            5,
+            3
+          ]
+        ],
+        "answer": "HOLDS",
+        "clue": "More than one"
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "ARES",
+        "clue": "God of war in ancient Greek religion"
+      }
+    ]
+  }
+}

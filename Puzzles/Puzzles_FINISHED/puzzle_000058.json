@@ -1,0 +1,367 @@
+{
+  "gridPreview": [
+    "SHAT-",
+    "CORE-",
+    "HOREA",
+    "EVENT",
+    "MESSI",
+    "ERT--"
+  ],
+  "id": "mcw_v1_43d10c2097ae7157",
+  "date": "",
+  "width": 5,
+  "height": 6,
+  "blackCells": [
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      5,
+      3
+    ],
+    [
+      5,
+      4
+    ]
+  ],
+  "gridSolution": [
+    [
+      "S",
+      "H",
+      "A",
+      "T",
+      null
+    ],
+    [
+      "C",
+      "O",
+      "R",
+      "E",
+      null
+    ],
+    [
+      "H",
+      "O",
+      "R",
+      "E",
+      "A"
+    ],
+    [
+      "E",
+      "V",
+      "E",
+      "N",
+      "T"
+    ],
+    [
+      "M",
+      "E",
+      "S",
+      "S",
+      "I"
+    ],
+    [
+      "E",
+      "R",
+      "T",
+      null,
+      null
+    ]
+  ],
+  "entries": {
+    "across": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        "answer": "SHAT",
+        "clue": "Personal name"
+      },
+      {
+        "number": 5,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "answer": "CORE",
+        "clue": "Common four-letter word"
+      },
+      {
+        "number": 6,
+        "cells": [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "answer": "HOREA",
+        "clue": "Surname or first name"
+      },
+      {
+        "number": 8,
+        "cells": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "answer": "EVENT",
+        "clue": "Be emitted or breathed out"
+      },
+      {
+        "number": 9,
+        "cells": [
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "MESSI",
+        "clue": "Argentine footballer"
+      },
+      {
+        "number": 10,
+        "cells": [
+          [
+            5,
+            0
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            5,
+            2
+          ]
+        ],
+        "answer": "ERT",
+        "clue": "Name in many families"
+      }
+    ],
+    "down": [
+      {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            5,
+            0
+          ]
+        ],
+        "answer": "SCHEME",
+        "clue": "Common six-letter word"
+      },
+      {
+        "number": 2,
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            5,
+            1
+          ]
+        ],
+        "answer": "HOOVER",
+        "clue": "Place on a map"
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            5,
+            2
+          ]
+        ],
+        "answer": "ARREST",
+        "clue": "General six-letter term"
+      },
+      {
+        "number": 4,
+        "cells": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            3
+          ]
+        ],
+        "answer": "TEENS",
+        "clue": "Plural form"
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ]
+        ],
+        "answer": "ATI",
+        "clue": "Short everyday word"
+      }
+    ]
+  }
+}
