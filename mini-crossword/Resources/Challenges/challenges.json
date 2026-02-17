@@ -33,6 +33,40 @@
       ],
       "puzzleFolder": "gangnamn_style",
       "puzzleCount": 25
+    },
+    {
+      "id": "blizzful_blast",
+      "name": "Blizzful Blast",
+      "puzzleFile": "puzzle_000051.json",
+      "puzzleFiles": [
+        "puzzle_000051.json",
+        "puzzle_000052.json",
+        "puzzle_000053.json",
+        "puzzle_000054.json",
+        "puzzle_000055.json",
+        "puzzle_000056.json",
+        "puzzle_000057.json",
+        "puzzle_000058.json",
+        "puzzle_000059.json",
+        "puzzle_000060.json",
+        "puzzle_000061.json",
+        "puzzle_000062.json",
+        "puzzle_000063.json",
+        "puzzle_000064.json",
+        "puzzle_000065.json",
+        "puzzle_000066.json",
+        "puzzle_000067.json",
+        "puzzle_000068.json",
+        "puzzle_000069.json",
+        "puzzle_000070.json",
+        "puzzle_000071.json",
+        "puzzle_000072.json",
+        "puzzle_000073.json",
+        "puzzle_000074.json",
+        "puzzle_000075.json"
+      ],
+      "puzzleFolder": "blizzful_blast",
+      "puzzleCount": 25
     }
   ]
 }
