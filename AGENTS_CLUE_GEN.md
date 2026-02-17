@@ -1,52 +1,90 @@
-# AGENTS_CLUE_GEN.md — Mini Crossword Clue Generation
+# AGENTS_CLUE_GEN.md - Mini Crossword Clue Generation
 
 Use this file when generating clues for puzzles in `Puzzles/Puzzles_NO_CLUES/`.
 Output completed puzzles to `Puzzles/Puzzles_FINISHED/`.
 
-## Rules
+## Core Goal
+
+Every clue must describe the specific answer. The solver does not know the answer in advance.
+
+## Non-Negotiable Rules
 
 - Fill every `entries.across[].clue` and `entries.down[].clue`.
-- Do not change answers, grid, dimensions, or black cells.
-- Keep clues short, clear, and varied within each puzzle.
-- Mixed difficulty: mostly approachable, with a few slightly tougher clues.
-- Abbreviations are allowed only if they are widely known.
-- Avoid obscure trivia; prefer general knowledge, common phrases, and everyday words.
+- Do not change answers, grid, dimensions, cell coordinates, or black cells.
 - Use ASCII only.
-- External APIs are allowed for clue generation.
+- Keep clues short and clear.
+- Mixed difficulty is fine, but most clues should be approachable.
+- Abbreviations are allowed only if they are widely known.
+- Avoid obscure trivia.
+- External APIs are allowed.
 
-## Style Guidance
+## Specificity Requirement (Mandatory)
 
-- Vary clue types within a puzzle:
-  - Straight definition (e.g., "Ocean inlet")
-  - Synonym (e.g., "Swiftly")
-  - Fill-in-the-blank (e.g., "Blanket \_\_\_")
-  - Category hint (e.g., "U.S. state capital")
-  - Abbreviation (clearly marked if needed)
-- Proper nouns:
-  - People: "Singer Adele" / "Inventor Edison"
-  - Cities: "Florida city" / "Capital of New York"
-  - Countries/continents: "European country"
-  - Mythology: "Greek god of war"
-- Keep clues consistent and non-repeating within the same puzzle.
+A clue is valid only if it points to that exact answer, not just a random word of the same length/category.
+
+Reject clues that are generic or non-informative, such as:
+
+- "Common 6-letter word"
+- "Normal 4-letter word"
+- "Everyday term"
+- "General vocabulary word"
+- "Place name"
+- "Person name"
+
+If a clue could fit many unrelated answers, it is too weak and must be replaced.
+
+## Allowed Clue Types
+
+- Definition: "Large body of saltwater" -> SEA
+- Fill-in-the-blank, only if specific enough: "Saint Elizabeth ___" -> SETON
+- Category clue, only if specific enough: "Capital and largest city of Bahrain" -> MANAMA
+- Light trivia is allowed if broadly known and specific.
+
+## Proper Nouns (Strict)
+
+- Proper-noun clues must include unique identifying context.
+- Do not use vague clues like "City name" or "Famous person".
+- Examples:
+  - Good: "New York's capital" -> ALBANY
+  - Bad: "U.S. city" -> ALBANY
+  - Good: "Singer of 'Hello'" -> ADELE
+  - Bad: "Singer" -> ADELE
+
+## Quality Check Before Writing
+
+For each clue, verify:
+
+1. Does this clue describe this answer specifically?
+2. Would this clue still make sense for many unrelated answers?
+3. If yes, rewrite until specific.
+
+## Uncertainty Policy (Option B)
+
+If confidence is low:
+
+- Use the most conservative specific clue you can produce.
+- Flag that clue for review in your run notes/output summary.
+- Do not fall back to generic filler clues.
 
 ## Workflow
 
 1. Load a puzzle JSON from `Puzzles/Puzzles_NO_CLUES/`.
-2. Generate a clue for each across/down entry.
-3. Save the updated JSON into `Puzzles/Puzzles_FINISHED/` with the same filename.
+2. Generate clues for all across/down entries using the rules above.
+3. Save updated JSON to `Puzzles/Puzzles_FINISHED/` with the same filename.
 4. Remove the original from `Puzzles/Puzzles_NO_CLUES/` only after successful write.
+5. Output a brief review list of low-confidence clues.
 
 ## Suggested Prompt (for another agent)
 
-You are generating clues for a mini crossword. Use the rules below:
+You are generating clues for a mini crossword. Follow AGENTS_CLUE_GEN.md exactly.
 
-- Fill all empty `clue` fields in the puzzle JSON.
-- Keep clues short, clear, and varied within the puzzle.
-- Mixed difficulty, mostly approachable.
-- Abbreviations only if widely known.
-- Avoid obscure trivia.
+Requirements:
+
+- Fill all empty `clue` fields.
+- Every clue must specifically match its answer.
+- No generic filler clues (for example: "Common 5-letter word").
+- Fill-in-the-blank and category clues are allowed only when specific enough.
+- Proper nouns must have unique identifying context.
+- If uncertain, use a conservative specific clue and flag it for review.
 - Do not change answers or grid data.
 - ASCII only.
-
-Instructions can be found in AGENTS_CLUE_GEN.md for how to generate clues.
-Puzzles without clues can be found in Puzzles_NO_CLUES.
