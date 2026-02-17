@@ -1,13 +1,13 @@
 {
   "gridPreview": [
-    "--PAS",
-    "ALLAH",
-    "NAURU",
-    "AUTO-",
-    "LEON-"
+    "--POR",
+    "CARLO",
+    "HNOSS",
+    "-AMES",
+    "-TONI"
   ],
-  "id": "mcw_v1_97f4cc07d3458b8a",
-  "date": "",
+  "id": "mcw_v1_e576967713e9f1e0",
+  "date": "2026-02-28",
   "width": 5,
   "height": 5,
   "blackCells": [
@@ -21,11 +21,11 @@
     ],
     [
       3,
-      4
+      0
     ],
     [
       4,
-      4
+      0
     ]
   ],
   "gridSolution": [
@@ -33,36 +33,36 @@
       null,
       null,
       "P",
+      "O",
+      "R"
+    ],
+    [
+      "C",
       "A",
+      "R",
+      "L",
+      "O"
+    ],
+    [
+      "H",
+      "N",
+      "O",
+      "S",
       "S"
     ],
     [
+      null,
       "A",
-      "L",
-      "L",
-      "A",
-      "H"
+      "M",
+      "E",
+      "S"
     ],
     [
-      "N",
-      "A",
-      "U",
-      "R",
-      "U"
-    ],
-    [
-      "A",
-      "U",
+      null,
       "T",
       "O",
-      null
-    ],
-    [
-      "L",
-      "E",
-      "O",
       "N",
-      null
+      "I"
     ]
   ],
   "entries": {
@@ -83,7 +83,7 @@
             4
           ]
         ],
-        "answer": "PAS",
+        "answer": "POR",
         "clue": "Short everyday word"
       },
       {
@@ -110,7 +110,7 @@
             4
           ]
         ],
-        "answer": "ALLAH",
+        "answer": "CARLO",
         "clue": "Common five-letter word"
       },
       {
@@ -137,18 +137,14 @@
             4
           ]
         ],
-        "answer": "NAURU",
-        "clue": "Island country in Oceania"
+        "answer": "HNOSS",
+        "clue": "Norse deity"
       },
       {
         "number": 7,
         "cells": [
           [
             3,
-            0
-          ],
-          [
-            3,
             1
           ],
           [
@@ -158,20 +154,20 @@
           [
             3,
             3
+          ],
+          [
+            3,
+            4
           ]
         ],
-        "answer": "AUTO",
-        "clue": "Common four-letter word"
+        "answer": "AMES",
+        "clue": "Place on a map"
       },
       {
         "number": 8,
         "cells": [
           [
             4,
-            0
-          ],
-          [
-            4,
             1
           ],
           [
@@ -181,10 +177,14 @@
           [
             4,
             3
+          ],
+          [
+            4,
+            4
           ]
         ],
-        "answer": "LEON",
-        "clue": "Everyday four-letter term"
+        "answer": "TONI",
+        "clue": "Name list"
       }
     ],
     "down": [
@@ -212,8 +212,8 @@
             2
           ]
         ],
-        "answer": "PLUTO",
-        "clue": "Demote or devalue something"
+        "answer": "PROMO",
+        "clue": "Everyday five-letter term"
       },
       {
         "number": 2,
@@ -239,8 +239,8 @@
             3
           ]
         ],
-        "answer": "AARON",
-        "clue": "Everyday five-letter term"
+        "answer": "OLSEN",
+        "clue": "Personal name"
       },
       {
         "number": 3,
@@ -256,10 +256,18 @@
           [
             2,
             4
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
           ]
         ],
-        "answer": "SHU",
-        "clue": "Personal name"
+        "answer": "ROSSI",
+        "clue": "Ross"
       },
       {
         "number": 4,
@@ -271,18 +279,10 @@
           [
             2,
             0
-          ],
-          [
-            3,
-            0
-          ],
-          [
-            4,
-            0
           ]
         ],
-        "answer": "ANAL",
-        "clue": "Proximate to the thorax"
+        "answer": "CH",
+        "clue": "Very short word"
       },
       {
         "number": 5,
@@ -304,8 +304,8 @@
             1
           ]
         ],
-        "answer": "LAUE",
-        "clue": "Surname or first name"
+        "answer": "ANAT",
+        "clue": "Ancient Mesopotamian, Ugaritic and Egyptian war"
       }
     ]
   }

@@ -1,68 +1,72 @@
 {
   "gridPreview": [
-    "-SLC-",
-    "SALON",
-    "PROVO",
-    "EASE-",
-    "CHAR-"
+    "LARGE",
+    "OPERA",
+    "CODES",
+    "-PEET",
+    "-KENO",
+    "-AMEN"
   ],
-  "id": "mcw_v1_0a94aa107f93ddea",
-  "date": "",
+  "id": "mcw_v1_8b8d5e4bec9582ae",
+  "date": "2026-02-26",
   "width": 5,
-  "height": 5,
+  "height": 6,
   "blackCells": [
     [
-      0,
+      3,
       0
     ],
     [
-      0,
-      4
-    ],
-    [
-      3,
-      4
-    ],
-    [
       4,
-      4
+      0
+    ],
+    [
+      5,
+      0
     ]
   ],
   "gridSolution": [
     [
-      null,
-      "S",
       "L",
-      "C",
-      null
-    ],
-    [
-      "S",
       "A",
-      "L",
-      "O",
-      "N"
+      "R",
+      "G",
+      "E"
     ],
     [
-      "P",
-      "R",
       "O",
-      "V",
+      "P",
+      "E",
+      "R",
+      "A"
+    ],
+    [
+      "C",
+      "O",
+      "D",
+      "E",
+      "S"
+    ],
+    [
+      null,
+      "P",
+      "E",
+      "E",
+      "T"
+    ],
+    [
+      null,
+      "K",
+      "E",
+      "N",
       "O"
     ],
     [
-      "E",
+      null,
       "A",
-      "S",
+      "M",
       "E",
-      null
-    ],
-    [
-      "C",
-      "H",
-      "A",
-      "R",
-      null
+      "N"
     ]
   ],
   "entries": {
@@ -72,51 +76,59 @@
         "cells": [
           [
             0,
-            1
-          ],
-          [
-            0,
-            2
-          ],
-          [
-            0,
-            3
-          ]
-        ],
-        "answer": "SLC",
-        "clue": "Airport code letters"
-      },
-      {
-        "number": 4,
-        "cells": [
-          [
-            1,
             0
           ],
           [
-            1,
+            0,
             1
           ],
           [
-            1,
+            0,
             2
           ],
           [
-            1,
+            0,
             3
           ],
           [
-            1,
+            0,
             4
           ]
         ],
-        "answer": "SALON",
+        "answer": "LARGE",
         "clue": "Common five-letter word"
       },
       {
         "number": 6,
         "cells": [
           [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "answer": "OPERA",
+        "clue": "Score for such a work"
+      },
+      {
+        "number": 7,
+        "cells": [
+          [
             2,
             0
           ],
@@ -137,39 +149,35 @@
             4
           ]
         ],
-        "answer": "PROVO",
-        "clue": "Place on a map"
-      },
-      {
-        "number": 7,
-        "cells": [
-          [
-            3,
-            0
-          ],
-          [
-            3,
-            1
-          ],
-          [
-            3,
-            2
-          ],
-          [
-            3,
-            3
-          ]
-        ],
-        "answer": "EASE",
-        "clue": "Common four-letter word"
+        "answer": "CODES",
+        "clue": "Plural form"
       },
       {
         "number": 8,
         "cells": [
           [
-            4,
-            0
+            3,
+            1
           ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "answer": "PEET",
+        "clue": "Personal name"
+      },
+      {
+        "number": 9,
+        "cells": [
           [
             4,
             1
@@ -181,10 +189,37 @@
           [
             4,
             3
+          ],
+          [
+            4,
+            4
           ]
         ],
-        "answer": "CHAR",
-        "clue": "Everyday four-letter term"
+        "answer": "KENO",
+        "clue": "Common four-letter word"
+      },
+      {
+        "number": 10,
+        "cells": [
+          [
+            5,
+            1
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            5,
+            3
+          ],
+          [
+            5,
+            4
+          ]
+        ],
+        "answer": "AMEN",
+        "clue": "Used to indicate emphatic agreement"
       }
     ],
     "down": [
@@ -193,33 +228,56 @@
         "cells": [
           [
             0,
-            1
+            0
           ],
           [
             1,
-            1
+            0
           ],
           [
             2,
-            1
-          ],
-          [
-            3,
-            1
-          ],
-          [
-            4,
-            1
+            0
           ]
         ],
-        "answer": "SARAH",
-        "clue": "Everyday five-letter term"
+        "answer": "LOC",
+        "clue": "Short everyday word"
       },
       {
         "number": 2,
         "cells": [
           [
             0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            5,
+            1
+          ]
+        ],
+        "answer": "APOPKA",
+        "clue": "Place on a map"
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            0,
             2
           ],
           [
@@ -237,13 +295,17 @@
           [
             4,
             2
+          ],
+          [
+            5,
+            2
           ]
         ],
-        "answer": "LLOSA",
-        "clue": "Personal name"
+        "answer": "REDEEM",
+        "clue": "Common six-letter word"
       },
       {
-        "number": 3,
+        "number": 4,
         "cells": [
           [
             0,
@@ -264,48 +326,45 @@
           [
             4,
             3
+          ],
+          [
+            5,
+            3
           ]
         ],
-        "answer": "COVER",
-        "clue": "General word"
-      },
-      {
-        "number": 4,
-        "cells": [
-          [
-            1,
-            0
-          ],
-          [
-            2,
-            0
-          ],
-          [
-            3,
-            0
-          ],
-          [
-            4,
-            0
-          ]
-        ],
-        "answer": "SPEC",
-        "clue": "Basic word"
+        "answer": "GREENE",
+        "clue": "Surname or first name"
       },
       {
         "number": 5,
         "cells": [
           [
+            0,
+            4
+          ],
+          [
             1,
             4
           ],
           [
             2,
             4
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
           ]
         ],
-        "answer": "NO",
-        "clue": "Casual exclamation"
+        "answer": "EASTON",
+        "clue": "Name in many families"
       }
     ]
   }
