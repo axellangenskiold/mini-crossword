@@ -76,6 +76,17 @@
   "entries": {
     "across": [
       {
+        "number": 1,
+        "cells": [
+          [
+            0,
+            1
+          ]
+        ],
+        "answer": "L",
+        "clue": "What the loser gets in a game."
+      },
+      {
         "number": 2,
         "cells": [
           [
@@ -127,7 +138,7 @@
           ]
         ],
         "answer": "HENRI",
-        "clue": "Matisse first name"
+        "clue": "Matisse of modern art."
       },
       {
         "number": 7,
@@ -154,7 +165,7 @@
           ]
         ],
         "answer": "ALIEN",
-        "clue": "Science-fiction horror franchise"
+        "clue": "Science-fiction horror franchise."
       },
       {
         "number": 8,
@@ -181,7 +192,7 @@
           ]
         ],
         "answer": "TEMET",
-        "clue": "Imarhan album '___'"
+        "clue": "Imarhan album '___', also a palindrome."
       },
       {
         "number": 9,
@@ -208,7 +219,7 @@
           ]
         ],
         "answer": "SEEKS",
-        "clue": "Try to reach or come to"
+        "clue": "Try to reach or come to."
       }
     ],
     "down": [
@@ -241,7 +252,7 @@
           ]
         ],
         "answer": "LEELEE",
-        "clue": "Sobieski first name"
+        "clue": "Actress Sobieski first name."
       },
       {
         "number": 2,
@@ -268,7 +279,7 @@
           ]
         ],
         "answer": "THATS",
-        "clue": "A given extent or degree."
+        "clue": "\"That is\" in contractions."
       },
       {
         "number": 3,
@@ -295,7 +306,7 @@
           ]
         ],
         "answer": "ANIME",
-        "clue": "Artistic style originating in, and associated with,"
+        "clue": "Japanese animation."
       },
       {
         "number": 4,
@@ -322,7 +333,7 @@
           ]
         ],
         "answer": "CREEK",
-        "clue": "Any turn or winding."
+        "clue": "Small stream."
       },
       {
         "number": 5,
@@ -349,7 +360,7 @@
           ]
         ],
         "answer": "HINTS",
-        "clue": "Small, barely detectable amount."
+        "clue": "Given to solve a crossword, for example."
       }
     ]
   }
