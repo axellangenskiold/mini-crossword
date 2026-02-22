@@ -97,7 +97,7 @@
           ]
         ],
         "answer": "SPADE",
-        "clue": "Playing card marked with the symbol ."
+        "clue": "Playing card symbol."
       },
       {
         "number": 6,
@@ -128,7 +128,7 @@
           ]
         ],
         "answer": "POWELL",
-        "clue": "City in Park County, Wyoming."
+        "clue": "FED chairman Jerome."
       },
       {
         "number": 8,
@@ -159,7 +159,7 @@
           ]
         ],
         "answer": "ALANIS",
-        "clue": "Municipality of Spain"
+        "clue": "Canadian singer Morissette."
       },
       {
         "number": 9,
@@ -186,7 +186,7 @@
           ]
         ],
         "answer": "MARIO",
-        "clue": "Video game character"
+        "clue": "Red video game character with green brother."
       },
       {
         "number": 10,
@@ -209,7 +209,7 @@
           ]
         ],
         "answer": "REST",
-        "clue": "Any relief from exertion"
+        "clue": "Relaxation or sleep."
       }
     ],
     "down": [
@@ -234,7 +234,7 @@
           ]
         ],
         "answer": "SPAM",
-        "clue": "Do something rapidly and repeatedly."
+        "clue": "Unsolicited email."
       },
       {
         "number": 2,
@@ -261,7 +261,7 @@
           ]
         ],
         "answer": "POLAR",
-        "clue": "Having a dipole; ionic."
+        "clue": "Type of bear."
       },
       {
         "number": 3,
@@ -315,7 +315,7 @@
           ]
         ],
         "answer": "DENIS",
-        "clue": "Surname."
+        "clue": "Villeneuve of film."
       },
       {
         "number": 5,
@@ -342,7 +342,7 @@
           ]
         ],
         "answer": "ELIOT",
-        "clue": "Name list"
+        "clue": "American poet T.S."
       },
       {
         "number": 7,
@@ -357,7 +357,7 @@
           ]
         ],
         "answer": "LS",
-        "clue": "British low cost airline"
+        "clue": "Used to list files in a directory in a terminal."
       }
     ]
   }
