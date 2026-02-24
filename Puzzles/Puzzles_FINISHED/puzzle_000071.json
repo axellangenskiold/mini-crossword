@@ -132,7 +132,7 @@
           ]
         ],
         "answer": "ESTATE",
-        "clue": "Condition of one's fortunes"
+        "clue": "Property left in a will."
       },
       {
         "number": 8,
@@ -163,7 +163,7 @@
           ]
         ],
         "answer": "SUITED",
-        "clue": "Of the same suit."
+        "clue": "Dressed appropriately for an occasion."
       },
       {
         "number": 9,
@@ -190,7 +190,7 @@
           ]
         ],
         "answer": "SALEM",
-        "clue": "Any of several places in the USA"
+        "clue": "Oregon's capital city."
       },
       {
         "number": 10,
@@ -209,7 +209,7 @@
           ]
         ],
         "answer": "ILL",
-        "clue": "Evil; moral wrongfulness."
+        "clue": "Bad health; sickness."
       }
     ],
     "down": [
@@ -238,7 +238,7 @@
           ]
         ],
         "answer": "MESSI",
-        "clue": "Argentine footballer"
+        "clue": "Goat of soccer."
       },
       {
         "number": 2,
@@ -292,7 +292,7 @@
           ]
         ],
         "answer": "STILL",
-        "clue": "Uttering no sound; silent."
+        "clue": "Staying in the same place."
       },
       {
         "number": 4,
@@ -315,7 +315,7 @@
           ]
         ],
         "answer": "LATE",
-        "clue": "Near the end of a period of time."
+        "clue": "What you don't want to be for an appointment."
       },
       {
         "number": 5,
@@ -338,7 +338,7 @@
           ]
         ],
         "answer": "ITEM",
-        "clue": "Distinct physical object."
+        "clue": "Object."
       },
       {
         "number": 6,
@@ -357,7 +357,7 @@
           ]
         ],
         "answer": "MED",
-        "clue": "Initialism of Master of Education."
+        "clue": "Short for medicine."
       }
     ]
   }
