@@ -51,6 +51,9 @@ struct ChallengeDetailView: View {
             ScrollViewReader { proxy in
                 ScrollView {
                     VStack(spacing: 20) {
+                        Color.clear
+                            .frame(height: 1)
+                            .id("challenge_top")
                     topBar
 
                     VStack(alignment: .leading, spacing: 8) {
@@ -209,20 +212,28 @@ struct ChallengeDetailView: View {
 
     private func autoScrollIfNeeded(proxy: ScrollViewProxy) {
         guard !didAutoScroll else { return }
-        guard let target = nextPlayableIndex() else { return }
         didAutoScroll = true
+        let completed = viewModel.puzzleItems.filter { $0.isComplete }.count
         DispatchQueue.main.async {
+            if completed == 0 {
+                withAnimation(nil) {
+                    proxy.scrollTo("challenge_top", anchor: .top)
+                }
+                return
+            }
+            guard let target = nextPlayableIndex() else { return }
             withAnimation(.easeInOut(duration: 0.6)) {
-                proxy.scrollTo("node_\(target)", anchor: .center)
+                proxy.scrollTo("node_\(target)", anchor: UnitPoint(x: 0.5, y: 0.25))
             }
         }
     }
 
     private func nextPlayableIndex() -> Int? {
-        if let index = viewModel.puzzleItems.firstIndex(where: { !$0.isLocked && !$0.isComplete }) {
-            return index
+        guard !viewModel.puzzleItems.isEmpty else { return nil }
+        if let lastUnlocked = viewModel.puzzleItems.lastIndex(where: { !$0.isLocked }) {
+            return lastUnlocked
         }
-        return viewModel.puzzleItems.indices.last
+        return viewModel.puzzleItems.indices.first
     }
 
     private var topBar: some View {

@@ -28,6 +28,35 @@
       ],
       "puzzleFolder": "blizzy_blast",
       "puzzleCount": 20
+    },
+    {
+      "id": "cosmic_comet",
+      "name": "Cosmic Comet",
+      "puzzleFile": "puzzle_000021.json",
+      "puzzleFiles": [
+        "puzzle_000021.json",
+        "puzzle_000022.json",
+        "puzzle_000023.json",
+        "puzzle_000024.json",
+        "puzzle_000025.json",
+        "puzzle_000026.json",
+        "puzzle_000027.json",
+        "puzzle_000028.json",
+        "puzzle_000029.json",
+        "puzzle_000030.json",
+        "puzzle_000031.json",
+        "puzzle_000032.json",
+        "puzzle_000033.json",
+        "puzzle_000034.json",
+        "puzzle_000035.json",
+        "puzzle_000036.json",
+        "puzzle_000037.json",
+        "puzzle_000038.json",
+        "puzzle_000039.json",
+        "puzzle_000040.json"
+      ],
+      "puzzleFolder": "cosmic_comet",
+      "puzzleCount": 20
     }
   ]
 }
