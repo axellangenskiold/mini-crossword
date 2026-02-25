@@ -39,17 +39,22 @@ final class DailyChallengeViewModel: ObservableObject {
 
         do {
             let bundledPuzzles = try bundleLoader.loadPuzzles()
+            let dailyPuzzles = bundledPuzzles.filter { PuzzleDateFormatter.date(from: $0.date) != nil }
+            if dailyPuzzles.isEmpty {
+                puzzlesByDate = [:]
+                completedPuzzleDates = []
+                loadError = "No crosswords available."
+                return
+            }
+
             var bundleByDate: [String: Puzzle] = [:]
-            for puzzle in bundledPuzzles {
+            for puzzle in dailyPuzzles {
                 let dateKey = puzzle.date
-                if dateKey.isEmpty {
-                    continue
-                }
                 if bundleByDate[dateKey] == nil {
                     bundleByDate[dateKey] = puzzle
                 }
             }
-            let fallbackPuzzle = bundledPuzzles.first
+            let fallbackPuzzle = dailyPuzzles.first
 
             var loaded: [String: Puzzle] = [:]
             var completedDates: Set<String> = []
@@ -76,6 +81,12 @@ final class DailyChallengeViewModel: ObservableObject {
             completedPuzzleDates = completedDates
             loadError = nil
         } catch {
+            if let loaderError = error as? PuzzleBundleLoader.LoaderError, loaderError == .missingResources {
+                puzzlesByDate = [:]
+                completedPuzzleDates = []
+                loadError = "No crosswords available."
+                return
+            }
             loadError = (error as? LocalizedError)?.errorDescription ?? "Failed to load puzzles"
         }
     }
