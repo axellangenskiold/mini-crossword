@@ -9,6 +9,7 @@ struct ChallengeDetailView: View {
     @State private var showAlreadyPlayed: Bool = false
     @State private var paywallTarget: ChallengePaywallTarget? = nil
     @State private var didAutoScroll: Bool = false
+    @State private var scrollViewHeight: CGFloat = 0
 
     @Environment(\.dismiss) private var dismiss
 
@@ -54,50 +55,63 @@ struct ChallengeDetailView: View {
                         Color.clear
                             .frame(height: 1)
                             .id("challenge_top")
-                    topBar
 
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text(challenge.name)
-                            .font(Theme.titleFont(size: 28))
-                            .foregroundStyle(Theme.ink)
-                            .fontWeight(.bold)
-                        HStack(spacing: 8) {
-                            Text("\(viewModel.completedCount)/\(challenge.puzzleCount) complete")
-                                .font(Theme.bodyFont(size: 14))
-                                .foregroundStyle(Theme.muted)
-                            if viewModel.isComplete {
-                                Text("Complete")
-                                    .font(Theme.bodyFont(size: 12))
-                                    .foregroundStyle(.white)
-                                    .padding(.horizontal, 10)
-                                    .padding(.vertical, 4)
-                                    .background(Theme.complete)
-                                    .clipShape(Capsule())
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text(challenge.name)
+                                .font(Theme.titleFont(size: 28))
+                                .foregroundStyle(Theme.ink)
+                                .fontWeight(.bold)
+                            HStack(spacing: 8) {
+                                Text("\(viewModel.completedCount)/\(challenge.puzzleCount) complete")
+                                    .font(Theme.bodyFont(size: 14))
+                                    .foregroundStyle(Theme.muted)
+                                if viewModel.isComplete {
+                                    Text("Complete")
+                                        .font(Theme.bodyFont(size: 12))
+                                        .foregroundStyle(.white)
+                                        .padding(.horizontal, 10)
+                                        .padding(.vertical, 4)
+                                        .background(Theme.complete)
+                                        .clipShape(Capsule())
+                                }
                             }
                         }
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                        .frame(maxWidth: .infinity, alignment: .leading)
 
-                    ChallengeMapView(
-                        items: viewModel.puzzleItems,
-                        challengeId: challenge.id,
-                        onSelect: handleSelection
-                    )
+                        ChallengeMapView(
+                            items: viewModel.puzzleItems,
+                            challengeId: challenge.id,
+                            onSelect: handleSelection
+                        )
 
-                    if let error = viewModel.loadError {
-                        Text(error)
-                            .font(Theme.bodyFont(size: 14))
-                            .foregroundStyle(.red)
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                        if let error = viewModel.loadError {
+                            Text(error)
+                                .font(Theme.bodyFont(size: 14))
+                                .foregroundStyle(.red)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                        }
                     }
-                }
                     .padding(20)
+                    .padding(.top, 60)
                 }
+                .background(
+                    GeometryReader { geo in
+                        Color.clear
+                            .onAppear { scrollViewHeight = geo.size.height }
+                            .onChange(of: geo.size.height) { scrollViewHeight = $0 }
+                    }
+                )
                 .onChange(of: viewModel.puzzleItems.count) { _ in
                     autoScrollIfNeeded(proxy: proxy)
                 }
             }
+
+            topBar
+                .padding(.top, 16)
+                .padding(.leading, 20)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         }
+
         .task {
             accessManager.warmUp(preloadAds: false)
         }
@@ -214,16 +228,17 @@ struct ChallengeDetailView: View {
         guard !didAutoScroll else { return }
         didAutoScroll = true
         let completed = viewModel.puzzleItems.filter { $0.isComplete }.count
+        guard completed > 0 else { return }
+        let anchorY: CGFloat
+        if scrollViewHeight > 0 {
+            anchorY = min(0.9, max(0.0, 100 / scrollViewHeight))
+        } else {
+            anchorY = 0.25
+        }
         DispatchQueue.main.async {
-            if completed == 0 {
-                withAnimation(nil) {
-                    proxy.scrollTo("challenge_top", anchor: .top)
-                }
-                return
-            }
             guard let target = nextPlayableIndex() else { return }
             withAnimation(.easeInOut(duration: 0.6)) {
-                proxy.scrollTo("node_\(target)", anchor: UnitPoint(x: 0.5, y: 0.25))
+                proxy.scrollTo("node_\(target)", anchor: UnitPoint(x: 0.5, y: anchorY))
             }
         }
     }
