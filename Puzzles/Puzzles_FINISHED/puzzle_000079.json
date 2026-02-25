@@ -92,7 +92,7 @@
           ]
         ],
         "answer": "SCAN",
-        "clue": "Cursory reading: a skim."
+        "clue": "Look around a place."
       },
       {
         "number": 5,
@@ -115,7 +115,7 @@
           ]
         ],
         "answer": "TOME",
-        "clue": "One in a series of volumes."
+        "clue": "A large, heavy, or scholarly book."
       },
       {
         "number": 6,
@@ -142,7 +142,7 @@
           ]
         ],
         "answer": "ARROW",
-        "clue": "Move swiftly and directly ."
+        "clue": "Shot from a bow."
       },
       {
         "number": 7,
@@ -169,7 +169,7 @@
           ]
         ],
         "answer": "SEOUL",
-        "clue": "South Korean government"
+        "clue": "South Korea capital."
       },
       {
         "number": 8,
@@ -196,7 +196,7 @@
           ]
         ],
         "answer": "KENNY",
-        "clue": "Name list"
+        "clue": "Country singer Rogers."
       },
       {
         "number": 9,
@@ -219,7 +219,7 @@
           ]
         ],
         "answer": "STAT",
-        "clue": "Immediately ."
+        "clue": "Slang for \"immediately.\""
       }
     ],
     "down": [
@@ -252,7 +252,7 @@
           ]
         ],
         "answer": "STREET",
-        "clue": "Proselytize in public."
+        "clue": "Paved public road."
       },
       {
         "number": 2,
@@ -283,7 +283,7 @@
           ]
         ],
         "answer": "CORONA",
-        "clue": "External portion of the tooth, covered by enamel"
+        "clue": "Famous South American beer."
       },
       {
         "number": 3,
@@ -314,7 +314,7 @@
           ]
         ],
         "answer": "AMOUNT",
-        "clue": "Number of elements in a set."
+        "clue": "What you see on a bill."
       },
       {
         "number": 4,
@@ -364,7 +364,7 @@
           ]
         ],
         "answer": "ASKS",
-        "clue": "Act or instance of asking."
+        "clue": "Requests an answer from."
       }
     ]
   }
