@@ -1,3 +1,33 @@
 {
-  "challenges": []
+  "challenges": [
+    {
+      "id": "blizzy_blast",
+      "name": "Blizzy Blast",
+      "puzzleFile": "puzzle_000001.json",
+      "puzzleFiles": [
+        "puzzle_000001.json",
+        "puzzle_000002.json",
+        "puzzle_000003.json",
+        "puzzle_000004.json",
+        "puzzle_000005.json",
+        "puzzle_000006.json",
+        "puzzle_000007.json",
+        "puzzle_000008.json",
+        "puzzle_000009.json",
+        "puzzle_000010.json",
+        "puzzle_000011.json",
+        "puzzle_000012.json",
+        "puzzle_000013.json",
+        "puzzle_000014.json",
+        "puzzle_000015.json",
+        "puzzle_000016.json",
+        "puzzle_000017.json",
+        "puzzle_000018.json",
+        "puzzle_000019.json",
+        "puzzle_000020.json"
+      ],
+      "puzzleFolder": "blizzy_blast",
+      "puzzleCount": 20
+    }
+  ]
 }
