@@ -10,9 +10,9 @@ final class AccessManager: ObservableObject {
     @Published private(set) var isPurchaseProcessing: Bool = false
     @Published private(set) var isRestoreProcessing: Bool = false
     @Published private(set) var lastErrorMessage: String? = nil
+    @Published private(set) var unlockedKeys: Set<String> = []
 
     private let unlockStore: PuzzleUnlockStoring
-    private var unlocked: Set<String> = []
     private let premiumManager: PremiumManager
     private let adManager: RewardedAdManager
     private var cancellables: Set<AnyCancellable> = []
@@ -52,8 +52,12 @@ final class AccessManager: ObservableObject {
         premiumManager.startObservingTransactions()
     }
 
+    func refreshUnlocks() {
+        unlockedKeys = (try? unlockStore.loadUnlocks()) ?? []
+    }
+
     func load() async {
-        unlocked = (try? unlockStore.loadUnlocks()) ?? []
+        refreshUnlocks()
         premiumPrice = premiumManager.displayPrice
         isPremium = premiumManager.isPremium
         await premiumManager.loadProduct()
@@ -70,7 +74,7 @@ final class AccessManager: ObservableObject {
     }
 
     func canAccess(puzzleKey: String) -> Bool {
-        isPremium || unlocked.contains(puzzleKey)
+        isPremium || unlockedKeys.contains(puzzleKey)
     }
 
     func unlockWithAd(puzzleKey: String) async -> Bool {
@@ -85,8 +89,8 @@ final class AccessManager: ObservableObject {
         }
 
         if success {
-            unlocked.insert(puzzleKey)
-            try? unlockStore.saveUnlocks(unlocked)
+            unlockedKeys = unlockedKeys.union([puzzleKey])
+            try? unlockStore.saveUnlocks(unlockedKeys)
             return true
         }
 

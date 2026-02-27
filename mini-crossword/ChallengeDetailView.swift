@@ -9,7 +9,6 @@ struct ChallengeDetailView: View {
     @State private var showAlreadyPlayed: Bool = false
     @State private var paywallTarget: ChallengePaywallTarget? = nil
     @State private var didAutoScroll: Bool = false
-    @State private var scrollViewHeight: CGFloat = 0
 
     @Environment(\.dismiss) private var dismiss
 
@@ -28,6 +27,8 @@ struct ChallengeDetailView: View {
             )
         )
     }
+
+    private let scrollTopPadding: CGFloat = 60
 
     var body: some View {
         ZStack {
@@ -92,15 +93,8 @@ struct ChallengeDetailView: View {
                         }
                     }
                     .padding(20)
-                    .padding(.top, 60)
+                    .padding(.top, scrollTopPadding)
                 }
-                .background(
-                    GeometryReader { geo in
-                        Color.clear
-                            .onAppear { scrollViewHeight = geo.size.height }
-                            .onChange(of: geo.size.height) { scrollViewHeight = $0 }
-                    }
-                )
                 .onChange(of: viewModel.puzzleItems.count) { _ in
                     autoScrollIfNeeded(proxy: proxy)
                 }
@@ -114,8 +108,15 @@ struct ChallengeDetailView: View {
 
         .task {
             accessManager.warmUp(preloadAds: false)
+            accessManager.refreshUnlocks()
         }
-        .onAppear { viewModel.load(challenge: challenge) }
+        .onAppear {
+            accessManager.refreshUnlocks()
+            viewModel.load(challenge: challenge)
+            Task {
+                await accessManager.load()
+            }
+        }
         .onChange(of: selectedPuzzle) {
             if selectedPuzzle == nil {
                 viewModel.load(challenge: challenge)
@@ -226,19 +227,13 @@ struct ChallengeDetailView: View {
 
     private func autoScrollIfNeeded(proxy: ScrollViewProxy) {
         guard !didAutoScroll else { return }
-        didAutoScroll = true
         let completed = viewModel.puzzleItems.filter { $0.isComplete }.count
         guard completed > 0 else { return }
-        let anchorY: CGFloat
-        if scrollViewHeight > 0 {
-            anchorY = min(0.9, max(0.0, 100 / scrollViewHeight))
-        } else {
-            anchorY = 0.25
-        }
+        didAutoScroll = true
         DispatchQueue.main.async {
             guard let target = nextPlayableIndex() else { return }
             withAnimation(.easeInOut(duration: 0.6)) {
-                proxy.scrollTo("node_\(target)", anchor: UnitPoint(x: 0.5, y: anchorY))
+                proxy.scrollTo("node_\(target)_anchor", anchor: .top)
             }
         }
     }
@@ -268,6 +263,7 @@ struct ChallengeDetailView: View {
         }
     }
 }
+
 
 private struct ChallengeMapView: View {
     let items: [ChallengePuzzleItem]
@@ -302,10 +298,16 @@ private struct ChallengeMapView: View {
 
                 ForEach(Array(items.enumerated()), id: \.element.id) { index, item in
                     let position = layout.nodePosition(for: index)
+                    let anchorY = max(ChallengeMapLayout.topPadding, position.y - 100)
+                    let isVisuallyUnlocked = unlockedVisualIndices.isEmpty ? baseUnlockedIndices.contains(index) : unlockedVisualIndices.contains(index)
+                    Color.clear
+                        .frame(width: 1, height: 1)
+                        .position(x: position.x, y: anchorY)
+                        .id("node_\(index)_anchor")
                     ChallengeMapNode(
                         index: index,
                         item: item,
-                        isUnlocked: unlockedVisualIndices.contains(index),
+                        isUnlocked: isVisuallyUnlocked,
                         isGlowing: glowingNodes.contains(index)
                     )
                     .position(position)

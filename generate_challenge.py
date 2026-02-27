@@ -61,7 +61,7 @@ def main() -> int:
         description="Create a challenge from finished puzzles and update challenges.json."
     )
     parser.add_argument("--name", required=True, help="Challenge display name.")
-    parser.add_argument("--count", type=int, default=25, help="Number of puzzles in the challenge.")
+    parser.add_argument("--count", type=int, default=20, help="Number of puzzles in the challenge.")
     parser.add_argument("--id", default=None, help="Optional challenge id override.")
     args = parser.parse_args()
 
