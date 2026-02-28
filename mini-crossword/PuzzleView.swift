@@ -17,7 +17,6 @@ struct PuzzleView: View {
 
     private let progressStore: PuzzleProgressStoring
     private let progressKeyOverride: String?
-    private let titleAlignedInset: CGFloat = 44
 
     init(puzzle: Puzzle, progressKeyOverride: String? = nil) {
         self.puzzle = puzzle
@@ -58,8 +57,6 @@ struct PuzzleView: View {
 
             VStack(spacing: 16) {
                 topBar
-
-                headerControls
 
                 PuzzleGridView(
                     width: puzzle.width,
@@ -126,29 +123,27 @@ struct PuzzleView: View {
     }
 
     private var topBar: some View {
-        HStack(spacing: 12) {
-            Button(action: { dismiss() }) {
-                Image(systemName: "chevron.left")
-                    .font(.headline)
-                    .foregroundStyle(Theme.ink)
-                    .padding(8)
-                    .background(Theme.card)
-                    .clipShape(Circle())
-                    .overlay(Circle().stroke(Theme.ink.opacity(0.15), lineWidth: 1))
-            }
-            .buttonStyle(.plain)
-
-            VStack(alignment: .leading, spacing: 2) {
-                Text("Crossword")
-                    .font(Theme.titleFont(size: 22))
-                    .fontWeight(.bold)
-                    .foregroundStyle(Theme.ink)
-                Text(puzzle.date)
-                    .font(Theme.bodyFont(size: 13))
-                    .foregroundStyle(Theme.muted)
+        VStack(spacing: 10) {
+            HStack {
+                backButton
+                Spacer()
             }
 
-            Spacer()
+            HStack(alignment: .top, spacing: 10) {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Crossword")
+                        .font(Theme.titleFont(size: 22))
+                        .fontWeight(.bold)
+                        .foregroundStyle(Theme.ink)
+                    Text(puzzle.date)
+                        .font(Theme.bodyFont(size: 13))
+                        .foregroundStyle(Theme.muted)
+                }
+
+                Spacer(minLength: 0)
+
+                headerControls
+            }
         }
     }
 
@@ -191,11 +186,20 @@ struct PuzzleView: View {
                     .overlay(Circle().stroke(Theme.ink.opacity(0.15), lineWidth: 1))
             }
             .buttonStyle(.plain)
-
-            Spacer(minLength: 0)
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(.leading, titleAlignedInset)
+    }
+
+    private var backButton: some View {
+        Button(action: { dismiss() }) {
+            Image(systemName: "chevron.left")
+                .font(.headline)
+                .foregroundStyle(Theme.ink)
+                .padding(8)
+                .background(Theme.card)
+                .clipShape(Circle())
+                .overlay(Circle().stroke(Theme.ink.opacity(0.15), lineWidth: 1))
+        }
+        .buttonStyle(.plain)
     }
 
     private var clueBar: some View {
