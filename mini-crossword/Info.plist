@@ -4,7 +4,7 @@
 <dict>
 <key>GADApplicationIdentifier</key>
 <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~1458002511 -->
-<!-- Production AdMob app ID: ca-app-pub-2840734725910243/7329725755 -->
+<!-- Production AdMob app ID: ca-app-pub-2840734725910243~7173920889 -->
 <string>ca-app-pub-3940256099942544~1458002511</string>
 <key>SKAdNetworkItems</key>
 <array>

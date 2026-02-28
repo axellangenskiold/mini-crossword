@@ -123,6 +123,8 @@ struct DailyChallengeView: View {
                                 .foregroundStyle(.red)
                         }
 
+                        NativeInlineAdCard()
+
                         challengeSection
 
                         if let error = challengeViewModel.loadError {
