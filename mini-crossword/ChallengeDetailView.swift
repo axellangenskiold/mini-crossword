@@ -9,6 +9,8 @@ struct ChallengeDetailView: View {
     @State private var showAlreadyPlayed: Bool = false
     @State private var paywallTarget: ChallengePaywallTarget? = nil
     @State private var didAutoScroll: Bool = false
+    @State private var pendingCompletionIndex: Int? = nil
+    @State private var headerHeight: CGFloat = 0
 
     @Environment(\.dismiss) private var dismiss
 
@@ -29,6 +31,7 @@ struct ChallengeDetailView: View {
     }
 
     private let scrollTopPadding: CGFloat = 60
+    private let mapSpacing: CGFloat = 20
 
     var body: some View {
         ZStack {
@@ -78,11 +81,20 @@ struct ChallengeDetailView: View {
                             }
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(
+                            GeometryReader { geo in
+                                Color.clear
+                                    .preference(key: HeaderHeightPreferenceKey.self, value: geo.size.height)
+                            }
+                        )
 
                         ChallengeMapView(
                             items: viewModel.puzzleItems,
                             challengeId: challenge.id,
-                            onSelect: handleSelection
+                            onSelect: handleSelection,
+                            mapTopOffset: scrollTopPadding + headerHeight + mapSpacing,
+                            pendingCompletionIndex: pendingCompletionIndex,
+                            onCompletionAnimationHandled: { pendingCompletionIndex = nil }
                         )
 
                         if let error = viewModel.loadError {
@@ -95,7 +107,12 @@ struct ChallengeDetailView: View {
                     .padding(20)
                     .padding(.top, scrollTopPadding)
                 }
+                .onPreferenceChange(HeaderHeightPreferenceKey.self) { value in
+                    headerHeight = value
+                    autoScrollIfNeeded(proxy: proxy)
+                }
                 .onChange(of: viewModel.puzzleItems.count) { _ in
+                    didAutoScroll = false
                     autoScrollIfNeeded(proxy: proxy)
                 }
             }
@@ -129,6 +146,15 @@ struct ChallengeDetailView: View {
         }
         .navigationDestination(item: $selectedPuzzle) { item in
             PuzzleView(puzzle: item.puzzle, progressKeyOverride: item.progressKey)
+                .onDisappear {
+                    didAutoScroll = false
+                    viewModel.load(challenge: challenge)
+                    if let updated = viewModel.puzzleItems.first(where: { $0.index == item.index }), updated.isComplete {
+                        pendingCompletionIndex = item.index
+                    } else {
+                        pendingCompletionIndex = nil
+                    }
+                }
         }
         .overlay {
             if showAlreadyPlayed {
@@ -265,22 +291,29 @@ struct ChallengeDetailView: View {
 }
 
 
+
+private struct HeaderHeightPreferenceKey: PreferenceKey {
+    static var defaultValue: CGFloat = 0
+
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value = max(value, nextValue())
+    }
+}
+
 private struct ChallengeMapView: View {
     let items: [ChallengePuzzleItem]
     let challengeId: String
     let onSelect: (ChallengePuzzleItem) -> Void
+    let mapTopOffset: CGFloat
+    let pendingCompletionIndex: Int?
+    let onCompletionAnimationHandled: () -> Void
 
     @State private var filledDots: [Int: Int] = [:]
-    @State private var unlockedVisualIndices: Set<Int> = []
+    @State private var temporarilyLockedIndices: Set<Int> = []
     @State private var glowingNodes: Set<Int> = []
-    @State private var lastCompletedCount: Int = 0
 
     private var completedCount: Int {
         items.filter { $0.isComplete }.count
-    }
-
-    private var baseUnlockedIndices: Set<Int> {
-        Set(items.enumerated().compactMap { $0.element.isLocked ? nil : $0.offset })
     }
 
     var body: some View {
@@ -298,8 +331,7 @@ private struct ChallengeMapView: View {
 
                 ForEach(Array(items.enumerated()), id: \.element.id) { index, item in
                     let position = layout.nodePosition(for: index)
-                    let anchorY = max(ChallengeMapLayout.topPadding, position.y - 100)
-                    let isVisuallyUnlocked = unlockedVisualIndices.isEmpty ? baseUnlockedIndices.contains(index) : unlockedVisualIndices.contains(index)
+                    let anchorY = max(ChallengeMapLayout.topPadding, position.y - 100 - mapTopOffset)
                     Color.clear
                         .frame(width: 1, height: 1)
                         .position(x: position.x, y: anchorY)
@@ -307,7 +339,7 @@ private struct ChallengeMapView: View {
                     ChallengeMapNode(
                         index: index,
                         item: item,
-                        isUnlocked: isVisuallyUnlocked,
+                        isUnlocked: !temporarilyLockedIndices.contains(index),
                         isGlowing: glowingNodes.contains(index)
                     )
                     .position(position)
@@ -322,48 +354,40 @@ private struct ChallengeMapView: View {
         .frame(height: totalHeight)
         .onAppear {
             syncInitialState()
+            animatePendingCompletionIfNeeded()
         }
         .onChange(of: items.map { $0.isComplete }) { _ in
-            handleCompletionChange()
+            syncInitialState()
         }
         .onChange(of: items.count) { _ in
             syncInitialState()
         }
+        .onChange(of: pendingCompletionIndex) { _ in
+            animatePendingCompletionIfNeeded()
+        }
     }
-
     private func syncInitialState() {
-        let unlocked = baseUnlockedIndices
-        unlockedVisualIndices = unlocked
+        temporarilyLockedIndices = []
         filledDots = [:]
         for segmentIndex in 0..<max(completedCount, 0) {
             if segmentIndex < max(items.count - 1, 0) {
                 filledDots[segmentIndex] = ChallengeMapLayout.dotCount
             }
         }
-        lastCompletedCount = completedCount
     }
 
-    private func handleCompletionChange() {
-        let newCount = completedCount
-        guard newCount >= 0 else { return }
-        if newCount <= lastCompletedCount {
-            syncInitialState()
+    private func animatePendingCompletionIfNeeded() {
+        guard let segmentIndex = pendingCompletionIndex else { return }
+        guard segmentIndex >= 0 else { return }
+        guard segmentIndex < items.count - 1 else {
+            onCompletionAnimationHandled()
             return
         }
-
-        var unlocked = baseUnlockedIndices
-        for segmentIndex in lastCompletedCount..<newCount {
-            let nextIndex = segmentIndex + 1
-            if nextIndex < items.count {
-                unlocked.remove(nextIndex)
-            }
-        }
-        unlockedVisualIndices = unlocked
-
-        for segmentIndex in lastCompletedCount..<newCount {
-            animateCompletion(for: segmentIndex)
-        }
-        lastCompletedCount = newCount
+        syncInitialState()
+        temporarilyLockedIndices.insert(segmentIndex + 1)
+        filledDots[segmentIndex] = 0
+        animateCompletion(for: segmentIndex)
+        onCompletionAnimationHandled()
     }
 
     private func animateCompletion(for segmentIndex: Int) {
@@ -384,7 +408,7 @@ private struct ChallengeMapView: View {
         if nextIndex < items.count {
             DispatchQueue.main.asyncAfter(deadline: .now() + unlockDelay) {
                 withAnimation(.easeInOut(duration: 0.3)) {
-                    _ = unlockedVisualIndices.insert(nextIndex)
+                    _ = temporarilyLockedIndices.remove(nextIndex)
                 }
             }
         }
