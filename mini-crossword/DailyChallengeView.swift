@@ -123,7 +123,9 @@ struct DailyChallengeView: View {
                                 .foregroundStyle(.red)
                         }
 
-                        NativeInlineAdCard()
+                        if !accessManager.isPremium {
+                            NativeInlineAdCard()
+                        }
 
                         challengeSection
 

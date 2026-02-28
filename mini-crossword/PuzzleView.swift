@@ -17,6 +17,7 @@ struct PuzzleView: View {
 
     private let progressStore: PuzzleProgressStoring
     private let progressKeyOverride: String?
+    private let titleAlignedInset: CGFloat = 44
 
     init(puzzle: Puzzle, progressKeyOverride: String? = nil) {
         self.puzzle = puzzle
@@ -152,8 +153,7 @@ struct PuzzleView: View {
     }
 
     private var headerControls: some View {
-        HStack {
-            Spacer()
+        HStack(spacing: 10) {
             Button("Hint") {
                 applyHint()
             }
@@ -191,7 +191,11 @@ struct PuzzleView: View {
                     .overlay(Circle().stroke(Theme.ink.opacity(0.15), lineWidth: 1))
             }
             .buttonStyle(.plain)
+
+            Spacer(minLength: 0)
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.leading, titleAlignedInset)
     }
 
     private var clueBar: some View {

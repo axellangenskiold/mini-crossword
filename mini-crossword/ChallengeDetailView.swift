@@ -7,6 +7,7 @@ struct ChallengeDetailView: View {
     @StateObject private var viewModel: ChallengeDetailViewModel
     @State private var selectedPuzzle: SelectedChallengePuzzle? = nil
     @State private var showAlreadyPlayed: Bool = false
+    @State private var showSequenceLocked: Bool = false
     @State private var paywallTarget: ChallengePaywallTarget? = nil
     @State private var didAutoScroll: Bool = false
     @State private var pendingCompletionIndex: Int? = nil
@@ -34,23 +35,8 @@ struct ChallengeDetailView: View {
     private let scrollTopPadding: CGFloat = 60
     var body: some View {
         ZStack {
-            LinearGradient(
-                colors: [Theme.backgroundTop, Theme.backgroundBottom],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-            .ignoresSafeArea()
-
-            Circle()
-                .fill(Theme.accent.opacity(0.14))
-                .frame(width: 240, height: 240)
-                .offset(x: -140, y: -260)
-
-            RoundedRectangle(cornerRadius: 60, style: .continuous)
-                .fill(Theme.accent.opacity(0.08))
-                .frame(width: 220, height: 150)
-                .rotationEffect(.degrees(-12))
-                .offset(x: 150, y: 260)
+            Theme.backgroundBottom
+                .ignoresSafeArea()
 
             GeometryReader { container in
                 ScrollViewReader { proxy in
@@ -110,6 +96,7 @@ struct ChallengeDetailView: View {
                         }
                         .padding(20)
                         .padding(.top, scrollTopPadding)
+                        .background(ChallengeScrollBackground())
                     }
                     .background(
                         GeometryReader { geo in
@@ -176,8 +163,19 @@ struct ChallengeDetailView: View {
                 }
         }
         .overlay {
+            if showSequenceLocked {
+                MessageOverlay(
+                    title: "Puzzle Locked",
+                    message: "This puzzle is locked. Complete the unlocked puzzle to continue.",
+                    onDismiss: { showSequenceLocked = false }
+                )
+            }
             if showAlreadyPlayed {
-                AlreadyPlayedOverlay(onDismiss: { showAlreadyPlayed = false })
+                MessageOverlay(
+                    title: "Already Played",
+                    message: "You have already played this puzzle.",
+                    onDismiss: { showAlreadyPlayed = false }
+                )
             }
             if let target = paywallTarget {
                 PaywallOverlay(
@@ -241,6 +239,7 @@ struct ChallengeDetailView: View {
             return
         }
         if item.isLocked {
+            showSequenceLocked = true
             return
         }
         Task {
@@ -794,7 +793,9 @@ private struct NoopChallengeProgressStore: PuzzleProgressStoring {
     }
 }
 
-private struct AlreadyPlayedOverlay: View {
+private struct MessageOverlay: View {
+    let title: String
+    let message: String
     let onDismiss: () -> Void
 
     var body: some View {
@@ -814,11 +815,11 @@ private struct AlreadyPlayedOverlay: View {
                     .buttonStyle(.plain)
                     Spacer()
                 }
-                Text("Already Played")
+                Text(title)
                     .font(Theme.titleFont(size: 22))
                     .fontWeight(.bold)
                     .foregroundStyle(Theme.ink)
-                Text("You have already played this puzzle.")
+                Text(message)
                     .font(Theme.bodyFont(size: 16))
                     .foregroundStyle(Theme.muted)
                     .multilineTextAlignment(.center)
@@ -833,5 +834,36 @@ private struct AlreadyPlayedOverlay: View {
             .shadow(color: Theme.ink.opacity(0.12), radius: 18, x: 0, y: 8)
             .padding(24)
         }
+    }
+}
+
+private struct ChallengeScrollBackground: View {
+    var body: some View {
+        GeometryReader { geo in
+            ZStack(alignment: .topLeading) {
+                LinearGradient(
+                    colors: [Theme.backgroundTop, Theme.backgroundBottom],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+
+                Circle()
+                    .fill(Theme.accent.opacity(0.14))
+                    .frame(width: 240, height: 240)
+                    .offset(x: -130, y: -220)
+
+                RoundedRectangle(cornerRadius: 64, style: .continuous)
+                    .fill(Theme.accent.opacity(0.08))
+                    .frame(width: 240, height: 160)
+                    .rotationEffect(.degrees(-11))
+                    .offset(x: geo.size.width - 170, y: geo.size.height * 0.42)
+
+                Circle()
+                    .fill(Theme.accent.opacity(0.06))
+                    .frame(width: 220, height: 220)
+                    .offset(x: -110, y: geo.size.height * 0.75)
+            }
+        }
+        .allowsHitTesting(false)
     }
 }
