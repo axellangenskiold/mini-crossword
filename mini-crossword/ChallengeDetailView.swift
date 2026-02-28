@@ -35,7 +35,11 @@ struct ChallengeDetailView: View {
     private let scrollTopPadding: CGFloat = 60
     var body: some View {
         ZStack {
-            Theme.backgroundBottom
+            LinearGradient(
+                colors: [Theme.backgroundTop, Theme.backgroundBottom],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
                 .ignoresSafeArea()
 
             GeometryReader { container in
@@ -841,27 +845,65 @@ private struct ChallengeScrollBackground: View {
     var body: some View {
         GeometryReader { geo in
             ZStack(alignment: .topLeading) {
-                LinearGradient(
-                    colors: [Theme.backgroundTop, Theme.backgroundBottom],
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
-
                 Circle()
                     .fill(Theme.accent.opacity(0.14))
                     .frame(width: 240, height: 240)
-                    .offset(x: -130, y: -220)
+                    .offset(x: -130, y: -180)
 
                 RoundedRectangle(cornerRadius: 64, style: .continuous)
                     .fill(Theme.accent.opacity(0.08))
                     .frame(width: 240, height: 160)
                     .rotationEffect(.degrees(-11))
-                    .offset(x: geo.size.width - 170, y: geo.size.height * 0.42)
+                    .offset(x: geo.size.width - 175, y: geo.size.height * 0.16)
 
                 Circle()
                     .fill(Theme.accent.opacity(0.06))
                     .frame(width: 220, height: 220)
-                    .offset(x: -110, y: geo.size.height * 0.75)
+                    .offset(x: -110, y: geo.size.height * 0.33)
+
+                RoundedRectangle(cornerRadius: 56, style: .continuous)
+                    .fill(Theme.accent.opacity(0.06))
+                    .frame(width: 210, height: 130)
+                    .rotationEffect(.degrees(18))
+                    .offset(x: 28, y: geo.size.height * 0.47)
+
+                Circle()
+                    .fill(Theme.accent.opacity(0.08))
+                    .frame(width: 180, height: 180)
+                    .offset(x: geo.size.width - 145, y: geo.size.height * 0.57)
+
+                RoundedRectangle(cornerRadius: 70, style: .continuous)
+                    .fill(Theme.accent.opacity(0.05))
+                    .frame(width: 260, height: 170)
+                    .rotationEffect(.degrees(-15))
+                    .offset(x: -120, y: geo.size.height * 0.73)
+
+                Circle()
+                    .fill(Theme.accent.opacity(0.07))
+                    .frame(width: 210, height: 210)
+                    .offset(x: 26, y: geo.size.height * 0.88)
+
+                RoundedRectangle(cornerRadius: 52, style: .continuous)
+                    .fill(Theme.accent.opacity(0.07))
+                    .frame(width: 190, height: 120)
+                    .rotationEffect(.degrees(12))
+                    .offset(x: geo.size.width - 165, y: geo.size.height * 1.02)
+
+                Circle()
+                    .fill(Theme.accent.opacity(0.05))
+                    .frame(width: 240, height: 240)
+                    .offset(x: -90, y: geo.size.height * 1.18)
+
+                RoundedRectangle(cornerRadius: 60, style: .continuous)
+                    .fill(Theme.accent.opacity(0.06))
+                    .frame(width: 220, height: 140)
+                    .rotationEffect(.degrees(-10))
+                    .offset(x: geo.size.width - 195, y: geo.size.height * 1.34)
+
+                Circle()
+                    .fill(Theme.accent.opacity(0.07))
+                    .frame(width: 190, height: 190)
+                    .offset(x: 45, y: geo.size.height * 1.47)
             }
         }
         .allowsHitTesting(false)
