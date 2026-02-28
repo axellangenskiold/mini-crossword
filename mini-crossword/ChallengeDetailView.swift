@@ -377,9 +377,13 @@ private struct ChallengeMapView: View {
     }
 
     private func animatePendingCompletionIfNeeded() {
-        guard let segmentIndex = pendingCompletionIndex else { return }
-        guard segmentIndex >= 0 else { return }
-        guard segmentIndex < items.count - 1 else {
+        guard pendingCompletionIndex != nil else { return }
+        guard let nextPlayableIndex = items.firstIndex(where: { !$0.isComplete && !$0.isLocked }) else {
+            onCompletionAnimationHandled()
+            return
+        }
+        let segmentIndex = nextPlayableIndex - 1
+        guard segmentIndex >= 0, segmentIndex < items.count - 1 else {
             onCompletionAnimationHandled()
             return
         }
