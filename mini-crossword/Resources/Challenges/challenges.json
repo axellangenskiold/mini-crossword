@@ -57,6 +57,35 @@
       ],
       "puzzleFolder": "cosmic_comet",
       "puzzleCount": 20
+    },
+    {
+      "id": "goofy_goon",
+      "name": "Goofy Goon",
+      "puzzleFile": "puzzle_000041.json",
+      "puzzleFiles": [
+        "puzzle_000041.json",
+        "puzzle_000042.json",
+        "puzzle_000043.json",
+        "puzzle_000044.json",
+        "puzzle_000045.json",
+        "puzzle_000046.json",
+        "puzzle_000047.json",
+        "puzzle_000048.json",
+        "puzzle_000049.json",
+        "puzzle_000050.json",
+        "puzzle_000051.json",
+        "puzzle_000052.json",
+        "puzzle_000053.json",
+        "puzzle_000054.json",
+        "puzzle_000055.json",
+        "puzzle_000056.json",
+        "puzzle_000057.json",
+        "puzzle_000058.json",
+        "puzzle_000059.json",
+        "puzzle_000060.json"
+      ],
+      "puzzleFolder": "goofy_goon",
+      "puzzleCount": 20
     }
   ]
 }
