@@ -148,13 +148,18 @@ struct PuzzleView: View {
     }
 
     private var headerControls: some View {
-        HStack(spacing: 10) {
-            Button("Hint") {
+        HStack(spacing: 8) {
+            Button {
                 applyHint()
+            } label: {
+                Text("Hint")
+                    .lineLimit(1)
+                    .fixedSize(horizontal: true, vertical: false)
             }
             .buttonStyle(.borderedProminent)
             .tint(Theme.accent)
             .disabled(!canUseHint)
+            .frame(minWidth: 62)
 
             Button(action: { showDifficultyPicker = true }) {
                 HStack(spacing: 6) {
@@ -176,7 +181,7 @@ struct PuzzleView: View {
                         .stroke(Theme.ink.opacity(0.15), lineWidth: 1)
                 )
             }
-            .frame(minWidth: 102, alignment: .leading)
+            .fixedSize(horizontal: true, vertical: false)
             .buttonStyle(.plain)
 
             Button(action: { showInfo = true }) {
