@@ -119,6 +119,7 @@ struct PuzzleView: View {
         .toolbar(.hidden, for: .navigationBar)
         .font(Theme.bodyFont(size: 16))
         .background(SwipeBackEnabler())
+        .edgeSwipeBackEnabled()
         .onAppear { loadProgressIfNeeded() }
     }
 

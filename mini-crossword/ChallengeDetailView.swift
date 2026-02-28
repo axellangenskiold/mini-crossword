@@ -235,6 +235,7 @@ struct ChallengeDetailView: View {
         }
         .navigationBarBackButtonHidden(true)
         .background(SwipeBackEnabler())
+        .edgeSwipeBackEnabled()
     }
 
     private func handleSelection(_ item: ChallengePuzzleItem) {
