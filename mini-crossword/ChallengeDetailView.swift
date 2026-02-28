@@ -10,7 +10,8 @@ struct ChallengeDetailView: View {
     @State private var paywallTarget: ChallengePaywallTarget? = nil
     @State private var didAutoScroll: Bool = false
     @State private var pendingCompletionIndex: Int? = nil
-    @State private var headerHeight: CGFloat = 0
+    @State private var nodeFramesGlobal: [Int: CGRect] = [:]
+    @State private var scrollViewportGlobal: CGRect = .zero
 
     @Environment(\.dismiss) private var dismiss
 
@@ -31,8 +32,6 @@ struct ChallengeDetailView: View {
     }
 
     private let scrollTopPadding: CGFloat = 60
-    private let mapSpacing: CGFloat = 20
-
     var body: some View {
         ZStack {
             LinearGradient(
@@ -53,67 +52,86 @@ struct ChallengeDetailView: View {
                 .rotationEffect(.degrees(-12))
                 .offset(x: 150, y: 260)
 
-            ScrollViewReader { proxy in
-                ScrollView {
-                    VStack(spacing: 20) {
-                        Color.clear
-                            .frame(height: 1)
-                            .id("challenge_top")
+            GeometryReader { container in
+                ScrollViewReader { proxy in
+                    ScrollView {
+                        VStack(spacing: 20) {
+                            Color.clear
+                                .frame(height: 1)
+                                .id("challenge_top")
 
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text(challenge.name)
-                                .font(Theme.titleFont(size: 28))
-                                .foregroundStyle(Theme.ink)
-                                .fontWeight(.bold)
-                            HStack(spacing: 8) {
-                                Text("\(viewModel.completedCount)/\(challenge.puzzleCount) complete")
-                                    .font(Theme.bodyFont(size: 14))
-                                    .foregroundStyle(Theme.muted)
-                                if viewModel.isComplete {
-                                    Text("Complete")
-                                        .font(Theme.bodyFont(size: 12))
-                                        .foregroundStyle(.white)
-                                        .padding(.horizontal, 10)
-                                        .padding(.vertical, 4)
-                                        .background(Theme.complete)
-                                        .clipShape(Capsule())
+                            VStack(alignment: .leading, spacing: 8) {
+                                Text(challenge.name)
+                                    .font(Theme.titleFont(size: 28))
+                                    .foregroundStyle(Theme.ink)
+                                    .fontWeight(.bold)
+                                HStack(spacing: 8) {
+                                    Text("\(viewModel.completedCount)/\(challenge.puzzleCount) complete")
+                                        .font(Theme.bodyFont(size: 14))
+                                        .foregroundStyle(Theme.muted)
+                                    if viewModel.isComplete {
+                                        Text("Complete")
+                                            .font(Theme.bodyFont(size: 12))
+                                            .foregroundStyle(.white)
+                                            .padding(.horizontal, 10)
+                                            .padding(.vertical, 4)
+                                            .background(Theme.complete)
+                                            .clipShape(Capsule())
+                                    }
                                 }
                             }
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .background(
-                            GeometryReader { geo in
-                                Color.clear
-                                    .preference(key: HeaderHeightPreferenceKey.self, value: geo.size.height)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .background(
+                                GeometryReader { geo in
+                                    Color.clear
+                                        .preference(key: HeaderHeightPreferenceKey.self, value: geo.size.height)
+                                }
+                            )
+
+                            ChallengeMapView(
+                                items: viewModel.puzzleItems,
+                                challengeId: challenge.id,
+                                onSelect: handleSelection,
+                                viewportHeight: container.size.height,
+                                pendingCompletionIndex: pendingCompletionIndex,
+                                onNodeFramesChanged: { frames in
+                                    nodeFramesGlobal = frames
+                                    autoScrollIfNeeded(proxy: proxy)
+                                },
+                                onCompletionAnimationHandled: { pendingCompletionIndex = nil }
+                            )
+
+                            if let error = viewModel.loadError {
+                                Text(error)
+                                    .font(Theme.bodyFont(size: 14))
+                                    .foregroundStyle(.red)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
                             }
-                        )
-
-                        ChallengeMapView(
-                            items: viewModel.puzzleItems,
-                            challengeId: challenge.id,
-                            onSelect: handleSelection,
-                            mapTopOffset: scrollTopPadding + headerHeight + mapSpacing,
-                            pendingCompletionIndex: pendingCompletionIndex,
-                            onCompletionAnimationHandled: { pendingCompletionIndex = nil }
-                        )
-
-                        if let error = viewModel.loadError {
-                            Text(error)
-                                .font(Theme.bodyFont(size: 14))
-                                .foregroundStyle(.red)
-                                .frame(maxWidth: .infinity, alignment: .leading)
                         }
+                        .padding(20)
+                        .padding(.top, scrollTopPadding)
                     }
-                    .padding(20)
-                    .padding(.top, scrollTopPadding)
-                }
-                .onPreferenceChange(HeaderHeightPreferenceKey.self) { value in
-                    headerHeight = value
-                    autoScrollIfNeeded(proxy: proxy)
-                }
-                .onChange(of: viewModel.puzzleItems.count) { _ in
-                    didAutoScroll = false
-                    autoScrollIfNeeded(proxy: proxy)
+                    .background(
+                        GeometryReader { geo in
+                            Color.clear
+                                .preference(key: ScrollViewportPreferenceKey.self, value: geo.frame(in: .global))
+                        }
+                    )
+                    .onPreferenceChange(HeaderHeightPreferenceKey.self) { value in
+                        _ = value
+                        autoScrollIfNeeded(proxy: proxy)
+                    }
+                    .onPreferenceChange(ScrollViewportPreferenceKey.self) { value in
+                        scrollViewportGlobal = value
+                        autoScrollIfNeeded(proxy: proxy)
+                    }
+                    .onChange(of: viewModel.puzzleItems.count) { _ in
+                        didAutoScroll = false
+                        autoScrollIfNeeded(proxy: proxy)
+                    }
+                    .onChange(of: viewModel.puzzleItems.map { "\($0.index)-\($0.isComplete)-\($0.isLocked)" }) { _ in
+                        autoScrollIfNeeded(proxy: proxy)
+                    }
                 }
             }
 
@@ -128,6 +146,7 @@ struct ChallengeDetailView: View {
             accessManager.refreshUnlocks()
         }
         .onAppear {
+            didAutoScroll = false
             accessManager.refreshUnlocks()
             viewModel.load(challenge: challenge)
             Task {
@@ -255,21 +274,30 @@ struct ChallengeDetailView: View {
         guard !didAutoScroll else { return }
         let completed = viewModel.puzzleItems.filter { $0.isComplete }.count
         guard completed > 0 else { return }
+        guard scrollViewportGlobal.height > 0 else { return }
+        guard let target = nextFocusIndex() else { return }
+        guard let frame = nodeFramesGlobal[target] else { return }
+
+        if isInTopHalf(frame, in: scrollViewportGlobal) {
+            didAutoScroll = true
+            return
+        }
+
         didAutoScroll = true
         DispatchQueue.main.async {
-            guard let target = nextPlayableIndex() else { return }
-            withAnimation(.easeInOut(duration: 0.6)) {
-                proxy.scrollTo("node_\(target)_anchor", anchor: .top)
+            withAnimation(.easeInOut(duration: 0.5)) {
+                proxy.scrollTo("node_\(target)_tophalf_anchor", anchor: .top)
             }
         }
     }
 
-    private func nextPlayableIndex() -> Int? {
-        guard !viewModel.puzzleItems.isEmpty else { return nil }
-        if let lastUnlocked = viewModel.puzzleItems.lastIndex(where: { !$0.isLocked }) {
-            return lastUnlocked
-        }
-        return viewModel.puzzleItems.indices.first
+    private func nextFocusIndex() -> Int? {
+        viewModel.puzzleItems.firstIndex(where: { !$0.isComplete && !$0.isLocked })
+    }
+
+    private func isInTopHalf(_ frame: CGRect, in viewport: CGRect) -> Bool {
+        let topHalfMaxY = viewport.minY + (viewport.height * 0.5)
+        return frame.minY >= viewport.minY && frame.maxY <= topHalfMaxY
     }
 
     private var topBar: some View {
@@ -300,12 +328,32 @@ private struct HeaderHeightPreferenceKey: PreferenceKey {
     }
 }
 
+private struct ScrollViewportPreferenceKey: PreferenceKey {
+    static var defaultValue: CGRect = .zero
+
+    static func reduce(value: inout CGRect, nextValue: () -> CGRect) {
+        let next = nextValue()
+        if next != .zero {
+            value = next
+        }
+    }
+}
+
+private struct NodeFramePreferenceKey: PreferenceKey {
+    static var defaultValue: [Int: CGRect] = [:]
+
+    static func reduce(value: inout [Int: CGRect], nextValue: () -> [Int: CGRect]) {
+        value.merge(nextValue(), uniquingKeysWith: { _, new in new })
+    }
+}
+
 private struct ChallengeMapView: View {
     let items: [ChallengePuzzleItem]
     let challengeId: String
     let onSelect: (ChallengePuzzleItem) -> Void
-    let mapTopOffset: CGFloat
+    let viewportHeight: CGFloat
     let pendingCompletionIndex: Int?
+    let onNodeFramesChanged: ([Int: CGRect]) -> Void
     let onCompletionAnimationHandled: () -> Void
 
     @State private var filledDots: [Int: Int] = [:]
@@ -316,11 +364,31 @@ private struct ChallengeMapView: View {
         items.filter { $0.isComplete }.count
     }
 
+    private var baseHeight: CGFloat {
+        ChallengeMapLayout.totalHeight(count: items.count)
+    }
+
+    private var bottomCenteringInset: CGFloat {
+        guard shouldCenterFocus else { return 0 }
+        return max(0, (viewportHeight - ChallengeMapLayout.nodeSize) / 2)
+    }
+
+    private var totalHeight: CGFloat {
+        baseHeight + bottomCenteringInset
+    }
+
+    private var shouldCenterFocus: Bool {
+        completedCount > 0 && items.contains { !$0.isComplete && !$0.isLocked }
+    }
+
+    private var topHalfAnchorOffset: CGFloat {
+        max(20, viewportHeight * 0.33)
+    }
+
     var body: some View {
-        let totalHeight = ChallengeMapLayout.totalHeight(count: items.count)
         GeometryReader { proxy in
             let layout = ChallengeMapLayout(count: items.count, width: proxy.size.width, seed: challengeId.hashValue)
-            ZStack {
+            ZStack(alignment: .top) {
                 ForEach(0..<max(items.count - 1, 0), id: \.self) { segmentIndex in
                     ChallengeMapSegmentView(
                         layout: layout,
@@ -331,16 +399,17 @@ private struct ChallengeMapView: View {
 
                 ForEach(Array(items.enumerated()), id: \.element.id) { index, item in
                     let position = layout.nodePosition(for: index)
-                    let anchorY = max(ChallengeMapLayout.topPadding, position.y - 100 - mapTopOffset)
-                    Color.clear
-                        .frame(width: 1, height: 1)
-                        .position(x: position.x, y: anchorY)
-                        .id("node_\(index)_anchor")
                     ChallengeMapNode(
                         index: index,
                         item: item,
                         isUnlocked: !temporarilyLockedIndices.contains(index),
                         isGlowing: glowingNodes.contains(index)
+                    )
+                    .background(
+                        GeometryReader { geo in
+                            Color.clear
+                                .preference(key: NodeFramePreferenceKey.self, value: [index: geo.frame(in: .global)])
+                        }
                     )
                     .position(position)
                     .id("node_\(index)")
@@ -348,8 +417,14 @@ private struct ChallengeMapView: View {
                         onSelect(item)
                     }
                 }
+
+                anchorTrack
+                    .allowsHitTesting(false)
             }
-            .frame(width: proxy.size.width, height: totalHeight)
+            .frame(width: proxy.size.width, height: totalHeight, alignment: .top)
+            .onPreferenceChange(NodeFramePreferenceKey.self) { value in
+                onNodeFramesChanged(value)
+            }
         }
         .frame(height: totalHeight)
         .onAppear {
@@ -374,7 +449,7 @@ private struct ChallengeMapView: View {
                 filledDots[segmentIndex] = ChallengeMapLayout.dotCount
             }
         }
-    }
+    } 
 
     private func animatePendingCompletionIfNeeded() {
         guard pendingCompletionIndex != nil else { return }
@@ -437,6 +512,31 @@ private struct ChallengeMapView: View {
             return ChallengeMapLayout.dotCount
         }
         return 0
+    }
+
+    private var anchorTrack: some View {
+        VStack(spacing: 0) {
+            ForEach(items.indices, id: \.self) { index in
+                let anchorY = topHalfAnchorY(for: index)
+                let previousY = index == 0 ? 0 : (topHalfAnchorY(for: index - 1) + 1)
+                let spacerHeight = max(0, anchorY - previousY)
+                Color.clear
+                    .frame(height: spacerHeight)
+                Color.clear
+                    .frame(height: 1)
+                    .id("node_\(index)_tophalf_anchor")
+            }
+            Spacer(minLength: 0)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+    }
+
+    private func nodeY(for index: Int) -> CGFloat {
+        ChallengeMapLayout.topPadding + CGFloat(index) * ChallengeMapLayout.verticalSpacing
+    }
+
+    private func topHalfAnchorY(for index: Int) -> CGFloat {
+        max(1, nodeY(for: index) - topHalfAnchorOffset)
     }
 }
 
