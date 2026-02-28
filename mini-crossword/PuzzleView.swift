@@ -161,6 +161,8 @@ struct PuzzleView: View {
                     Text(difficulty.rawValue.capitalized)
                         .font(Theme.bodyFont(size: 15))
                         .foregroundStyle(Theme.ink)
+                        .lineLimit(1)
+                        .fixedSize(horizontal: true, vertical: false)
                     Image(systemName: "chevron.down")
                         .font(.caption)
                         .foregroundStyle(Theme.ink)
@@ -174,6 +176,7 @@ struct PuzzleView: View {
                         .stroke(Theme.ink.opacity(0.15), lineWidth: 1)
                 )
             }
+            .frame(minWidth: 102, alignment: .leading)
             .buttonStyle(.plain)
 
             Button(action: { showInfo = true }) {
@@ -214,7 +217,8 @@ struct PuzzleView: View {
                 .font(Theme.bodyFont(size: 16))
                 .foregroundStyle(Theme.ink)
                 .lineLimit(2)
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .multilineTextAlignment(.leading)
+                .frame(maxWidth: .infinity, minHeight: 42, alignment: .leading)
 
             Button(action: { moveEntry(by: 1) }) {
                 Image(systemName: "chevron.right")
