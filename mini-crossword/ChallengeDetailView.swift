@@ -116,11 +116,11 @@ struct ChallengeDetailView: View {
                         scrollViewportGlobal = value
                         autoScrollIfNeeded(proxy: proxy)
                     }
-                    .onChange(of: viewModel.puzzleItems.count) { _ in
+                    .onChange(of: viewModel.puzzleItems.count) {
                         didAutoScroll = false
                         autoScrollIfNeeded(proxy: proxy)
                     }
-                    .onChange(of: viewModel.puzzleItems.map { "\($0.index)-\($0.isComplete)-\($0.isLocked)" }) { _ in
+                    .onChange(of: viewModel.puzzleItems.map { "\($0.index)-\($0.isComplete)-\($0.isLocked)" }) {
                         autoScrollIfNeeded(proxy: proxy)
                     }
                 }
@@ -435,13 +435,13 @@ private struct ChallengeMapView: View {
             syncInitialState()
             animatePendingCompletionIfNeeded()
         }
-        .onChange(of: items.map { $0.isComplete }) { _ in
+        .onChange(of: items.map { $0.isComplete }) {
             syncInitialState()
         }
-        .onChange(of: items.count) { _ in
+        .onChange(of: items.count) {
             syncInitialState()
         }
-        .onChange(of: pendingCompletionIndex) { _ in
+        .onChange(of: pendingCompletionIndex) {
             animatePendingCompletionIfNeeded()
         }
     }
