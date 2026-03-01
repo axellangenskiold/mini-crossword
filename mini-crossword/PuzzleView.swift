@@ -324,16 +324,41 @@ struct PuzzleView: View {
     }
 
     private func backspace() {
-        guard let cell = activeCell else {
+        guard let state = navigationState,
+              let cell = activeCell else {
             return
         }
         if lockedCells.contains(cell) {
-            navigationState = advanceStateSkippingLocked(from: navigationState)
+            if let previousState = previousStateSkippingLocked(from: state) {
+                navigationState = previousState
+            }
             return
         }
-        if filledGrid[cell.row][cell.col] != nil {
+
+        let currentValue = filledGrid[safe: cell.row]?[safe: cell.col] ?? nil
+        if let currentValue, !currentValue.isEmpty {
             filledGrid[cell.row][cell.col] = nil
+            if let previousState = previousStateSkippingLocked(from: state) {
+                navigationState = previousState
+            }
+            saveProgressSnapshot(isComplete: false)
+            return
         }
+
+        guard let previousState = previousStateSkippingLocked(from: state),
+              let previousCell = NavigationLogic.cellForState(
+                previousState,
+                acrossEntries: puzzle.entries.across,
+                downEntries: puzzle.entries.down
+              ) else {
+            return
+        }
+
+        let previousValue = filledGrid[safe: previousCell.row]?[safe: previousCell.col] ?? nil
+        if let previousValue, !previousValue.isEmpty {
+            filledGrid[previousCell.row][previousCell.col] = nil
+        }
+        navigationState = previousState
         saveProgressSnapshot(isComplete: false)
     }
 
@@ -486,6 +511,39 @@ struct PuzzleView: View {
                 return current
             }
         }
+    }
+
+    private func previousStateSkippingLocked(from state: NavigationState?) -> NavigationState? {
+        guard var current = state else {
+            return nil
+        }
+
+        let maxSteps = max(
+            1,
+            puzzle.entries.across.reduce(0) { $0 + $1.cells.count } +
+            puzzle.entries.down.reduce(0) { $0 + $1.cells.count }
+        )
+        var steps = 0
+
+        while steps < maxSteps {
+            guard let previous = NavigationLogic.retreatState(
+                current,
+                acrossEntries: puzzle.entries.across,
+                downEntries: puzzle.entries.down
+            ) else {
+                return nil
+            }
+            current = previous
+            steps += 1
+            if let cell = NavigationLogic.cellForState(
+                current,
+                acrossEntries: puzzle.entries.across,
+                downEntries: puzzle.entries.down
+            ), !lockedCells.contains(cell) {
+                return current
+            }
+        }
+        return nil
     }
 
     private func nextEditableCell(from state: NavigationState?) -> Coordinate? {

@@ -122,6 +122,58 @@ enum NavigationLogic {
         }
     }
 
+    static func retreatState(
+        _ state: NavigationState,
+        acrossEntries: [Entry],
+        downEntries: [Entry]
+    ) -> NavigationState? {
+        let orderedAcross = orderedEntries(acrossEntries)
+        let orderedDown = orderedEntries(downEntries)
+
+        switch state.phase {
+        case .across:
+            guard orderedAcross[safe: state.entryIndex] != nil else {
+                return nil
+            }
+            if state.cellIndex > 0 {
+                return NavigationState(phase: .across, entryIndex: state.entryIndex, cellIndex: state.cellIndex - 1)
+            }
+            if state.entryIndex > 0,
+               let previousEntry = orderedAcross[safe: state.entryIndex - 1] {
+                return NavigationState(
+                    phase: .across,
+                    entryIndex: state.entryIndex - 1,
+                    cellIndex: max(previousEntry.cells.count - 1, 0)
+                )
+            }
+            return nil
+        case .down:
+            guard orderedDown[safe: state.entryIndex] != nil else {
+                return nil
+            }
+            if state.cellIndex > 0 {
+                return NavigationState(phase: .down, entryIndex: state.entryIndex, cellIndex: state.cellIndex - 1)
+            }
+            if state.entryIndex > 0,
+               let previousEntry = orderedDown[safe: state.entryIndex - 1] {
+                return NavigationState(
+                    phase: .down,
+                    entryIndex: state.entryIndex - 1,
+                    cellIndex: max(previousEntry.cells.count - 1, 0)
+                )
+            }
+            guard let lastAcrossIndex = orderedAcross.indices.last,
+                  let lastAcrossEntry = orderedAcross[safe: lastAcrossIndex] else {
+                return nil
+            }
+            return NavigationState(
+                phase: .across,
+                entryIndex: lastAcrossIndex,
+                cellIndex: max(lastAcrossEntry.cells.count - 1, 0)
+            )
+        }
+    }
+
     static func hintTarget(
         state: NavigationState,
         acrossEntries: [Entry],

@@ -75,6 +75,40 @@ struct mini_crosswordTests {
         #expect(nextState?.cellIndex == 0)
     }
 
+    @Test func navigationRetreatsAcrossAndWrapsToPreviousAcrossEntry() async throws {
+        let entries = sampleEntries()
+        let across = entries.across
+        let down = entries.down
+
+        let firstCellOfSecondAcross = NavigationState(phase: .across, entryIndex: 1, cellIndex: 0)
+        let previous = NavigationLogic.retreatState(
+            firstCellOfSecondAcross,
+            acrossEntries: across,
+            downEntries: down
+        )
+
+        #expect(previous?.phase == .across)
+        #expect(previous?.entryIndex == 0)
+        #expect(previous?.cellIndex == 2)
+    }
+
+    @Test func navigationRetreatsFromFirstDownToLastAcross() async throws {
+        let entries = sampleEntries()
+        let across = entries.across
+        let down = entries.down
+
+        let firstDownCell = NavigationState(phase: .down, entryIndex: 0, cellIndex: 0)
+        let previous = NavigationLogic.retreatState(
+            firstDownCell,
+            acrossEntries: across,
+            downEntries: down
+        )
+
+        #expect(previous?.phase == .across)
+        #expect(previous?.entryIndex == 2)
+        #expect(previous?.cellIndex == 2)
+    }
+
     @Test func hintSkipsLockedCell() async throws {
         let entries = sampleEntries()
         let across = entries.across
@@ -128,9 +162,36 @@ struct mini_crosswordTests {
 
     @Test func challengesSortIncompleteFirst() async throws {
         let summaries = [
-            ChallengeSummary(id: "a", name: "Alpha", puzzleFile: "p.json", puzzleCount: 25, completedCount: 25, isComplete: true),
-            ChallengeSummary(id: "b", name: "Beta", puzzleFile: "p.json", puzzleCount: 25, completedCount: 5, isComplete: false),
-            ChallengeSummary(id: "c", name: "Gamma", puzzleFile: "p.json", puzzleCount: 25, completedCount: 25, isComplete: true)
+            ChallengeSummary(
+                id: "a",
+                name: "Alpha",
+                puzzleFile: "p.json",
+                puzzleCount: 25,
+                puzzleFolder: nil,
+                puzzleFiles: nil,
+                completedCount: 25,
+                isComplete: true
+            ),
+            ChallengeSummary(
+                id: "b",
+                name: "Beta",
+                puzzleFile: "p.json",
+                puzzleCount: 25,
+                puzzleFolder: nil,
+                puzzleFiles: nil,
+                completedCount: 5,
+                isComplete: false
+            ),
+            ChallengeSummary(
+                id: "c",
+                name: "Gamma",
+                puzzleFile: "p.json",
+                puzzleCount: 25,
+                puzzleFolder: nil,
+                puzzleFiles: nil,
+                completedCount: 25,
+                isComplete: true
+            )
         ]
         let sorted = ChallengeLogic.sortSummaries(summaries)
         #expect(sorted.first?.id == "b")
