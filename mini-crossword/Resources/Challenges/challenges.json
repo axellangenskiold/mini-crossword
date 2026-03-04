@@ -86,6 +86,64 @@
       ],
       "puzzleFolder": "goofy_goon",
       "puzzleCount": 20
+    },
+    {
+      "id": "glossy_glamour",
+      "name": "Glossy Glamour",
+      "puzzleFile": "puzzle_000061.json",
+      "puzzleFiles": [
+        "puzzle_000061.json",
+        "puzzle_000062.json",
+        "puzzle_000063.json",
+        "puzzle_000064.json",
+        "puzzle_000065.json",
+        "puzzle_000066.json",
+        "puzzle_000067.json",
+        "puzzle_000068.json",
+        "puzzle_000069.json",
+        "puzzle_000070.json",
+        "puzzle_000071.json",
+        "puzzle_000072.json",
+        "puzzle_000073.json",
+        "puzzle_000074.json",
+        "puzzle_000075.json",
+        "puzzle_000076.json",
+        "puzzle_000077.json",
+        "puzzle_000078.json",
+        "puzzle_000079.json",
+        "puzzle_000080.json"
+      ],
+      "puzzleFolder": "glossy_glamour",
+      "puzzleCount": 20
+    },
+    {
+      "id": "random_rainbow",
+      "name": "Random Rainbow",
+      "puzzleFile": "puzzle_000081.json",
+      "puzzleFiles": [
+        "puzzle_000081.json",
+        "puzzle_000082.json",
+        "puzzle_000083.json",
+        "puzzle_000084.json",
+        "puzzle_000085.json",
+        "puzzle_000086.json",
+        "puzzle_000087.json",
+        "puzzle_000088.json",
+        "puzzle_000089.json",
+        "puzzle_000090.json",
+        "puzzle_000091.json",
+        "puzzle_000092.json",
+        "puzzle_000093.json",
+        "puzzle_000094.json",
+        "puzzle_000095.json",
+        "puzzle_000096.json",
+        "puzzle_000097.json",
+        "puzzle_000098.json",
+        "puzzle_000099.json",
+        "puzzle_000100.json"
+      ],
+      "puzzleFolder": "random_rainbow",
+      "puzzleCount": 20
     }
   ]
 }
