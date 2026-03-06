@@ -1,73 +1,76 @@
 {
   "gridPreview": [
-    "SAFARI",
-    "PLANO-",
-    "ELVIS-",
-    "NAOMI-",
-    "THREE-"
+    "--MV-",
+    "CLEAR",
+    "HALLE",
+    "ABOVE",
+    "TONES",
+    "-RISE"
   ],
-  "id": "mcw_v1_d6cef8ddf26f3ad9",
+  "id": "mcw_v1_29a1c522f112fbb6",
   "date": "",
-  "width": 6,
-  "height": 5,
+  "width": 5,
+  "height": 6,
   "blackCells": [
     [
-      1,
-      5
+      0,
+      0
     ],
     [
-      2,
-      5
+      0,
+      1
     ],
     [
-      3,
-      5
+      0,
+      4
     ],
     [
-      4,
-      5
+      5,
+      0
     ]
   ],
   "gridSolution": [
     [
-      "S",
-      "A",
-      "F",
-      "A",
-      "R",
-      "I"
-    ],
-    [
-      "P",
-      "L",
-      "A",
-      "N",
-      "O",
-      null
-    ],
-    [
-      "E",
-      "L",
-      "V",
-      "I",
-      "S",
-      null
-    ],
-    [
-      "N",
-      "A",
-      "O",
+      null,
+      null,
       "M",
-      "I",
+      "V",
       null
+    ],
+    [
+      "C",
+      "L",
+      "E",
+      "A",
+      "R"
+    ],
+    [
+      "H",
+      "A",
+      "L",
+      "L",
+      "E"
+    ],
+    [
+      "A",
+      "B",
+      "O",
+      "V",
+      "E"
     ],
     [
       "T",
-      "H",
+      "O",
+      "N",
+      "E",
+      "S"
+    ],
+    [
+      null,
       "R",
-      "E",
-      "E",
-      null
+      "I",
+      "S",
+      "E"
     ]
   ],
   "entries": {
@@ -77,139 +80,146 @@
         "cells": [
           [
             0,
-            0
-          ],
-          [
-            0,
-            1
-          ],
-          [
-            0,
             2
           ],
           [
             0,
             3
-          ],
-          [
-            0,
-            4
-          ],
-          [
-            0,
-            5
           ]
         ],
-        "answer": "SAFARI",
-        "clue": ""
+        "answer": "MV",
+        "clue": "Music video, for short."
+      },
+      {
+        "number": 3,
+        "cells": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "answer": "CLEAR",
+        "clue": "Easy to understand."
       },
       {
         "number": 6,
         "cells": [
           [
-            1,
+            2,
             0
           ],
           [
-            1,
+            2,
             1
           ],
           [
-            1,
+            2,
             2
           ],
           [
-            1,
+            2,
             3
           ],
           [
-            1,
+            2,
             4
           ]
         ],
-        "answer": "PLANO",
-        "clue": ""
+        "answer": "HALLE",
+        "clue": "Berry who played Catwoman."
       },
       {
         "number": 7,
         "cells": [
           [
-            2,
+            3,
             0
           ],
           [
-            2,
+            3,
             1
           ],
           [
-            2,
+            3,
             2
           ],
           [
-            2,
+            3,
             3
           ],
           [
-            2,
+            3,
             4
           ]
         ],
-        "answer": "ELVIS",
-        "clue": ""
+        "answer": "ABOVE",
+        "clue": "Higher than."
       },
       {
         "number": 8,
         "cells": [
           [
-            3,
+            4,
             0
           ],
           [
-            3,
+            4,
             1
           ],
           [
-            3,
+            4,
             2
           ],
           [
-            3,
+            4,
             3
           ],
           [
-            3,
+            4,
             4
           ]
         ],
-        "answer": "NAOMI",
-        "clue": ""
+        "answer": "TONES",
+        "clue": "Musical pitches."
       },
       {
         "number": 9,
         "cells": [
           [
-            4,
-            0
-          ],
-          [
-            4,
+            5,
             1
           ],
           [
-            4,
+            5,
             2
           ],
           [
-            4,
+            5,
             3
           ],
           [
-            4,
+            5,
             4
           ]
         ],
-        "answer": "THREE",
-        "clue": ""
+        "answer": "RISE",
+        "clue": "Get up from bed."
       }
     ],
     "down": [
@@ -218,117 +228,117 @@
         "cells": [
           [
             0,
-            0
+            2
           ],
           [
             1,
-            0
+            2
           ],
           [
             2,
-            0
+            2
           ],
           [
             3,
-            0
+            2
           ],
           [
             4,
-            0
+            2
+          ],
+          [
+            5,
+            2
           ]
         ],
-        "answer": "SPENT",
-        "clue": ""
+        "answer": "MELONI",
+        "clue": "Chris of 'Law & Order: SVU'."
       },
       {
         "number": 2,
         "cells": [
           [
             0,
-            1
+            3
           ],
           [
             1,
-            1
+            3
           ],
           [
             2,
-            1
+            3
           ],
           [
             3,
-            1
+            3
           ],
           [
             4,
-            1
+            3
+          ],
+          [
+            5,
+            3
           ]
         ],
-        "answer": "ALLAH",
-        "clue": ""
+        "answer": "VALVES",
+        "clue": "Heart structures that control blood flow."
       },
       {
         "number": 3,
         "cells": [
           [
-            0,
-            2
-          ],
-          [
             1,
-            2
+            0
           ],
           [
             2,
-            2
+            0
           ],
           [
             3,
-            2
+            0
           ],
           [
             4,
-            2
+            0
           ]
         ],
-        "answer": "FAVOR",
-        "clue": ""
+        "answer": "CHAT",
+        "clue": "Talk casually online."
       },
       {
         "number": 4,
         "cells": [
           [
-            0,
-            3
-          ],
-          [
             1,
-            3
+            1
           ],
           [
             2,
-            3
+            1
           ],
           [
             3,
-            3
+            1
           ],
           [
             4,
-            3
+            1
+          ],
+          [
+            5,
+            1
           ]
         ],
-        "answer": "ANIME",
-        "clue": ""
+        "answer": "LABOR",
+        "clue": "Work, especially physical work."
       },
       {
         "number": 5,
         "cells": [
           [
-            0,
-            4
-          ],
-          [
             1,
             4
           ],
@@ -343,10 +353,14 @@
           [
             4,
             4
+          ],
+          [
+            5,
+            4
           ]
         ],
-        "answer": "ROSIE",
-        "clue": ""
+        "answer": "REESE",
+        "clue": "Witherspoon of 'Legally Blonde'."
       }
     ]
   }

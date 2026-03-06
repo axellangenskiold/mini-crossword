@@ -1,69 +1,73 @@
 {
   "gridPreview": [
-    "GROSS-",
-    "RABAT-",
-    "IMAGES",
-    "DOMAIN",
-    "-NANNA"
+    "SAFARI",
+    "PLANO-",
+    "ELVIS-",
+    "NAOMI-",
+    "THREE-"
   ],
-  "id": "mcw_v1_bce6e1fcbb82aeee",
+  "id": "mcw_v1_d6cef8ddf26f3ad9",
   "date": "",
   "width": 6,
   "height": 5,
   "blackCells": [
     [
-      0,
-      5
-    ],
-    [
       1,
       5
     ],
     [
+      2,
+      5
+    ],
+    [
+      3,
+      5
+    ],
+    [
       4,
-      0
+      5
     ]
   ],
   "gridSolution": [
     [
-      "G",
+      "S",
+      "A",
+      "F",
+      "A",
       "R",
+      "I"
+    ],
+    [
+      "P",
+      "L",
+      "A",
+      "N",
       "O",
-      "S",
-      "S",
       null
     ],
     [
-      "R",
-      "A",
-      "B",
-      "A",
-      "T",
-      null
-    ],
-    [
-      "I",
-      "M",
-      "A",
-      "G",
       "E",
-      "S"
+      "L",
+      "V",
+      "I",
+      "S",
+      null
     ],
     [
-      "D",
+      "N",
+      "A",
       "O",
       "M",
-      "A",
       "I",
-      "N"
+      null
     ],
     [
-      null,
-      "N",
-      "A",
-      "N",
-      "N",
-      "A"
+      "T",
+      "H",
+      "R",
+      "E",
+      "E",
+      null
     ]
   ],
   "entries": {
@@ -90,10 +94,14 @@
           [
             0,
             4
+          ],
+          [
+            0,
+            5
           ]
         ],
-        "answer": "GROSS",
-        "clue": ""
+        "answer": "SAFARI",
+        "clue": "Wildlife-viewing trip."
       },
       {
         "number": 6,
@@ -119,8 +127,8 @@
             4
           ]
         ],
-        "answer": "RABAT",
-        "clue": ""
+        "answer": "PLANO",
+        "clue": "City just north of Dallas, Texas."
       },
       {
         "number": 7,
@@ -144,17 +152,13 @@
           [
             2,
             4
-          ],
-          [
-            2,
-            5
           ]
         ],
-        "answer": "IMAGES",
-        "clue": ""
+        "answer": "ELVIS",
+        "clue": "King of Rock and Roll."
       },
       {
-        "number": 9,
+        "number": 8,
         "cells": [
           [
             3,
@@ -175,18 +179,18 @@
           [
             3,
             4
-          ],
-          [
-            3,
-            5
           ]
         ],
-        "answer": "DOMAIN",
-        "clue": ""
+        "answer": "NAOMI",
+        "clue": "Campbell of the fashion runway."
       },
       {
-        "number": 10,
+        "number": 9,
         "cells": [
+          [
+            4,
+            0
+          ],
           [
             4,
             1
@@ -202,14 +206,10 @@
           [
             4,
             4
-          ],
-          [
-            4,
-            5
           ]
         ],
-        "answer": "NANNA",
-        "clue": ""
+        "answer": "THREE",
+        "clue": "One plus two."
       }
     ],
     "down": [
@@ -231,10 +231,14 @@
           [
             3,
             0
+          ],
+          [
+            4,
+            0
           ]
         ],
-        "answer": "GRID",
-        "clue": ""
+        "answer": "SPENT",
+        "clue": "Used up."
       },
       {
         "number": 2,
@@ -260,8 +264,8 @@
             1
           ]
         ],
-        "answer": "RAMON",
-        "clue": ""
+        "answer": "ALLAH",
+        "clue": "God in Islam."
       },
       {
         "number": 3,
@@ -287,8 +291,8 @@
             2
           ]
         ],
-        "answer": "OBAMA",
-        "clue": ""
+        "answer": "FAVOR",
+        "clue": "Helpful act of kindness."
       },
       {
         "number": 4,
@@ -314,8 +318,8 @@
             3
           ]
         ],
-        "answer": "SAGAN",
-        "clue": ""
+        "answer": "ANIME",
+        "clue": "Japanese animated genre."
       },
       {
         "number": 5,
@@ -341,27 +345,8 @@
             4
           ]
         ],
-        "answer": "STEIN",
-        "clue": ""
-      },
-      {
-        "number": 8,
-        "cells": [
-          [
-            2,
-            5
-          ],
-          [
-            3,
-            5
-          ],
-          [
-            4,
-            5
-          ]
-        ],
-        "answer": "SNA",
-        "clue": ""
+        "answer": "ROSIE",
+        "clue": "___ the Riveter."
       }
     ]
   }
